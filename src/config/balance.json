@@ -1,0 +1,23 @@
+{
+    "RGE": {
+        "BAS":[5],
+        "CEN":[12],
+        "COM":[7],
+        "CTMSG":[],
+        "CUY":[14],
+        "GBA":[4],
+        "LIT":[8],
+        "NEA":[10],
+        "NOA":[15],
+        "PAT":[21, 16]
+    },
+
+    "VARIABLE": {
+        "Nuclear":[9],
+        "Ren ley 26190":[11,12,13],
+        "Termica":[4,5,7,8],
+        "Bombeo":[],
+        "Importacion": [],
+        "Ren Hidro >50MW":[6]
+    }
+}
