@@ -16,9 +16,13 @@ end
 
 function build_state_estimation(pm::AbstractPowerModel)    
     variable_bus_voltage(pm, bounded=false)
-    variable_gen_power(pm, bounded=true)
+    variable_gen_power(pm, bounded=false)
     variable_branch_power(pm, bounded=false)
     variable_dcline_power(pm, bounded=false)
+
+    variable_load_area_factor(pm)
+    variable_load_zone_factor(pm)
+    variable_load_bus_factor(pm)
 
     constraint_model_voltage(pm)
 
@@ -27,8 +31,14 @@ function build_state_estimation(pm::AbstractPowerModel)
         constraint_theta_ref(pm, i)        
     end
 
+    for (i, gen) in ref(pm, :gen)
+        if !haskey(gen, "pg_des")
+            constraint_gen_setpoint_active(pm, i)
+        end
+    end
+
     # balance de potencia
-    for (i,bus) in ref(pm, :bus)
+    for (i,bus) in ref(pm, :bus)        
         constraint_power_balance_with_demand_factors(pm, i)
     end
 
