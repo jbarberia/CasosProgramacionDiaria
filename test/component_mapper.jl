@@ -1,38 +1,8 @@
-function traverse_dict(d1)
-    for (k1,v1) in d1
-        if isa(v1, Number)
-            if isa(v1, AbstractFloat)
-                @show k1, v1
-                @assert sizeof(v1) * 8 == 64
-            elseif isa(v1, Int32)
-                @show k1, v1
-                @assert sizeof(v1) * 8 == 32            
-            else
-                continue
-            end            
-        elseif isa(v1, Array)            
-            for i in 1:length(v1)
-                if isa(v1[i], Number)
-                    @show v1
-                    @assert sizeof(v1[i]) * 8 == 32                                    
-                end
-            end
-        elseif isa(v1, Dict)
-            traverse_dict(v1)
-        end
-    end
-end
-
-
-
 @testset failfast=true "component_mapper" begin
     fecha = DateTime(2025, 6, 6, 20, 00)  # 2025-06-06 20:00
     prog = get_programacion_diaria(fecha)
     data = get_base_case(fecha)
     
-    # traverse_dict(data)
-    # Main.@infiltrate
-
     @testset "base case" begin
         # check types
         @test data isa Dict
@@ -55,7 +25,4 @@ end
         @test isapprox(gen_source_id[[2620, "1 "]]["pg_des"], 7.01)
         @test gen_source_id[[2620, "1 "]]["gen_status"] == 1
     end
-
-    
-
 end
