@@ -144,13 +144,15 @@ function map_generators_to_case!(data, programacion)
         end
         
         es_hidro = false
-        maquinas_despachadas = 0 
+        maquinas_despachadas = 0
+        pg_max = 0
         for source_id in source_ids
             idx = source2index[source_id]
             bus_i = data["gen"][idx]["gen_bus"]
             bus = data["bus"]["$bus_i"]
             es_hidro = bus["owner"] == 6 || bus["owner"] == 901
             maquinas_despachadas += data["gen"][idx]["gen_status"]
+            pg_max += data["gen"][idx]["pmax"]
         end
         # es_hidro && @info "$nemo tiene $maquinas_despachadas máquinas despachadas"
 
@@ -158,22 +160,31 @@ function map_generators_to_case!(data, programacion)
             idx = source2index[source_id]
             bus_i = data["gen"][idx]["gen_bus"]        
             bus = data["bus"]["$bus_i"]
-            
             data["gen"]["$idx"]["nemo"] = nemo
-            
             if p_des == 0
                 data["gen"]["$idx"]["gen_status"] = 0
                 data["gen"]["$idx"]["pg_des"] = 0
             else
-                if es_hidro
+                if es_hidro                    
                     data["gen"]["$idx"]["pg_des"] = p_des / maquinas_despachadas / data["baseMVA"]
                 else                
                     data["gen"]["$idx"]["gen_status"] = 1
-                    data["gen"]["$idx"]["pg_des"] = p_des / length(source_ids) / data["baseMVA"]       
-                                        
+                    data["gen"]["$idx"]["pg_des"] = p_des / length(source_ids) / data["baseMVA"]                               
                     bus_type = data["bus"]["$bus_i"]["bus_type"]
                     data["bus"]["$bus_i"]["bus_type"] = max(2, bus_type)
                 end
+            end
+        end
+
+        # if pg_des > pg_max set to pg_max.
+        for (i, gen) in data["gen"]
+            !haskey(gen, "pg_des") && continue
+            pg_max = gen["pmax"]
+            pg_des = gen["pg_des"]
+            source_id = gen["source_id"][2:end]
+            if pg_des > pg_max
+                @warn "Generator $i - $source_id with pg_des ($pg_des) out of bounds, setting to pmax $(pg_max)"
+                gen["pg_des"] = pg_max
             end
         end
     end

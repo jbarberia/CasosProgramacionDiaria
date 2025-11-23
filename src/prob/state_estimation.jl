@@ -15,31 +15,27 @@ end
 
 
 function build_state_estimation(pm::AbstractPowerModel)    
-    variable_bus_voltage(pm, bounded=false)
-    variable_gen_power(pm, bounded=false)
+    variable_bus_voltage(pm, bounded=true)
+    variable_gen_power(pm, bounded=true)    
     variable_load_power(pm, bounded=false)
     variable_branch_power(pm, bounded=false)
-    variable_dcline_power(pm, bounded=false)
-
-    variable_load_area_factor(pm)
-    variable_load_zone_factor(pm)
-    variable_load_bus_factor(pm)
+    variable_dcline_power(pm, bounded=false)            
 
     constraint_model_voltage(pm)
 
-    for (i,bus) in ref(pm, :ref_buses)
+    for (i, bus) in ref(pm, :ref_buses)
         @assert bus["bus_type"] == 3
         constraint_theta_ref(pm, i)        
     end
 
     for (i, gen) in ref(pm, :gen)
         if !haskey(gen, "pg_des")
-            constraint_gen_setpoint_active(pm, i)
+            # constraint_gen_setpoint_active(pm, i)
         end
     end
 
     # balance de potencia
-    for (i,bus) in ref(pm, :bus)        
+    for (i, bus) in ref(pm, :bus)        
         constraint_power_balance_with_variable_demand(pm, i)
     end
 
@@ -57,7 +53,7 @@ function build_state_estimation(pm::AbstractPowerModel)
 
 
     # flujo de lineas HVDC
-    for (i,dcline) in ref(pm, :dcline)
+    for (i, dcline) in ref(pm, :dcline)
         constraint_dcline_setpoint_active(pm, i)
         
         f_bus = ref(pm, :bus)[dcline["f_bus"]]

@@ -24,5 +24,13 @@
         
         @test isapprox(gen_source_id[[2620, "1 "]]["pg_des"], 7.01)
         @test gen_source_id[[2620, "1 "]]["gen_status"] == 1
+
+        # check desired generation in bounds
+        for (i, gen) in data["gen"]
+            p_des = get(gen, "pg_des", nothing)
+            isnothing(p_des) && continue
+            @test p_des <= gen["pmax"]
+        end
+
     end
 end
