@@ -17,6 +17,7 @@ end
 function build_state_estimation(pm::AbstractPowerModel)    
     variable_bus_voltage(pm, bounded=false)
     variable_gen_power(pm, bounded=false)
+    variable_load_power(pm, bounded=false)
     variable_branch_power(pm, bounded=false)
     variable_dcline_power(pm, bounded=false)
 
@@ -39,7 +40,7 @@ function build_state_estimation(pm::AbstractPowerModel)
 
     # balance de potencia
     for (i,bus) in ref(pm, :bus)        
-        constraint_power_balance_with_demand_factors(pm, i)
+        constraint_power_balance_with_variable_demand(pm, i)
     end
 
     # flujo de potencia
@@ -49,7 +50,13 @@ function build_state_estimation(pm::AbstractPowerModel)
         constraint_voltage_angle_difference(pm, i)
     end
 
-    # lineas HVDC
+    # factor de potencia fijo en demanda
+    for i in ids(pm, :load)
+        constraint_fixed_power_factor(pm, i)
+    end
+
+
+    # flujo de lineas HVDC
     for (i,dcline) in ref(pm, :dcline)
         constraint_dcline_setpoint_active(pm, i)
         
