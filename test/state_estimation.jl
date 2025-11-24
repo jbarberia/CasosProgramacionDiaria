@@ -3,6 +3,7 @@
     prog = get_programacion_diaria(fecha)
     data = get_base_case(fecha)
     map_generators_to_case!(data, prog)
+    map_flows_to_case!(data, prog)
     
     # TODO en funcion del nivel de tension ser mas restrictivo
     # de momento seria lo suficientemente loose.
@@ -11,6 +12,13 @@
         bus["vmin"] = 0.80
     end
 
+    # TODO encontrar mejores bordes para las demandas
+    # for (i, load) in data["load"]
+    #     load["pmin"] = load["pd"] * -2.0
+    #     load["pmax"] = load["pd"] *  2.0
+    #     load["qmin"] = load["qd"] * -2.0
+    #     load["qmax"] = load["qd"] *  2.0
+    # end
 
     set_ac_pf_start_values!(data)        
     results = run_state_estimation(data, ACPPowerModel, optimizer)
@@ -35,4 +43,10 @@
         @test pg >= data["gen"][i]["pmin"]
     end
 
+    # export solution    
+    update_data!(data, solution)    
+    base_case = data["base_case"]
+    psspy.case(base_case)
+    build_psse_data(data)
+    psspy.save("foo.sav")
 end

@@ -14,3 +14,16 @@ function constraint_power_balance_with_variable_demand(pm::_PM.AbstractPowerMode
 
     constraint_power_balance_with_variable_demand(pm, nw, i, bus_arcs, bus_arcs_dc, bus_arcs_sw, bus_gens, bus_storage, bus_loads, bus_gs, bus_bs)
 end
+
+
+function constraint_fixed_load_power(pm::_PM.AbstractPowerModel, i::Int; nw::Int=nw_id_default)
+    load = ref(pm, nw, :load, i)
+    load_pd = load["pd"]
+    load_qd = load["qd"]
+    
+    pd = get(var(pm, nw), :pd, nothing)
+    qd = get(var(pm, nw), :qd, nothing)
+    
+    !isnothing(pd) && fix(pd[i], load_pd; force=true)
+    !isnothing(qd) && fix(qd[i], load_qd; force=true)
+end

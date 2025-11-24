@@ -190,6 +190,56 @@ function map_generators_to_case!(data, programacion)
     end
 end
 
+"""
+Mapea los datos a la entrada flows, para poder tener mas control
+sobre interfaces y limites inter-areas que involucren mas de una linea.
+"""
+function map_flows_to_case!(data, programacion)
+    baseMVA = data["baseMVA"]
+    config = get_configuration_data()
+    hora_str = hora_str = "H" * lpad(hour(data["datetime"]), 1, '0')
+    
+    flujo_programado = Dict{Any, Any}()
+    datos_interconexiones = programacion["INTERCONEXIONES"][!, ["NODO1", "NODO2", hora_str]]
+    for (nodo1, nodo2, valor) in datos_interconexiones |> eachrow                
+        flujo_programado[[nodo1, nodo2]] = valor
+        flujo_programado[[nodo2, nodo1]] = -valor
+    end
+    
+    source2index = Dict(brn["source_id"][2:end] => i for (i, brn) in data["branch"])
+    data["flows"] = Dict{String, Any}()
+    
+    i = 1
+    for (name, dato_intercambio) in config["intercambios"]        
+        indices = []
+        for source_id in dato_intercambio["PSSE"]
+            idx = source2index[source_id[2:end]]
+            brn = data["branch"][idx]
+            f_bus = brn["f_bus"]
+            t_bus = brn["t_bus"]
+
+            if f_bus == source_id[2]
+                push!(indices, (parse(Int, idx), f_bus, t_bus))
+            else
+                push!(indices, (parse(Int, idx), t_bus, f_bus))
+            end
+        end
+        
+        p_des = 0
+        for interconexion in dato_intercambio["PD"]
+            p_des += flujo_programado[interconexion] / baseMVA
+        end
+        
+        data["flows"][string(i)] = Dict(
+            "index" => i,
+            "branches" => indices,
+            "p_des" => p_des,
+            "name" => name,
+        )
+        i += 1
+    end
+end
+
 
 """
 Escala la demanda para que el caso cierre

@@ -14,5 +14,15 @@ function objective_measurement_quadratic_loss(pm::_PM.AbstractPowerModel, nw=nw_
         end        
     end
 
+    # interchanges
+    p = var(pm, nw, :p)
+    for (i, flow) in ref(pm, nw, :flows)
+        indices = filter(idx -> idx in p.axes[1], flow["branches"])
+        p_meas = sum(p[idx] for idx in indices)
+        p_des = flow["p_des"]
+        loss += (p_meas - p_des)^2
+    end
+    
+
     JuMP.@objective(pm.model, Min, loss)
 end

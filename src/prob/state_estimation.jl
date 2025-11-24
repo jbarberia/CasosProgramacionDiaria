@@ -30,8 +30,21 @@ function build_state_estimation(pm::AbstractPowerModel)
 
     for (i, gen) in ref(pm, :gen)
         if !haskey(gen, "pg_des")
+            # TODO ver la mejor forma de ajuste de estos
+            # creo que dejarlos libres es buena opción
+            # Total el flujo de carga va tendiendo segun las restricciones del flujo
             # constraint_gen_setpoint_active(pm, i)
+
         end
+    end
+
+    # demandas
+    for (i, load) in ref(pm, :load)
+        constraint_fixed_power_factor(pm, i)
+        
+        if load["scalable"] == 0
+            constraint_fixed_load_power(pm, i)
+        end        
     end
 
     # balance de potencia
@@ -45,12 +58,6 @@ function build_state_estimation(pm::AbstractPowerModel)
         constraint_ohms_yt_to(pm, i)
         constraint_voltage_angle_difference(pm, i)
     end
-
-    # factor de potencia fijo en demanda
-    for i in ids(pm, :load)
-        constraint_fixed_power_factor(pm, i)
-    end
-
 
     # flujo de lineas HVDC
     for (i, dcline) in ref(pm, :dcline)
@@ -67,5 +74,6 @@ function build_state_estimation(pm::AbstractPowerModel)
         end
     end
     
+    # objetivos
     objective_measurement_quadratic_loss(pm)
 end

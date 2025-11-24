@@ -1,100 +1,80 @@
 {
-    "5CLPY1": {
+    "PATAGONIA_S.A.OESTE_S.A.ESTE": {
         "PSSE":[
-            ["LII", 11, 1008, "1 "]
+            ["LII", 320, 322, "1 "]
         ],
         "PD":[
-            ["PMAD-500", "CHOELE 5"]
+            ["SAO -132", "SAE -132"]
         ]
     },
-    "5MCPU1": {
+    "PATAGONIA_PUERTO_MADRYN_S_GRANDE": {
         "PSSE":[
-            ["LII", 1028, 1030, "1 "]
+            ["LII", 220, 300, "1 "]
         ],
         "PD":[
-            [" PUEL2 5", "MACACH 5"]
+            ["PMAD-132", "SGDE-132"]
         ]
     },
-    "5MCHE1": {
+    "PATAGONIA_S_GRANDE_S.A.OESTE": {
         "PSSE":[
-            ["LII", 1030, 2004, "1 "]
+            ["LII", 300, 320, "1 "]
         ],
         "PD":[
-            ["MACACH 5", " HEND1 5"]
+            ["SGDE-132", "SAO -132"]
         ]
     },
-    "TXMC": {
+    "PATAGONIA_FUTALEUFU_330_132": {
         "PSSE":[
-            ["T3", 1030, 1289, 1823, "2 ", 1]
+            ["T3", 100, 264, 518, "1 ", 1],
+            ["T3", 100, 264, 579, "2 ", 1]
         ],
         "PD":[
-            ["MACACH 5", "MACACH 1"]
+            ["FUTA-330", "FUTA-132"]
         ]
     },
-    "5PUHE1": {
+    "PATAGONIA_PUERTO_MADRYN_330_132": {
         "PSSE":[
-            ["LII", 1028, 2004, "B "]
+            ["T3", 200, 220, 511, "1 ", 1],
+            ["T3", 200, 220, 510, "1 ", 1]
         ],
         "PD":[
-            [" PUEL2 5", " HEND1 5"]
+            ["PMAD-330", "PMAD-132"]
         ]
     },
-    "5BBCL1 + 5BBCL2": {
+    "PATAGONIA_SANTA_CRUZ_NORTE_500_132": {
         "PSSE":[
-            ["LII", 1010, 2000, "1 "],
-            ["LII", 1011, 2000, "B "]
+            ["T3", 12, 461, 479, "1 ", 1],
+            ["T3", 12, 461, 484, "2 ", 1],
+            ["T3", 12, 461, 554, "3 ", 1]
         ],
         "PD":[
-            ["CHOELE 5", "CHOEBB 5"]
+            ["SCRN-500", "SCRN-132"]
         ]
     },
-    "5BB-VIV1": {
+    "PATAGONIA_RIO_SANTA_CRUZ_500_132": {
         "PSSE":[
-            ["LII", 2000, 2049, "1 "]        
+            ["T3", 15, 315, 504, "1 ", 1]
         ],
         "PD":[
-            ["BLANUE 5", "VIVORA 5"]
+            ["RIOSCR 5", "RIOSCR 1"]
         ]
     },
-    "5ABOL2": {
+    "PATAGONIA_RIO_SANTA_CRUZ_LA_ESPERANZA": {
         "PSSE":[
-            ["LII", 2013, 3002, "2 "]        
+            ["LII", 15, 19, "1 "]
         ],
         "PD":[
-            ["OLA.AB 5", "ABANUE 5"]
+            ["RIOSCR 5", "LAESPE 5"]
         ]
     },
-    "5ABOL1": {
+    "PATAGONIA_ALUAR": {
         "PSSE":[
-            ["LII", 2012, 3002, "1 "]        
+            ["LII", 200, 210, "1 "],
+            ["LII", 200, 211, "1 "],
+            ["LII", 200, 213, "1 "]  
         ],
         "PD":[
-            ["OLA.AB 5", "ABASTO 5"]
-        ]
-    },
-    "5ATRD1": {
-        "PSSE":[
-            ["LII", 2018, 3004, "1 "]
-        ],
-        "PD":[
-            ["ATUCH2 5", "RODRIG 5"]
-        ]
-    },
-    "5CARD1": {
-        "PSSE":[
-            ["LII", 2002, 3004, "1 "]
-        ],
-        "PD":[
-            ["CAMPAN 5", "RODRIG 5"]
-        ]
-    },
-    "5MBRD": {
-        "PSSE":[
-            ["LII", 2003, 3004, "1 "]
-        ],
-        "PD":[
-            ["BELGRA 5", "RODRIG 5"]
+            ["PMAD-330", "APPA-330"]
         ]
     }
-
 }

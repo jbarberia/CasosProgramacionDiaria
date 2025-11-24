@@ -31,6 +31,11 @@
             isnothing(p_des) && continue
             @test p_des <= gen["pmax"]
         end
+    end
 
+    @testset "desired interchange" begin
+        map_flows_to_case!(data, prog)
+        interchange = Dict(flow["name"] => flow for (i, flow) in data["flows"])
+        @test isapprox(interchange["PATAGONIA_S.A.OESTE_S.A.ESTE"]["p_des"], 0.02; atol=1e-4)
     end
 end

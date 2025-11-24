@@ -37,10 +37,12 @@ module CasosProgramacionDiaria
     export get_programacion_diaria
     
     export map_generators_to_case!
-    export map_area_zone_totals_to_case!
+    export map_flows_to_case!
+    # export map_area_zone_totals_to_case! # Not in use - TODO use summary vars
 
     export run_state_estimation
     
+    export build_psse_data
 
 
 end # module
