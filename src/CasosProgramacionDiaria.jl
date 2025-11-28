@@ -17,6 +17,7 @@ module CasosProgramacionDiaria
 
     include("util/web_downloader.jl")
     include("util/component_mapper.jl")
+    include("util/utils.jl")
     
     include("core/ref.jl")
     include("core/variable.jl")
@@ -35,14 +36,16 @@ module CasosProgramacionDiaria
     # from module
     export get_base_case
     export get_programacion_diaria
+
+    export set_voltage_bounds!
     
     export map_generators_to_case!
     export map_flows_to_case!
     # export map_area_zone_totals_to_case! # Not in use - TODO use summary vars
 
     export run_state_estimation
-    
-    export build_psse_data
+        
+    export export_case
 
 
 end # module
