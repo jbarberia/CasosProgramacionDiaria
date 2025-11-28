@@ -14,10 +14,10 @@
 
     # TODO encontrar mejores bordes para las demandas
     # for (i, load) in data["load"]
-    #     load["pmin"] = load["pd"] * -2.0
-    #     load["pmax"] = load["pd"] *  2.0
-    #     load["qmin"] = load["qd"] * -2.0
-    #     load["qmax"] = load["qd"] *  2.0
+    #     load["pmin"] = minimum([load["pd"] * 2.0, load["pd"] * -2.0])
+    #     load["pmax"] = maximum([load["pd"] * 2.0, load["pd"] * -2.0])
+    #     load["qmin"] = minimum([load["qd"] * 2.0, load["qd"] * -2.0])
+    #     load["qmax"] = maximum([load["qd"] * 2.0, load["qd"] * -2.0])
     # end
 
     set_ac_pf_start_values!(data)        

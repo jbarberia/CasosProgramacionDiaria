@@ -1,45 +1,29 @@
 {
     "PATAGONIA_S.A.OESTE_S.A.ESTE": {
-        "PSSE":[
-            ["LII", 320, 322, "1 "]
-        ],
-        "PD":[
-            ["SAO -132", "SAE -132"]
-        ]
+        "PSSE":[["LII", 320, 322, "1 "]],
+        "PD":[["SAO -132", "SAE -132"]]
     },
     "PATAGONIA_PUERTO_MADRYN_S_GRANDE": {
-        "PSSE":[
-            ["LII", 220, 300, "1 "]
-        ],
-        "PD":[
-            ["PMAD-132", "SGDE-132"]
-        ]
+        "PSSE":[["LII", 220, 300, "1 "]],
+        "PD":[["PMAD-132", "SGDE-132"]]
     },
     "PATAGONIA_S_GRANDE_S.A.OESTE": {
-        "PSSE":[
-            ["LII", 300, 320, "1 "]
-        ],
-        "PD":[
-            ["SGDE-132", "SAO -132"]
-        ]
+        "PSSE":[["LII", 300, 320, "1 "]],
+        "PD":[["SGDE-132", "SAO -132"]]
     },
     "PATAGONIA_FUTALEUFU_330_132": {
         "PSSE":[
             ["T3", 100, 264, 518, "1 ", 1],
             ["T3", 100, 264, 579, "2 ", 1]
         ],
-        "PD":[
-            ["FUTA-330", "FUTA-132"]
-        ]
+        "PD":[["FUTA-330", "FUTA-132"]]
     },
     "PATAGONIA_PUERTO_MADRYN_330_132": {
         "PSSE":[
             ["T3", 200, 220, 511, "1 ", 1],
             ["T3", 200, 220, 510, "1 ", 1]
         ],
-        "PD":[
-            ["PMAD-330", "PMAD-132"]
-        ]
+        "PD":[["PMAD-330", "PMAD-132"]]
     },
     "PATAGONIA_SANTA_CRUZ_NORTE_500_132": {
         "PSSE":[
@@ -47,25 +31,15 @@
             ["T3", 12, 461, 484, "2 ", 1],
             ["T3", 12, 461, 554, "3 ", 1]
         ],
-        "PD":[
-            ["SCRN-500", "SCRN-132"]
-        ]
+        "PD":[["SCRN-500", "SCRN-132"]]
     },
     "PATAGONIA_RIO_SANTA_CRUZ_500_132": {
-        "PSSE":[
-            ["T3", 15, 315, 504, "1 ", 1]
-        ],
-        "PD":[
-            ["RIOSCR 5", "RIOSCR 1"]
-        ]
+        "PSSE":[["T3", 15, 315, 504, "1 ", 1]],
+        "PD":[["RIOSCR 5", "RIOSCR 1"]]
     },
     "PATAGONIA_RIO_SANTA_CRUZ_LA_ESPERANZA": {
-        "PSSE":[
-            ["LII", 15, 19, "1 "]
-        ],
-        "PD":[
-            ["RIOSCR 5", "LAESPE 5"]
-        ]
+        "PSSE":[["LII", 15, 19, "1 "]],
+        "PD":[["RIOSCR 5", "LAESPE 5"]]
     },
     "PATAGONIA_ALUAR": {
         "PSSE":[
@@ -73,8 +47,582 @@
             ["LII", 200, 211, "1 "],
             ["LII", 200, 213, "1 "]  
         ],
-        "PD":[
-            ["PMAD-330", "APPA-330"]
+        "PD":[["PMAD-330", "APPA-330"]]
+    },
+    "PATAGONIA_AIKE_OROPLATA": {
+        "PSSE":[["LII",455, 457, "1 "]],
+        "PD":[["AIKE   1", "OROPLA 1"]]
+    },
+    "PATAGONIA_AIKE_SAN_JOSE": {
+        "PSSE":[["LII",441, 455, "1 "]],
+        "PD":[["MISJOS 1", "AIKE   1"]]
+    },
+    "PATAGONIA_TRELEW_AMEGHINO": {
+        "PSSE":[["LII",240, 250, "1 "]],
+        "PD":[["TREL-132", "AMEG-132"]]
+    },
+    "PATAGONIA_PUERTO_DESEADO_BICENTENARIO": {
+        "PSSE":[["LII",480, 483, "1 "]],
+        "PD":[["PDES-132", "BICENT 1"]]
+    },
+    "PATAGONIA_C.OLIVIA_CAÑADON_LEON": {
+        "PSSE":[["LII",454, 458, "1 "]],
+        "PD":[["OLIVIA 1", "CANLEO 1"]]
+    },
+    "PATAGONIA_P.MADRYN_CHUBUT_NORTE": {
+        "PSSE":[["LII",220, 494, "1 "]],
+        "PD":[["PMAD-132", "CHNORT 1"]]
+    },
+    "PATAGONIA_C.RIVADAVIA_PATAGONIA": {
+        "PSSE":[["LII",400, 490, "1 "]],
+        "PD":[["CRIV-132", "PATA-132"]]
+    },
+    "PATAGONIA_ESCALANTE_DIADEMA": {
+        "PSSE":[["LII",404, 449, "1 "]],
+        "PD":[["ESCALA 1", "DIADEM 1"]]
+    },
+    "PATAGONIA_ESCALANTE_PAMPA_DEL_CASTILLO": {
+        "PSSE":[["LII",404, 444, "1 "]],
+        "PD":[["ESCALA 1", "PAMC-132"]]
+    },
+    "PATAGONIA_ESQUEL_EL_COIHUE": {
+        "PSSE":[["LII",266, 271, "1 "]],
+        "PD":[["ESQU-132", "COIHUE 1"]]
+    },
+    "PATAGONIA_LA_ESPERANZA_RIO_GALLEGOS": {
+        "PSSE":[["LII",117, 118, "1 "]],
+        "PD":[["LAESPE 2", "RGALLE 2"]]
+    },
+    "PATAGONIA_RIO_TURBIO_LA_ESPERANZA": {
+        "PSSE":[["LII",115, 117, "1 "]],
+        "PD":[["RTURBI 2", "LAESPE 2"]]
+    },
+    "PATAGONIA_LA_ESPERANZA_CALAFATE": {
+        "PSSE":[["LII",720, 721, "1 "]],
+        "PD":[["LAESPE 1", "CALAFA 1"]]
+    },
+    "PATAGONIA_PUERTO_MADRYN_CHOELE": {
+        "PSSE":[["LII",11, 1008, "1 "]],
+        "PD":[["PMAD-500", "CHOELE 5"]]
+    },
+    "COMAHUE_PUELCHES_HENDERSON": {
+        "PSSE":[["LII",1028, 2004, "B "]],
+        "PD":[[" PUEL2 5", " HEND1 5"]]
+    },
+    "COMAHUE_PUELCHES_MACACHIN": {
+        "PSSE":[["LII",1028, 1030, "1 "]],
+        "PD":[[" PUEL2 5", "MACACH 5"]]
+    },
+    "COMAHUE_A.CAJON_RIO_DIAMANTE": {
+        "PSSE":[["LII",1025, 7003, "1 "]],
+        "PD":[["ACAJON 5", "RDIAMA 5"]]
+    },
+    "CUYO_R.GRANDE_LUJAN_S.L.": {
+        "PSSE":[["LII", 6008, 6010, "1 "]],
+        "PD":[["R.GRAN 5", "LUJANT 5"]]
+    },
+    "GBA_ATUCHA_RODRIGUEZ": {
+        "PSSE":[["LII", 2018, 3004, "1 "]],
+        "PD":[["ATUCH2 5", "RODRIG 5"]]
+    },
+    "GBA_CAMPANA_RODRIGUEZ": {
+        "PSSE":[["LII", 2002, 3004, "1 "]],
+        "PD":[["CAMPAN 5", "RODRIG 5"]]
+    },
+    "GBA_BELGRANO_RODRIGUEZ": {
+        "PSSE":[["LII", 2003, 3004, "1 "]],
+        "PD":[["BELGRA 5", "RODRIG 5"]]
+    },
+    "PBA_GONZALES_CHAVES_TRES_ARROYOS": {
+        "PSSE":[["LII", 2238, 2350, "1 "]],
+        "PD":[[" G.CHA 1", " 3ARRO 1"]]
+    },
+    "PBA_ARECO_LUJAN_66KV": {
+        "PSSE": [["LII", 2510, 2528, "1 "]],
+        "PD": [[" ARECO 6", " LUJAN 6"]]
+    },
+    "PBA_LAS_ARMAS_DOLORES": {
+        "PSSE": [["LII", 2236, 2256, "1 "]],
+        "PD": [[" ARMAS 1", " DOLOR 1"]]
+    },
+    "PBA_AZUL_FLORES": {
+        "PSSE": [["LII", 2204, 2265, "1 "]],
+        "PD": [[" AZUL  1", "FLORE2 1"]]
+    },
+    "PBA_AZUL_OLAVARRIA": {
+        "PSSE": [["LII", 2204, 2298, "1 "]],
+        "PD": [[" AZUL  1", "OLAVA2 1"]]
+    },
+    "PBA_BALCARCE_VIVORATA": {
+        "PSSE": [["LII", 2210, 2211, "1 "]],
+        "PD": [[" BALCA 1", "VIVORA 1"]]
+    },
+    "PBA_CHACABUCO_CHACABUCO_INDUSTRIAL": {
+        "PSSE": [["LII", 2226, 2227, "1 "]],
+        "PD": [[" CHACA 1", "CHAIND 1"]]
+    },
+    "PBA_CHASCOMUS_DOLORES": {
+        "PSSE": [["LII", 2228, 2236, "1 "]],
+        "PD": [["CHASCO 1", " DOLOR 1"]]
+    },
+    "PBA_TRES_ARROYOS_DORREGO": {
+        "PSSE": [["LII", 2228, 2236, "1 "]],
+        "PD": [[" 3ARRO 1", " DORRE 1"]]
+    },
+    "PBA_GONZALES_CHAVES_NECOCHEA": {
+        "PSSE": [["LII", 2238, 2288, "1 "]],
+        "PD": [[" G.CHA 1", " NECO2 1"]]
+    },
+    "PBA_GONZALES_CHAVES_VAZQUEZ": {
+        "PSSE": [["LII", 2238, 2289, "1 "]],
+        "PD": [[" G.CHA 1", "VAZQUE 1"]]
+    },
+    "PBA_KSHE_HENDERSON": {
+        "PSSE": [["LII", 2004, 2006, "2 "]],
+        "PD": [[" HEND1 5", " HEND2 5"]]
+    },
+    "PBA_HENDERSON_PEHUAJO": {
+        "PSSE": [["LII", 2245, 2246, "1 "]],
+        "PD": [[" HENDE 1", "PEHUA  1"]]
+    },
+    "PBA_LAPRIDA_LA_PAMPITA": {
+        "PSSE": [["LII", 2254, 2390, "1 "]],
+        "PD": [[" LAPRI 1", "LPAMPI 1"]]
+    },
+    "PBA_LUJAN_LUJAN_DOS": {
+        "PSSE": [["LII", 2268, 2270, "1 "]],
+        "PD": [[" LUJAN 1", "LUJAN2 1"]]
+    },
+    "PBA_LUJAN_MALVINAS": {
+        "PSSE": [["LII", 2269, 3196, "2 "]],
+        "PD": [[" LUJAN 1", "MAL.BA 1"]]
+    },
+    "PBA_MAR_DE_AJO_PINAMAR": {
+        "PSSE": [["LII", 2273, 2318, "1 "]],
+        "PD": [[" MDAJO 1", "PINAMA 1"]]
+    },
+    "PBA_MAR_DEL_PLATA_MAR_DEL_PLATA_INDUSTRIAL": {
+        "PSSE": [["LII", 2274, 2303, "1 "]],
+        "PD": [[" MDPLA 1", "MDPIND 1"]]
+    },
+    "PBA_MIRAMAR_DOS_MIRAMAR": {
+        "PSSE": [["LII", 2218, 2282, "1 "]],
+        "PD": [["MIRAM2 1", " MIRAM 1"]]
+    },
+    "PBA_BRANDSEN_MONTE": {
+        "PSSE": [["LII", 2239, 2284, "1 "]],
+        "PD": [["BRANDS 1", " MONTE 1"]]
+    },
+    "PBA_MAR_DE_AJO_MAR_DEL_TUYU": {
+        "PSSE": [["LII", 2272, 2340, "1 "]],
+        "PD": [[" MDAJO 1", " MTUYU 1"]]
+    },
+    "PBA_NECOCHEA_QUEQUEN": {
+        "PSSE": [["LII", 2286, 2324, "1 "]],
+        "PD": [[" NECO. 1", "QUEQUE 1"]]
+    },
+    "PBA_BAHIA_BLANCA_NORTE_DOS": {
+        "PSSE": [["LII", 2206, 2290, "1 "]],
+        "PD": [["BLANC2 1", " NORT2 1"]]
+    },
+    "PBA_NORTE_DOS_CHANARES": {
+        "PSSE": [["LII", 2290, 2291, "1 "]],
+        "PD": [[" NORT2 1", "LCHANA 1"]]
+    },
+    "PBA_PERGAMINO_ROJAS": {
+        "PSSE": [["LII", 2306, 2328, "1 "]],
+        "PD": [[" PERGA 1", " ROJAS 1"]]
+    },
+    "PBA_COLON_PERGAMINO": {
+        "PSSE": [["LII", 2305, 2306, "1 "]],
+        "PD": [["COLON  1", " PERGA 1"]]
+    },
+    "PBA_PERGAMINO_RAMALLO": {
+        "PSSE": [["LII", 2307, 2326, "1 "]],
+        "PD": [[" PERGA 1", "RAMALL 1"]]
+    },
+    "PBA_PIGUE_TORNQUIST": {
+        "PSSE": [["LII", 2314, 2378, "1 "]],
+        "PD": [[" PIGUE 1", "TORNQU 1"]]
+    },
+    "PBA_LAPRIDA_PRINGLES": {
+        "PSSE": [["LII", 2254, 2320, "1 "]],
+        "PD": [[" LAPRI 1", " PRING 1"]]
+    },
+    "PBA_GENOVA_PRINGLES": {
+        "PSSE": [["LII", 2219, 2320, "1 "]],
+        "PD": [["GENOVE 1", " PRING 1"]]
+    },
+    "PBA_PRINGLES_INDIO_RICO": {
+        "PSSE": [["LII", 2320, 2321, "1 "]],
+        "PD": [[" PRING 1", "INRICO 1"]]
+    },
+    "PBA_JUNIN_ROJAS": {
+        "PSSE": [["LII", 2252, 2328, "1 "]],
+        "PD": [["JUNIN1 1", " ROJAS 1"]]
+    },
+    "PBA_ROSAS_MONTE": {
+        "PSSE": [["LII", 2261, 2284, "1 "]],
+        "PD": [[" ROSAS 1", " MONTE 1"]]
+    },
+    "PBA_ROSAS_NEWTON": {
+        "PSSE": [["LII", 2261, 2263, "1 "]],
+        "PD": [[" ROSAS 1", "NEWTON 1"]]
+    },
+    "PBA_PAPEL_PRENSA_SAN_PEDRO": {
+        "PSSE": [["LII", 2304, 2338, "1 "]],
+        "PD": [["PRENSA 1", " S.PED 1"]]
+    },
+    "PBA_SUAREZ_HENDERSON": {
+        "PSSE": [["LII", 2234, 2244, "1 "]],
+        "PD": [[" SUARE 1", " HENDE 1"]]
+    },
+    "PBA_HENDERSON_TRENQUE_LAUQUEN": {
+        "PSSE": [["LII", 2245, 2348, "1 "]],
+        "PD": [[" HENDE 1", " T.LAU 1"]]
+    },
+    "PBA_VILLALIA_T_ARECO": {
+        "PSSE": [["LII", 2358, 2372, "1 "]],
+        "PD": [[" V.LIA 1", "TARECO 1"]]
+    },
+    "PBA_MAGDALENA_VERONICA": {
+        "PSSE": [["LII", 3369, 3488, "1 "]],
+        "PD": [[" MAGDA 1", " VERON 1"]]
+    },
+    "PBA_M.HERMOSO_BAJO_HONDO": {
+        "PSSE": [["LII", 2235, 2389, "1 "]],
+        "PD": [["MHERMO 1", "BAJHON 1"]]
+    },
+    "PBA_BARKER_BARKER_DOS": {
+        "PSSE": [["LII", 2212, 2287, "1 "]],
+        "PD": [["BARKER 1", "BARKE2 1"]]
+    },
+    "PBA_B.BLANCA_BAJO_HONDO": {
+        "PSSE": [["LII", 2208, 2389, "1 "]],
+        "PD": [["BLANC1 1", "BAJHON 1"]]
+    },
+    "PBA_B.BLANCA_CORTI": {
+        "PSSE": [["LII", 2208, 2357, "1 "]],
+        "PD": [["BLANC1 1", "CORTI  1"]]
+    },
+    "PBA_B.BLANCA_TRES_PICOS": {
+        "PSSE": [["LII", 2206, 2241, "1 "]],
+        "PD": [["BLANC1 1", "TRESPI 1"]]
+    },
+    "PBA_B.BLANCA_VIVORATA": {
+        "PSSE": [["LII", 2000, 2049, "1 "]],
+        "PD": [["BLANUE 5", "VIVORA 5"]]
+    },
+    "PBA_HENDERSON_BOLIVAR": {
+        "PSSE": [["LII", 2244, 2345, "1 "]],
+        "PD": [[" HENDE 1", "BOLIVA 1"]]
+    },
+    "PBA_LA_CHINA_BOLIVAR": {
+        "PSSE": [["LII", 2283, 2345, "1 "]],
+        "PD": [["CHINA  1", "BOLIVA 1"]]
+    },
+    "PBA_BRAGADO_CHACABUCO": {
+        "PSSE": [["LII", 2216, 2226, "1 "]],
+        "PD": [["BRAGAD 1", " CHACA 1"]]
+    },
+    "PBA_BRAGADO_CHIVILCOY": {
+        "PSSE": [["LII", 2216, 2230, "1 "]],
+        "PD": [["BRAGAD 1", "CHIVIL 1"]]
+    },
+    "PBA_BRAGADO_HENDERSON": {
+        "PSSE": [["LII", 2102, 2104, "1 "]],
+        "PD": [["BRAGAD 2", " HENDE 2"]]
+    },
+    "PBA_BRAGADO_NUEVE_DE_JULIO": {
+        "PSSE": [["LII", 2514, 2515, "1 "]],
+        "PD": [["BRAGAD 6", " 9JULI 6"]]
+    },
+    "PBA_CHASCOMUS_BRANDSEN": {
+        "PSSE": [["LII", 2228, 2239, "1 "]],
+        "PD": [["CHASCO 1", "BRANDS 1"]]
+    },
+    "PBA_M.BURATOVICH_B.BLANCA": {
+        "PSSE": [["LII", 2203, 2206, "1 "]],
+        "PD": [["BURATO 1", "BLANC2 1"]]
+    },
+    "PBA_CALERA_AVELLANEDA_OLAVARRIA_VIEJA": {
+        "PSSE": [["LII", 2220, 2300, "1 "]],
+        "PD": [["C.AVEL 1", "OLAVIE 1"]]
+    },
+    "PBA_CHACABUCO_INDUSTRIAL_SALTO": {
+        "PSSE": [["LII", 2227, 2364, "1 "]],
+        "PD": [["CHAIND 1", "SALTO  1"]]
+    },
+    "PBA_CHASCOMUS_VERONICA": {
+        "PSSE": [["LII", 2229, 3488, "1 "]],
+        "PD": [["CHASCO 1", " VERON 1"]]
+    },
+    "PBA_G.CHAVES_CHILLAR": {
+        "PSSE": [["LII", 2238, 2299, "1 "]],
+        "PD": [[" G.CHA 1", "CHILP2 1"]]
+    },
+    "PBA_LA_CHINA_OLAVARRIA": {
+        "PSSE": [["LII", 2283, 2298, "1 "]],
+        "PD": [["CHINA  1", "OLAVA1 1"]]
+    },
+    "PBA_CHIVILCOY_MERCEDES": {
+        "PSSE": [["LII", 2231, 2280, "1 "]],
+        "PD": [["CHIVIL 1", "MERBA2 1"]]
+    },
+    "PBA_CAMPANA_CORCEMAR": {
+        "PSSE": [["LII", 2292, 2380, "1 "]],
+        "PD": [["NCAMP1 1", "CORCEM 1"]]
+    },
+    "PBA_TOYOTA_CORCEMAR": {
+        "PSSE": [["LII", 2370, 2380, "1 "]],
+        "PD": [["TOYOTA 1", "CORCEM 1"]]
+    },
+    "PBA_FLORES_ROSAS": {
+        "PSSE": [["LII", 2262, 2265, "1 "]],
+        "PD": [["FLORE2 1", " ROSAS 1"]]
+    },
+    "PBA_G.MADARIAGA_LAS_ARMAS": {
+        "PSSE": [["LII", 2240, 2256, "1 "]],
+        "PD": [["G.MADA 1", " ARMAS 1"]]
+    },
+    "PBA_GENOVE_1_BLANC1_1": {
+        "PSSE": [["LII", 2206, 2219, "1 "]],
+        "PD": [["BLANC1 1", "GENOVE 1"]]
+    },
+    "PBA_GUATRA_1_PUAN_1": {
+        "PSSE": [["LII", 1257, 2329, "1 "]],
+        "PD": [["GUATRA 1", "PUAN   1"]]
+    },
+    "PBA_JUNIN2_1_IMSA_1": {
+        "PSSE": [["LII", 2252, 2253, "1 "]],
+        "PD": [["JUNIN2 1", " IMSA  1"]]
+    },
+    "PBA_LNEGR_1_CAVEL_1": {
+        "PSSE": [["LII", 2220, 2266, "1 "]],
+        "PD": [["C.AVEL 1", "L.NEGR 1"]]
+    },
+    "PBA_LNEGR_1_OLAVA1_1": {
+        "PSSE": [["LII", 2266, 2296, "1 "]],
+        "PD": [["L.NEGR 1", "OLAVA1 1"]]
+    },
+    "PBA_LASPAL_1_SPED_1": {
+        "PSSE": [["LII", 2338, 2363, "1 "]],
+        "PD": [[" S.PED 1", "LASPAL 1"]]
+    },
+    "PBA_LASPAL_1_PROTIS_1": {
+        "PSSE": [["LII", 2363, 2365, "1 "]],
+        "PD": [["LASPAL 1", "PROTIS 1"]]
+    },
+    "PBA_LCHANA_1_PTQBB1_1": {
+        "PSSE": [["LII", 2291, 2392, "1 "]],
+        "PD": [["LCHANA 1", "PTQBB1 1"]]
+    },
+    "PBA_LINCO1_1_IMSA_1": {
+        "PSSE": [["LII", 2253, 2264, "1 "]],
+        "PD": [[" IMSA  1", "LINCO1 1"]]
+    },
+    "PBA_LINCO1_1_BRAGAD_1": {
+        "PSSE": [["LII", 2214, 2264, "1 "]],
+        "PD": [["BRAGAD 1", "LINCO1 1"]]
+    },
+    "PBA_LPAMPI_1_OLAVA2_1": {
+        "PSSE": [["LII", 2298, 2390, "1 "]],
+        "PD": [["OLAVA2 1", "LPAMPI 1"]]
+    },
+    "PBA_LUJAN2_1_MALBA_1": {
+        "PSSE": [["LII", 2270, 3196, "1 "]],
+        "PD": [["LUJAN2 1", "MAL.BA 1"]]
+    },
+    "PBA_MACACH_5_HEND1_5": {
+        "PSSE": [["LII", 1030, 2004, "1 "]],
+        "PD": [["MACACH 5", " HEND1 5"]]
+    },
+    "PBA_MDPIND_1_MIRAM_1": {
+        "PSSE": [["LII", 2282, 2303, "1 "]],
+        "PD": [["MDPIND 1", " MIRAM 1"]]
+    },
+    "PBA_MERBA_1_LUJAN_1": {
+        "PSSE": [["LII", 2268, 2278, "1 "]],
+        "PD": [[" LUJAN 1", "MER.BA 1"]]
+    },
+    "PBA_MHERMO_1_DORRE_1": {
+        "PSSE": [["LII", 2209, 2232, "1 "]],
+        "PD": [["MHERMO 1", " DORRE 1"]]
+    },
+    "PBA_MIRAM2_1_NECO2_1": {
+        "PSSE": [["LII", 2218, 2288, "1 "]],
+        "PD": [["MIRAM2 1", " NECO2 1"]]
+    },
+    "PBA_NUMANC_1_NECO_1": {
+        "PSSE": [["LII", 2285, 2286, "1 "]],
+        "PD": [["NUMANC 1", " NECO. 1"]]
+    },
+    "PBA_OLAVA1_1_TEROS_1": {
+        "PSSE": [["LII", 2250, 2298, "1 "]],
+        "PD": [["TEROS  1", "OLAVA1 1"]]
+    },
+    "PBA_OLAVA2_1_BARKE2_1": {
+        "PSSE": [["LII", 2287, 2298, "1 "]],
+        "PD": [["BARKE2 1", "OLAVA2 1"]]
+    },
+    "PBA_NCAMP1_1_TARECO_1": {
+        "PSSE": [["LII", 2294, 2372, "1 "]],
+        "PD": [["NCAMP1 1", "TARECO 1"]]
+    },
+    "PBA_CASARES_PEHUAJO": {
+        "PSSE": [["LII", 2518, 2522, "1 "]],
+        "PD": [["C.CASA 6", " PEHUA 6"]]
+    },
+    "CENTRO_MALVINAS_RECREO": {
+        "PSSE": [["LII", 6006, 8004, "1 "]],
+        "PD": [["MALVIN 5", "RECREO 5"]]
+    },
+    "CENTRO_R.OESTE_CORONDA": {
+        "PSSE": [
+            ["LII", 4000, 4002, "1 "],
+            ["LII", 4000, 4002, "2 "]
+        ],
+        "PD": [["R.OEST 5", "RIOCOR 5"]]
+    },
+    "LIT_RAMALLO_R.OESTE": {
+        "PSSE": [["LII", 2090, 4000, "1 "]],
+        "PD": [["RAMALL 5", "R.OEST 5"]]
+    },
+    "LIT_ROMAG_RESISTENCIA": {
+        "PSSE": [["LII", 4006, 5004, "1 "]],
+        "PD": [["ROMANG 5", "RESIST 5"]]
+    },
+    "NEA_RESISTENCIA_CHACO": {
+        "PSSE": [["LII", 5004, 5016, "1 "]],
+        "PD": [["RESIST 5", "CHACO  5"]]
+    },
+    "NEA_RESISTENCIA_G.FORMOSA": {
+        "PSSE": [["LII", 5004, 5006, "1 "]],
+        "PD": [["RESIST 5", "GFORMO 5"]]
+    },
+    "NEA_RESISTENCIA_P.PATRIA": {
+        "PSSE": [["LII", 5005, 5012, "1 "]],
+        "PD": [["P.PATR 5", "RESIST 5"]]
+    },
+    "NEA_RINCON_RESISTENCIA": {
+        "PSSE": [["LII", 5002, 5004, "1 "]],
+        "PD": [["RINCON 5", "RESIST 5"]]
+    },
+    "LIT_C.ELIA_S.GRANDE": {
+        "PSSE": [["LII", 4004, 4008, "1 "]],
+        "PD": [["C.ELIA 5", " SGR.A 5"]]
+    },
+    "LIT_C.ELIA_S.JAVIER": {
+        "PSSE": [["LII", 4004, 90080, "1 "]],
+        "PD": [["C.ELIA 5", "FRURU2 5"]]
+    },
+    "LIT_S.GRANDE_GRAN_PARANA": {
+        "PSSE": [["LII", 4008, 4009, "1 "]],
+        "PD": [[" SGR.A 5", "GRANPA 5"]]
+    },
+    "LIT_C.ELIA_MERCEDES": {
+        "PSSE": [["LII", 4004, 5030, "1 "]],
+        "PD": [["C.ELIA 5", "MERCED 5"]]
+    },
+    "NEA_RINCON_GARABI_1": {
+        "PSSE": [["LII", 5002, 5010, "1 "]],
+        "PD": [["RINCON 5", "GARABI 5"]]        
+    },
+    "NEA_RINCON_GARABI_2": {
+        "PSSE": [["LII", 5002, 5020, "2 "]],
+        "PD": [["RINCON 5", "GARAB2 5"]]
+    },
+    "NEA_RINCON_S.ISIDRO": {
+        "PSSE": [["LII", 5002, 5253, "1 "]],
+        "PD": [["RINCON 5", "ISIDRO 5"]]
+    },
+    "NEA_RINCON_MERCEDES": {
+        "PSSE": [["LII", 5002, 5030, "1 "]],
+        "PD": [["RINCON 5", "MERCED 5"]]
+    },
+    "NEA_RINCON_YACIRETA": {
+        "PSSE": [
+            ["LII", 5000, 5002, "A "],
+            ["LII", 5000, 5002, "B "],
+            ["LII", 5000, 5002, "C "]
+        ],
+        "PD": [
+            ["YACYR2 5", "RINCON 5"],
+            ["YACYRE 5", "RINCON 5"]
         ]
+    },
+    "NEA_CHACO_M.QUEMADO": {
+        "PSSE": [["LII", 5016, 8011, "1 "]],
+        "PD": [["CHACO  5", "MQUEMA 5"]]
+    },
+    "NEA_S.GRANDE_RINCON": {
+        "PSSE": [["LII", 4008, 5002, "1 "]],
+        "PD": [[" SGR.A 5", "RINCON 5"]]
+    },
+    "NOA_RECREO_LAVALLE": {
+        "PSSE": [["LII", 8002, 8012, "1 "]],
+        "PD": [["RECREO 5", "LAVALL 5"]]
+    },
+    "NOA_RECREO_L.RIOJA_SUR": {
+        "PSSE": [["LII", 8002, 8006, "1 "]],
+        "PD": [["RECREO 5", "LRIOSU 5"]]
+    },
+    "NOA_BRACHO_LAVALLE": {
+        "PSSE": [["LII", 8000, 8012, "1 "]],
+        "PD": [["BRACHO 5", "LAVALL 5"]]
+    },
+    "NOA_BRACHO_COBOS": {
+        "PSSE": [["LII", 8000, 8007, "1 "]],
+        "PD": [["BRACHO 5", "COBOS  5"]]
+    },
+    "NOA_COBOS_S.JUANCITO": {
+        "PSSE": [["LII", 8007, 8008, "1 "]],
+        "PD": [["COBOS  5", "JUANCI 5"]]
+    },
+    "NOA_LAVALLE_SANTIAGO": {
+        "PSSE": [["LII", 8012, 8013, "1 "]],
+        "PD": [["LAVALL 5", "SANTIA 5"]]
+    },
+    "NOA_M.QUEMADO_COBOS": {
+        "PSSE": [["LII", 8007, 8009, "1 "]],
+        "PD": [["MQUEMA 5", "COBOS  5"]]
+    },
+    "PAT_FUTALEUFU_P.MADRYN": {
+        "PSSE": [
+            ["LII", 100, 200, "1 "],
+            ["LII", 100, 200, "2 "]
+        ],
+        "PD": [["FUTA-330", "PMAD-330"]]
+    },
+    "COMAHUE_CHOCON_OESTE_PIEDRA_DEL_AGUILA": {
+        "PSSE": [
+            ["LII", 1004, 1014, "A "],
+            ["LII", 1004, 1014, "B "]
+        ],
+        "PD": [["CHOCOE 5", " TAGUI 5"]]
+    },
+    "COMAHUE_CHOELE_CHOEL_PIEDRA_DEL_AGUILA": {
+        "PSSE": [["LII", 1007, 1014, "1 "]],
+        "PD": [["CHOECH 5", " TAGUI 5"]]
+    },
+    "CENTRO_EMBALSE_RIO_GRANDE": {
+        "PSSE": [["LII", 6004, 6008, "1 "]],
+        "PD": [[" EMBAL 5", "R.GRAN 5"]]
+    },
+    "CENTRO_ALMAFUERTE_ARROYO_CABRAL": {
+        "PSSE": [["LII", 6000, 6002, "1 "]],
+        "PD": [[" ALMAF 5", "ACABRA 5"]]
+    },
+    "PAT_P.MADRYN_S.CRUZ_NORTE": {
+        "PSSE": [["LII", 10, 12, "1 "]],
+        "PD": [["PMAD-500", "SCRN-500"]]
+    },
+    "LIT_S.GRANDE_AR_UR": {
+        "PSSE": [["LII", 4008, 90000, "1 "]],
+        "PD": [[" SGR.A 5", "FRURU1 5"]]
+    },
+    "LIT_S.GRANDE_UR_S.JAVIER": {
+        "PSSE": [["LII", 90000, 90080, "1 "]],
+        "PD": [[" SGR.U 5", " S.JAV 5"]]
     }
 }

@@ -218,7 +218,12 @@ function map_flows_to_case!(data, programacion)
             f_bus = brn["f_bus"]
             t_bus = brn["t_bus"]
 
-            if f_bus == source_id[2]
+            # name == "PBA_NCAMP1_1_TARECO_1" && Main.@infiltrate
+
+            f_buses = data["bus"][string(f_bus)]["source_id"][2:end]
+            t_buses = data["bus"][string(t_bus)]["source_id"][2:end]
+
+            if f_bus in f_buses
                 push!(indices, (parse(Int, idx), f_bus, t_bus))
             else
                 push!(indices, (parse(Int, idx), t_bus, f_bus))
