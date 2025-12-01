@@ -1,6 +1,5 @@
 @testset failfast=true "Estimador de estado" begin
-    # fecha = DateTime(2025, 6, 6, 20, 00)  # 2025-06-06 20:00
-    fecha = DateTime(2025, 11, 28, 18, 00)
+    fecha = DateTime(2025, 6, 6, 20, 00)  # 2025-06-06 20:00    
     prog = get_programacion_diaria(fecha)
     data = get_base_case(fecha)
     
@@ -10,12 +9,19 @@
     set_voltage_bounds!(data)
 
     # TODO encontrar mejores bordes para las demandas
-    # for (i, load) in data["load"]
-    #     load["pmin"] = minimum([load["pd"] * 2.0, load["pd"] * -2.0])
-    #     load["pmax"] = maximum([load["pd"] * 2.0, load["pd"] * -2.0])
-    #     load["qmin"] = minimum([load["qd"] * 2.0, load["qd"] * -2.0])
-    #     load["qmax"] = maximum([load["qd"] * 2.0, load["qd"] * -2.0])
-    # end
+    for (i, load) in data["load"]
+        if load["pd"] >= 0
+            load["pmin"] = minimum([load["pd"] * 2.0, 0.0])
+            load["pmax"] = maximum([load["pd"] * 2.0, 0.0])
+            load["qmin"] = minimum([load["qd"] * 2.0, load["qd"] * -2.0])
+            load["qmax"] = maximum([load["qd"] * 2.0, load["qd"] * -2.0])
+        else
+            load["pmin"] = minimum([load["pd"] * 2.0, load["pd"] * -2.0])
+            load["pmax"] = maximum([load["pd"] * 2.0, load["pd"] * -2.0])
+            load["qmin"] = minimum([load["qd"] * 2.0, load["qd"] * -2.0])
+            load["qmax"] = maximum([load["qd"] * 2.0, load["qd"] * -2.0])
+        end
+    end
 
     set_ac_pf_start_values!(data)        
     results = run_state_estimation(data, ACPPowerModel, optimizer)
@@ -38,9 +44,19 @@
         qg = sol_gen["qg"]
         @test pg <= data["gen"][i]["pmax"] 
         @test pg >= data["gen"][i]["pmin"]
+
+        if haskey(data["gen"][i], "pg_des")
+            pg_des = data["gen"][i]["pg_des"]
+            rel_error = pg / pg_des - 1
+            rel_error *= 100
+            source_id = data["gen"][i]["source_id"][2:end]
+            
+            rel_error > 100 && @show source_id, rel_error, (pg, pg_des)
+        end
+
     end
 
     # export solution    
-    update_data!(data, solution)    
-    export_case(data, "foo.sav")
+    # update_data!(data, solution)    
+    # export_case(data, "foo.sav")
 end

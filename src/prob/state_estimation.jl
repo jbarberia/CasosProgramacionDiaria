@@ -34,7 +34,6 @@ function build_state_estimation(pm::AbstractPowerModel)
             # creo que dejarlos libres es buena opción
             # Total el flujo de carga va tendiendo segun las restricciones del flujo
             # constraint_gen_setpoint_active(pm, i)
-
         end
     end
 
@@ -49,7 +48,8 @@ function build_state_estimation(pm::AbstractPowerModel)
         constraint_fixed_power_factor(pm, i)
         
         if load["scalable"] == 0
-            constraint_fixed_load_power(pm, i)
+            # TODO verificar si realmente considerarlas fijas
+            # constraint_fixed_load_power(pm, i)
         end        
     end
 
