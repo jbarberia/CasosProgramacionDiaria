@@ -17,7 +17,7 @@ end
 function build_state_estimation(pm::AbstractPowerModel)    
     variable_bus_voltage(pm, bounded=true)
     variable_gen_power(pm, bounded=true)    
-    variable_load_power(pm, bounded=false)
+    variable_load_power(pm, bounded=true)
     variable_branch_power(pm, bounded=false)
     variable_dcline_power(pm, bounded=false)            
 

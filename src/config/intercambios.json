@@ -158,6 +158,14 @@
         ],
         "PD":[["RODRIG 5", "RODRI1 2"]]
     },
+    "GBA_MORON_220_132": {
+        "PSSE":[
+            ["T3", 3138, 3386, 3519, "1 ", 2],
+            ["T3", 3138, 3386, 3520, "2 ", 2],
+            ["T3", 3138, 3386, 3521, "3 ", 2]
+        ],
+        "PD":[[" MORON 1", " MORO1 2"]]
+    },
     "GBA_EZEIZA_500_220": {
         "PSSE":[
             ["T3", 3000, 3112, 3201, "1 ", 1],
@@ -737,6 +745,33 @@
         "PSSE": [["LII", 8000, 8012, "1 "]],
         "PD": [["BRACHO 5", "LAVALL 5"]]
     },
+    "NOA_GUEMES_COBOS": {
+        "PSSE": [
+            ["LII", 8244, 8326, "1 "],
+            ["LII", 8244, 8326, "2 "]
+        ],
+        "PD": [["GUEMEG 1", "COBOS1 1"]]
+    },
+    "NOA_GUEMES_SALTA_NORTE": {
+        "PSSE": [["LII", 8244, 8298, "1 "]],
+        "PD": [["GUEMES 1", "SALTAN 1"]]
+    },
+    "NOA_PI_SALTA_GUEMES": {
+        "PSSE": [["LII", 8224, 8244, "1 "]],
+        "PD": [["P.I.SA 1", "GUEMES 1"]]
+    },
+    "NOA_MINETI_GUEMES": {
+        "PSSE": [["LII", 8218, 8244, "1 "]],
+        "PD": [["MINETI 1", "GUEMES 1"]]
+    },
+    "NOA_SALTA_ESTE_COBOS": {
+        "PSSE": [["LII", 8217, 8326, "1 "]],
+        "PD": [["SALTAE 1", "COBOS1 1"]]
+    },
+    "NOA_SALTA_ESTE_SALTA_SUR": {
+        "PSSE": [["LII", 8217, 8296, "1 "]],
+        "PD": [["SALTAE 1", "SALTAS 1"]]
+    },
     "NOA_BRACHO_COBOS": {
         "PSSE": [["LII", 8000, 8007, "1 "]],
         "PD": [["BRACHO 5", "COBOS  5"]]
@@ -923,6 +958,10 @@
         "PSSE": [["LII", 6000, 6002, "1 "]],
         "PD": [[" ALMAF 5", "ACABRA 5"]]
     },
+    "CENTRO_R.OESTE_ARROYO_CABRAL": {
+        "PSSE": [["LII", 4000, 6002, "1 "]],
+        "PD": [["R.OEST 5", "ACABRA 5"]]
+    },
     "CENTRO_LUJAN_GRAN_MEDOZA": {
         "PSSE": [["LII", 6010, 7000, "1 "]],
         "PD": [["LUJANT 5", " G.MZA 5"]]
@@ -930,6 +969,10 @@
     "CUY_GRAN_MEDOZA_N.S.JUAN": {
         "PSSE": [["LII", 7000, 7010, "1 "]],
         "PD": [[" G.MZA 5", "NSJUAN 5"]]
+    },
+    "CUY_GRAN_MEDOZA_RIO_DIAMANTE": {
+        "PSSE": [["LII", 7000, 7005, "1 "]],
+        "PD": [[" G.MZA 5", "RDIAMA 5"]]
     },
     "PAT_P.MADRYN_S.CRUZ_NORTE": {
         "PSSE": [["LII", 10, 12, "1 "]],
@@ -1157,6 +1200,10 @@
         "PSSE": [["T3", 5002, 5250, 5512, "1 ", 1]],
         "PD": [["RINCON 5", "RINCON 1"]]
     },
+    "NEA_CHACO_500_132": {
+        "PSSE": [["T3", 5016, 5237, 5810, "1 ", 1]],
+        "PD": [["CHACO  5", "CHACO  1"]]
+    },
     "NOA_BRACHO_500_132": {
         "PSSE": [  
             ["T3", 8000, 8230, 8503, "1 ", 1],
@@ -1171,10 +1218,7 @@
         ],
         "PD": [["COBOS  5", "COBOS  3"]]
     },
-    "NOA_COBOS_330_132": {
-        "PSSE": [["T3", 8120, 8326, 8530, "1 ", 1]],
-        "PD": [["COBOS  3", "COBOS1 1"]]
-    },
+
     "NOA_S.JUANCITO_500_132": {
         "PSSE": [["T3", 8008, 8300, 8804, "1 ", 1]],
         "PD": [["JUANCI 5", "JUANCI 1"]]

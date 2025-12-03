@@ -1,31 +1,5 @@
-@testset failfast=true "Estimador de estado" begin
-    fecha = DateTime(2025, 6, 6, 20, 00)  # 2025-06-06 20:00    
-    prog = get_programacion_diaria(fecha)
-    data = get_base_case(fecha)
-    
-    map_generators_to_case!(data, prog)
-    map_flows_to_case!(data, prog)
-    
-    set_voltage_bounds!(data)
 
-    # TODO encontrar mejores bordes para las demandas
-    for (i, load) in data["load"]
-        if load["pd"] >= 0
-            load["pmin"] = minimum([load["pd"] * 2.0, 0.0])
-            load["pmax"] = maximum([load["pd"] * 2.0, 0.0])
-            load["qmin"] = minimum([load["qd"] * 2.0, load["qd"] * -2.0])
-            load["qmax"] = maximum([load["qd"] * 2.0, load["qd"] * -2.0])
-        else
-            load["pmin"] = minimum([load["pd"] * 2.0, load["pd"] * -2.0])
-            load["pmax"] = maximum([load["pd"] * 2.0, load["pd"] * -2.0])
-            load["qmin"] = minimum([load["qd"] * 2.0, load["qd"] * -2.0])
-            load["qmax"] = maximum([load["qd"] * 2.0, load["qd"] * -2.0])
-        end
-    end
-
-    set_ac_pf_start_values!(data)        
-    results = run_state_estimation(data, ACPPowerModel, optimizer)
-
+function test_solution(data, results, outfile)
     # verify if is solved
     @test results["termination_status"] in (LOCALLY_SOLVED, OPTIMAL)
     @test results["primal_status"] == FEASIBLE_POINT
@@ -57,6 +31,72 @@
     end
 
     # export solution    
-    # update_data!(data, solution)    
-    # export_case(data, "foo.sav")
+    update_data!(data, solution)    
+    export_case(data, outfile)
 end
+
+
+# @testset failfast=true "Estimador de estado 2025-6-6 20:00" begin
+#     fecha = DateTime(2025, 6, 6, 20, 00)  # 2025-06-06 20:00    
+#     prog = get_programacion_diaria(fecha)
+#     data = get_base_case(fecha)
+    
+#     map_generators_to_case!(data, prog)
+#     map_flows_to_case!(data, prog)
+    
+#     set_voltage_bounds!(data)
+
+#     # TODO encontrar mejores bordes para las demandas
+#     for (i, load) in data["load"]
+#         if load["pd"] >= 0
+#             load["pmin"] = minimum([load["pd"] * 2.0, 0.0])
+#             load["pmax"] = maximum([load["pd"] * 2.0, 0.0])
+#             load["qmin"] = minimum([load["qd"] * 2.0, load["qd"] * -2.0])
+#             load["qmax"] = maximum([load["qd"] * 2.0, load["qd"] * -2.0])
+#         else
+#             load["pmin"] = minimum([load["pd"] * 2.0, load["pd"] * -2.0])
+#             load["pmax"] = maximum([load["pd"] * 2.0, load["pd"] * -2.0])
+#             load["qmin"] = minimum([load["qd"] * 2.0, load["qd"] * -2.0])
+#             load["qmax"] = maximum([load["qd"] * 2.0, load["qd"] * -2.0])
+#         end
+#     end
+
+#     set_start_values!(data)        
+#     results = run_state_estimation(data, ACPPowerModel, optimizer)
+
+#     test_solution(data, results, "06-06-2025_H20.sav")
+# end
+
+
+@testset failfast=true "Estimador de estado 2025-11-29 15:00" begin
+    fecha = DateTime(2025, 11, 29, 15, 00)  # 2025-11-29 15:00    
+    prog = get_programacion_diaria(fecha)
+    data = get_base_case(fecha)
+    
+    map_generators_to_case!(data, prog)
+    map_flows_to_case!(data, prog)
+    
+    set_voltage_bounds!(data)
+
+    # TODO encontrar mejores bordes para las demandas
+    for (i, load) in data["load"]
+        if load["pd"] >= 0
+            load["pmin"] = minimum([load["pd"] * 2.0, 0.0])
+            load["pmax"] = maximum([load["pd"] * 2.0, 0.0])
+            load["qmin"] = minimum([load["qd"] * 2.0, load["qd"] * -2.0])
+            load["qmax"] = maximum([load["qd"] * 2.0, load["qd"] * -2.0])
+        else
+            load["pmin"] = minimum([load["pd"] * 2.0, load["pd"] * -2.0])
+            load["pmax"] = maximum([load["pd"] * 2.0, load["pd"] * -2.0])
+            load["qmin"] = minimum([load["qd"] * 2.0, load["qd"] * -2.0])
+            load["qmax"] = maximum([load["qd"] * 2.0, load["qd"] * -2.0])
+        end
+    end
+
+    set_start_values!(data)        
+    results = run_state_estimation(data, ACPPowerModel, optimizer)
+
+    test_solution(data, results, "29-11-2025_H15.sav")
+end
+
+

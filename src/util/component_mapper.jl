@@ -40,10 +40,13 @@ Devuelve el caso que mas se acerca al periodo de analisis
 function get_base_case(fecha::DateTime)
     root = joinpath(@__DIR__, "..", "cases")
 
+    # TODO ver escenarios bases, ya que puede modificar la operación
+    # ejemplo el verano pico es excesivo para dias por fuera del maximo historico
+
     casos_base = Dict(
         "verano" => Dict(
             "valle" => "$root/ver2526va.sav",
-            "resto" => "$root/ver2526pid.sav",
+            "resto" => "$root/inv25pi.sav",
             "pico"  => "$root/ver2526pin.sav",
         ),    
         "invierno" => Dict(
@@ -111,12 +114,54 @@ function map_generators_to_case!(data, programacion)
             @info "máquina hidro $nemo no encontrada"
             continue
         end
+
+        # Las maquinas vienen representadas en dos palieres
+        # SGDEHIAR indica las maquinas prendidas en MAQHID_DESPACHADAS
+        # SGDEHIAR Y SGDEHIUR indica los despachos de las maquinas
+        if nemo == "SGDEHIAR"
+            sgdehiar = programacion["VALORES_GENERADORES"][!, "GRUPO"] .== "SGDEHIAR"
+            sgdehiur = programacion["VALORES_GENERADORES"][!, "GRUPO"] .== "SGDEHIUR"
+
+            p_ar = programacion["VALORES_GENERADORES"][sgdehiar, hora_str][1]
+            p_ur = programacion["VALORES_GENERADORES"][sgdehiur, hora_str][1]
+            p = p_ar + p_ur
+            p_unit = p / n_maquinas
+            
+            # se ponen maquinas de argentina a prender
+            index = 1
+            maq_prendidas = 0
+            new_source_ids = []
+
+            while p_ar > 0 && maq_prendidas < 7
+                push!(new_source_ids, source_ids[index])
+                index += 1
+                maq_prendidas += 1
+                p_ar -= p_unit
+            end
+
+            # se ponen maquinas de uruguay a prender
+            index = 8
+            maq_prendidas = length(new_source_ids)
+            
+            while p_ur > 0 && maq_prendidas < n_maquinas
+                push!(new_source_ids, source_ids[index])
+                index += 1
+                maq_prendidas += 1
+                p_ur -= p_unit
+            end
+
+            # se ponen el resto de las maquinas al final
+            for source_id in source_ids
+                if !(source_id in new_source_ids)
+                    push!(new_source_ids, source_id)
+                end
+            end
+            source_ids = new_source_ids            
+        end
         
         maq_prendidas = 0
         for source_id in source_ids
             idx = source2index[source_id]
-            
-            
             
             if maq_prendidas < n_maquinas
                 data["gen"][idx]["gen_status"] = 1
@@ -131,6 +176,7 @@ function map_generators_to_case!(data, programacion)
             end
         end
     end
+
 
     # Coloco valores de generacion
     for (nemo, p_des) in programacion["VALORES_GENERADORES"][!, ["GRUPO", hora_str]] |> eachrow    

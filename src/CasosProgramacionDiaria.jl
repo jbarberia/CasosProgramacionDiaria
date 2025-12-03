@@ -45,7 +45,9 @@ module CasosProgramacionDiaria
 
     export run_state_estimation
         
+    export set_start_values!
     export export_case
+
 
 
 end # module

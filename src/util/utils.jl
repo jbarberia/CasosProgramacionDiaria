@@ -9,7 +9,7 @@ Setea limites de tensión en barras
 20 % para 132 kV
 20 % para el resto
 """
-function set_voltage_bounds!(data)
+function set_voltage_bounds!(data::Dict{String, Any})
     for (i, bus) in data["bus"]
         base_kv = bus["base_kv"]
     
@@ -27,7 +27,33 @@ function set_voltage_bounds!(data)
             bus["vmin"] = 0.80
         end
     end
+
+    for (i, gen) in data["gen"]
+        gen_bus = gen["gen_bus"]
+        data["bus"][string(gen_bus)]["vmax"] = 1.10
+        data["bus"][string(gen_bus)]["vmin"] = 0.90
+    end
 end
+
+
+"Pone valores iniciales"
+function set_start_values!(data::Dict{String, Any})
+for (i,bus) in data["bus"]
+        bus["va_start"] = bus["va"]
+        bus["vm_start"] = bus["vm"]
+    end
+
+    for (i,gen) in data["gen"]
+        gen["pg_start"] = gen["pg"]
+        gen["qg_start"] = gen["qg"]
+    end
+    
+    for (i,load) in data["load"]
+        load["pd_start"] = load["pd"]
+        load["qd_start"] = load["qd"]
+    end
+end
+
 
 
 "pf con taps y shunt moviles"
@@ -45,12 +71,13 @@ end
 
 "Devuelve el control conjunto en ezeiza"
 function _compensadores_ezeiza()
-    psspy.plant_chng_4(3651,0, intgar1=3000, realar1=1.0)
-    psspy.plant_chng_4(3652,0, intgar1=3000, realar1=1.0)
-    psspy.plant_chng_4(3653,0, intgar1=3000, realar1=1.0)
-    psspy.plant_chng_4(3654,0, intgar1=3000, realar1=1.0)
-    psspy.plant_chng_4(3655,0, intgar1=3000, realar1=1.0)
-    psspy.plant_chng_4(3656,0, intgar1=3000, realar1=1.0)
+    ierr, vm_ez = psspy.busdat(3000, "PU")
+    psspy.plant_chng_4(3651,0, intgar1=3000, realar1=vm_ez)
+    psspy.plant_chng_4(3652,0, intgar1=3000, realar1=vm_ez)
+    psspy.plant_chng_4(3653,0, intgar1=3000, realar1=vm_ez)
+    psspy.plant_chng_4(3654,0, intgar1=3000, realar1=vm_ez)
+    psspy.plant_chng_4(3655,0, intgar1=3000, realar1=vm_ez)
+    psspy.plant_chng_4(3656,0, intgar1=3000, realar1=vm_ez)
 end
 
 """
@@ -62,11 +89,8 @@ function export_case(data, filename)
     psspy.case(base_case)
     build_psse_data(data)
 
-
     _compensadores_ezeiza()
     _flujo_de_carga_con_controles()
-
-
 
     psspy.save(filename)
 end
