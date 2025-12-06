@@ -54,6 +54,32 @@ for (i,bus) in data["bus"]
     end
 end
 
+function set_load_bounds!(data::Dict{String, Any})
+    for (i, load) in data["load"]
+
+        # Demandas de Aluar fijas
+        if load["load_bus"] in [268, 269, 217, 193]
+            load["pd_min"] = load["pd"]
+            load["pd_max"] = load["pd"]
+            load["qd_min"] = load["qd"]
+            load["qd_max"] = load["qd"]
+        end
+        
+        # Servicios auxiliares fijos
+        if load["load_owner"] in [3, 4, 5, 6, 7, 8, 9, 12, 14]
+            load["pd_min"] = load["pd"]
+            load["pd_max"] = load["pd"]
+            load["qd_min"] = load["qd"]
+            load["qd_max"] = load["qd"]
+        end
+
+        # Demanda residencial positiva
+        if load["load_owner"] in [1, 2, 901]
+            load["pd_min"] = 0
+        end
+    end
+end
+
 
 
 "pf con taps y shunt moviles"

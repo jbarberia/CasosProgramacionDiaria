@@ -1,0 +1,1864 @@
+{
+    "COMAHUE_DEMANDA_HUINCUL_DISTRIBUIDOR": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1278, "1 "],
+        "min": 0.0,
+        "max": 0.3
+    },
+    "COMAHUE_DEMANDA_HUINCUL_YPF": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1818, "1 "],
+        "min": 0.0,
+        "max": 0.17
+    },
+    "COMAHUE_DEMANDA_ZAPALA_1_DISTRIBUIDOR": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1540, "1 "],
+        "min": 0.0,
+        "max": 0.15
+    },
+    "COMAHUE_DEMANDA_ZAPALA_2_DISTRIBUIDOR": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1840, "1 "],
+        "min": 0.0,
+        "max": 0.15
+    },
+    "COMAHUE_DEMANDA_LAJAS_1_DISTRIBUIDOR": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1546, "1 "],
+        "min": 0.0,
+        "max": 0.075
+    },
+    "COMAHUE_DEMANDA_LAJAS_2_DISTRIBUIDOR": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1841, "1 "],
+        "min": 0.0,
+        "max": 0.05
+    },
+    "COMAHUE_DEMANDA_CUTRALCO_1_DISTRIBUIDOR": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1515, "1 "],
+        "min": 0.0,
+        "max": 0.10
+    },
+    "COMAHUE_DEMANDA_CUTRALCO_2_DISTRIBUIDOR": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1511, "1 "],
+        "min": 0.0,
+        "max": 0.15
+    },
+    "COMAHUE_DEMANDA_RIO_NEUQUEN": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1215, "1 "],
+        "min": 0.0,
+        "max": 0.20
+    },
+    "COMAHUE_DEMANDA_CENTENARIO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1216, "1 "],
+        "min": 0.0,
+        "max": 0.30
+    },
+    "COMAHUE_DEMANDA_ALTO_VALLE_33_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1500, "1 "],
+        "min": 0.0,
+        "max": 0.20
+    },
+    "COMAHUE_DEMANDA_ALTO_VALLE_33_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1501, "1 "],
+        "min": 0.0,
+        "max": 0.20
+    },
+    "COMAHUE_DEMANDA_ALTO_VALLE_13": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1620, "1 "],
+        "min": 0.0,
+        "max": 0.60
+    },
+    "COMAHUE_DEMANDA_CINCO_SALTOS": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1230, "1 "],
+        "min": 0.0,
+        "max": 0.30
+    },
+    "COMAHUE_DEMANDA_FILO_MORADO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1246, "1 "],
+        "min": -0.2,
+        "max": 1.00
+    },
+    "COMAHUE_DEMANDA_PAMPA_TRIL": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1266, "1 "],
+        "min": 0.0,
+        "max": 0.075
+    },
+    "COMAHUE_DEMANDA_CHOS_MALAL": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1228, "1 "],
+        "min": 0.0,
+        "max": 0.15
+    },
+    "COMAHUE_DEMANDA_LOMA_NEGRA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1213, "1 "],
+        "min": 0.0,
+        "max": 0.15
+    },
+    "COMAHUE_DEMANDA_VILLA_REGINA_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1296, "1 "],
+        "min": 0.0,
+        "max": 0.45
+    },
+    "COMAHUE_DEMANDA_VILLA_REGINA_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1233, "2 "],
+        "min": 0.00,
+        "max": 0.45
+    },
+    "COMAHUE_DEMANDA_TERMOROCA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1581, "1 "],
+        "min": 0.00,
+        "max": 0.15
+    },
+    "COMAHUE_DEMANDA_BARILOCHE": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1574, "1 "],
+        "min": 0.00,
+        "max": 0.90
+    },
+    "COMAHUE_DEMANDA_CONESA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1205, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "COMAHUE_DEMANDA_ELSOLITO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1201, "1 "],
+        "min": 0.00,
+        "max": 0.15
+    },
+    "COMAHUE_DEMANDA_LUIS_BELTRAN": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1229, "1 "],
+        "min": 0.00,
+        "max": 0.15
+    },
+    "COMAHUE_DEMANDA_CHIHUIDO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1222, "1 "],
+        "min": 0.00,
+        "max": 1.00
+    },
+    "COMAHUE_DEMANDA_TRAPIAL": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1223, "1 "],
+        "min": 0.00,
+        "max": 0.55
+    },
+    "COMAHUE_DEMANDA_MEDANITO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1264, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "NOA_DEMANDA_METAN": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8272, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "NOA_DEMANDA_GUEMES": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8244, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "NOA_DEMANDA_SALTA_ESTE": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8217, "1 "],
+        "min": 0.00,
+        "max": 0.60
+    },
+    "NOA_DEMANDA_SALTA_NORTE": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8298, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "NOA_DEMANDA_SALTA_SUR": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8296, "1 "],
+        "min": 0.00,
+        "max": 1.20
+    },
+    "NOA_DEMANDA_SALTA_PARQUE_INDUSTRIAL": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8217, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "NOA_DEMANDA_MINETI": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8274, "1 "],
+        "min": 0.00,
+        "max": 0.40
+    },
+    "NOA_DEMANDA_SAN_JUANCITO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8300, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "NOA_DEMANDA_DRAGONES": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8334, "1 "],
+        "min": 0.00,
+        "max": 0.15
+    },
+    "NOA_DEMANDA_SENDA_HACHADA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8332, "1 "],
+        "min": 0.00,
+        "max": 0.15
+    },
+    "NOA_DEMANDA_ORAN": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8278, "1 "],
+        "min": 0.00,
+        "max": 0.60
+    },
+    "NOA_DEMANDA_TABACAL": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8281, "1 "],
+        "min": 0.00,
+        "max": 0.45
+    },
+    "NOA_DEMANDA_SAN_PEDRO_JUJUY": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8306, "1 "],
+        "min": 0.00,
+        "max": 0.60
+    },
+    "NOA_DEMANDA_MACACHA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8367, "1 "],
+        "min": 0.00,
+        "max": 0.60
+    },
+    "NOA_DEMANDA_LIBERTADOR_13": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8801, "2 "],
+        "min": 0.00,
+        "max": 0.45
+    },
+    "NOA_DEMANDA_LIBERTADOR_33": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8510, "1 "],
+        "min": 0.00,
+        "max": 0.20
+    },
+    "NOA_DEMANDA_TARTAGAL_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8562, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "NOA_DEMANDA_TARTAGAL_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8564, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "NOA_DEMANDA_TARTAGAL_3": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8662, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "NOA_DEMANDA_CAMPO_QUIJANO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8371, "1 "],
+        "min": 0.00,
+        "max": 0.60
+    },
+    "NOA_DEMANDA_SAN_AGUSTIN": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8348, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "NEA_DEMANDA_MERCEDES": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 5220, "1 "],
+        "min": 0.00,
+        "max": 0.225
+    },
+    "NEA_DEMANDA_PASO_TALA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 5297, "1 "],
+        "min": 0.00,
+        "max": 0.075
+    },
+    "NEA_DEMANDA_GOYA_OESTE": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 5257, "1 "],
+        "min": 0.00,
+        "max": 0.15
+    },
+    "NEA_DEMANDA_GOYA_33": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 5507, "1 "],
+        "min": 0.00,
+        "max": 0.90
+    },
+    "NEA_DEMANDA_GOYA_13": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 5650, "1 "],
+        "min": 0.00,
+        "max": 0.90
+    },
+    "NEA_DEMANDA_ESQUINA_33": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 5217, "1 "],
+        "min": 0.00,
+        "max": 0.15
+    },
+    "NEA_DEMANDA_ESQUINA_13": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 5231, "1 "],
+        "min": 0.00,
+        "max": 0.15
+    },
+    "NEA_DEMANDA_STELLA_MARIS": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 5319, "1 "],
+        "min": 0.00,
+        "max": 0.075
+    },
+    "NEA_DEMANDA_C.CUATIA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 5210, "1 "],
+        "min": 0.00,
+        "max": 0.225
+    },
+    "NEA_DEMANDA_LA_CRUZ": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 5223, "1 "],
+        "min": 0.00,
+        "max": 0.15
+    },
+    "NEA_DEMANDA_PASO_DE_LOS_LIBRES_NORTE": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 5284, "1 "],
+        "min": 0.00,
+        "max": 0.15
+    },
+    "NEA_DEMANDA_PASO_DE_LOS_LIBRES": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 5224, "1 "],
+        "min": 0.00,
+        "max": 0.075
+    },
+    "NEA_DEMANDA_PUCHETA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 5299, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "NEA_DEMANDA_YAPEYU": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 5298, "1 "],
+        "min": 0.00,
+        "max": 0.075
+    },
+    "NEA_DEMANDA_PAMPA_DEL_INFIERNO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 5288, "1 "],
+        "min": 0.00,
+        "max": 0.15
+    },
+    "NEA_DEMANDA_CAMPO_LARGO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 5274, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "NEA_DEMANDA_SAN_BERNARDO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 5295, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "GBA_DEMANDA_PA_NOVAK": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3323, "1 "],
+        "min": 0.00,
+        "max": 0.40
+    },
+    "GBA_DEMANDA_FFCC_ROCA_QUILMES": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3325, "1 "],
+        "min": 0.00,
+        "max": 0.10
+    },
+    "GBA_DEMANDA_MARADONA_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3400, "1 "],
+        "min": 0.00,
+        "max": 0.40
+    },
+    "GBA_DEMANDA_MARADONA_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3315, "1 "],
+        "min": 0.00,
+        "max": 0.40
+    },
+    "GBA_DEMANDA_CENTENARIO_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3401, "1 "],
+        "min": 0.00,
+        "max": 0.70
+    },
+    "GBA_DEMANDA_CENTENARIO_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3398, "1 "],
+        "min": 0.00,
+        "max": 0.75
+    },
+    "GBA_DEMANDA_CRESPO_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3499, "1 "],
+        "min": 0.00,
+        "max": 0.40
+    },
+    "GBA_DEMANDA_CRESPO_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3498, "1 "],
+        "min": 0.00,
+        "max": 0.40
+    },
+    "GBA_DEMANDA_CANUELAS": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3248, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_SPEGAZZINI": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3289, "1 "],
+        "min": 0.00,
+        "max": 1.55
+    },
+    "GBA_DEMANDA_EL_PINO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3379, "1 "],
+        "min": 0.00,
+        "max": 1.20
+    },
+    "GBA_DEMANDA_MERCEDES_BENZ": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3378, "1 "],
+        "min": 0.00,
+        "max": 0.05
+    },
+    "GBA_DEMANDA_OROVERDE": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3751, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_G.CATAN_13": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3588, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_G.CATAN_33": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3579, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_ALTOS_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3202, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_ALTOS_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3321, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_TAPIALES_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3468, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_TAPIALES_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3470, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_MATANZA_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3350, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_MATANZA_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3217, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_SAN_JUSTO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3450, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_SANTA_ROSA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3456, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_PATRICIOS": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3405, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_CHARCAS": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3285, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_AZOPARDO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3221, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_ANGELETTI": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3211, "1 "],
+        "min": 0.00,
+        "max": 0.20
+    },
+    "GBA_DEMANDA_CALZADA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3246, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_BURZACO_33": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3547, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_BURZACO_13": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3548, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_GERLI_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3312, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_GERLI_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3558, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_GLEW": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3227, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_ROCA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3306, "1 "],
+        "min": 0.00,
+        "max": 1.35
+    },
+    "GBA_DEMANDA_HEROES_DE_MALVINAS": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3477, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_BROWN": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3216, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_TEMPERLEY": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3476, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_BACHOFEN": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3225, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_TRANSRADIO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3447, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_SANTA_CATALIAN": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3446, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_ETCHEVERRIA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3288, "1 "],
+        "min": 0.00,
+        "max": 1.20
+    },
+    "GBA_DEMANDA_BOSQUES_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3230, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_BOSQUES_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3259, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_GUTIERREZ": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3328, "1 "],
+        "min": 0.00,
+        "max": 1.15
+    },
+    "GBA_DEMANDA_ZUCAMOR": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3231, "1 "],
+        "min": 0.00,
+        "max": 0.10
+    },
+    "GBA_DEMANDA_EZPELETA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3300, "1 "],
+        "min": 0.00,
+        "max": 1.20
+    },
+    "GBA_DEMANDA_CALCHAQUI": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3242, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_QUILMES": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3432, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_RIGOLLEAU": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3331, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_SOBRAL": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3464, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_LURO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3403, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_P.MORENO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3410, "1 "],
+        "min": 0.00,
+        "max": 2.00
+    },
+    "GBA_DEMANDA_MACIEL": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3368, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_POMPEYA_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3723, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_POMPEYA_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3393, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_AUTODROMO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3218, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_ALBERDI": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3214, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_CABALLITO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3240, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_CONSTITUCION": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3267, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_LINIERS": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3366, "1 "],
+        "min": 0.00,
+        "max": 1.15
+    },
+    "GBA_DEMANDA_BLANCO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3409, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_PELLEGRINI": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3408, "1 "],
+        "min": 0.00,
+        "max": 1.20
+    },
+    "GBA_DEMANDA_ONCE": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3421, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_POZOS": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3422, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_CORINA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3268, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_ESCALADA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3294, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_INDEPENDENCIA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3340, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_CIUDADELA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3258, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_S.RITA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3454, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_AGRONOMIA_ROJO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3210, "2 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_AGRONOMIA_AZUL": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3212, "3 "],
+        "min": 0.00,
+        "max": 1.20
+    },
+    "GBA_DEMANDA_AUSTRIA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3213, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_MIGUELETES": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3382, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_MALAVER": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3371, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_SUAREZ": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3561, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_MUNRO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3388, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_TECNOPOLIS": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3391, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_LUZURIAGA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3435, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_VILLA_ADELINA_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3494, "1 "],
+        "min": 0.00,
+        "max": 0.40
+    },
+    "GBA_DEMANDA_VILLA_ADELINA_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3496, "1 "],
+        "min": 0.00,
+        "max": 0.40
+    },
+    "GBA_DEMANDA_MERLO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3380, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_S.ALBERTO_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3351, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_S.ALBERTO_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3725, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_ITUZAINGO_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3342, "1 "],
+        "min": 0.00,
+        "max": 0.40
+    },
+    "GBA_DEMANDA_ITUZAINGO_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3726, "1 "],
+        "min": 0.00,
+        "max": 0.40
+    },
+    "GBA_DEMANDA_MORON": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3386, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_MUNIZ": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3453, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_HURLINGHAM": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3336, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_ARA_SAN_JUAN": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3336, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_LA_REJA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3360, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_CATONAS_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3198, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_CATONAS_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3199, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_GAONA_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3804, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_GAONA_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3805, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_MALVINAS": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3196, "1 "],
+        "min": 0.00,
+        "max": 1.20
+    },
+    "GBA_DEMANDA_CASANOVA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3338, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_AEROCLUB": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3489, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_PANTANOSA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3451, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_LIBERTAD": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3247, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_PONTEVEDRA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3341, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_PASO_DEL_REY": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3363, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_MARCOS_PAZ": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3339, "1 "],
+        "min": 0.00,
+        "max": 1.20
+    },
+    "GBA_DEMANDA_CASEROS": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3250, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_SEVEL": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3251, "1 "],
+        "min": 0.00,
+        "max": 0.20
+    },
+    "GBA_DEMANDA_CASTELAR": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3252, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_RAMOS_MEJIA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3434, "1 "],
+        "min": 0.00,
+        "max": 2.60
+    },
+    "GBA_DEMANDA_TRUJUI_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3117, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_TRUJUI_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3133, "2 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_PARQUE": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3427, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_MANZONE": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3404, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_PILAR": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3420, "1 "],
+        "min": 0.00,
+        "max": 2.00
+    },
+    "GBA_DEMANDA_DERQUI": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3375, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_MATHEU": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3374, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_DEL_VISO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3274, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_TORTUGUITA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3293, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_SAN_MIGUEL": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3452, "1 "],
+        "min": 0.00,
+        "max": 0.10
+    },
+    "GBA_DEMANDA_SAN_MIGUEL_13": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3569, "2 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_MASCHWITZ": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3229, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_GARIN": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3555, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_BENAVIDEZ": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3228, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_FORD": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3310, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_NOGUES": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3390, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_COLEGIALES": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3262, "1 "],
+        "min": 0.00,
+        "max": 2.40
+    },
+    "GBA_DEMANDA_GUEMES": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3324, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_MELO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3431, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_RIVADAVIA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3440, "1 "],
+        "min": 0.00,
+        "max": 1.20
+    },
+    "GBA_DEMANDA_RECONQUISTA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3438, "1 "],
+        "min": 0.00,
+        "max": 1.20
+    },
+    "GBA_DEMANDA_TRES_SARGENTOS": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3235, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_PARANA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3402, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_AZCUENAGA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3220, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_TALAR": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3466, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_BANCALAR": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3224, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_BOULOGNE": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3232, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_S.FERNANDO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3471, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_VICTORIA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3492, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_SAN_ISIDRO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3448, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_TIGRE": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3478, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_NORDELTA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3479, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_ANIVERSARIO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3304, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_LIBERTADOR": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3364, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_VICENTE_LOPEZ": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3490, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_AGUAS": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3487, "1 "],
+        "min": 0.00,
+        "max": 1.00
+    },
+    "GBA_DEMANDA_PUERTO_NUEVO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3219, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_NUEVO_PUERTO_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3522, "1 "],
+        "min": 0.00,
+        "max": 0.40
+    },
+    "GBA_DEMANDA_NUEVO_PUERTO_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3523, "1 "],
+        "min": 0.00,
+        "max": 0.40
+    },
+    "GBA_DEMANDA_EDISON_VIOLETA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3292, "1 "],
+        "min": 0.00,
+        "max": 2.20
+    },
+    "GBA_DEMANDA_EDISON_ROJO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3290, "2 "],
+        "min": 0.00,
+        "max": 2.20
+    },
+    "GBA_DEMANDA_SAAVEDRA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3263, "1 "],
+        "min": 0.00,
+        "max": 1.20
+    },
+    "GBA_DEMANDA_VIDAL": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3265, "1 "],
+        "min": 0.00,
+        "max": 1.60
+    },
+    "GBA_DEMANDA_LA_PLATA_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3354, "1 "],
+        "min": 0.00,
+        "max": 0.40
+    },
+    "GBA_DEMANDA_LA_PLATA_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3355, "1 "],
+        "min": 0.00,
+        "max": 0.40
+    },
+    "GBA_DEMANDA_BAVIO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3703, "1 "],
+        "min": 0.00,
+        "max": 0.15
+    },
+    "GBA_DEMANDA_MAGDALENA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3370, "1 "],
+        "min": 0.00,
+        "max": 0.40
+    },
+    "GBA_DEMANDA_KAISER_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3348, "1 "],
+        "min": 0.00,
+        "max": 0.33
+    },
+    "GBA_DEMANDA_KAISER_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3347, "1 "],
+        "min": 0.00,
+        "max": 0.56
+    },
+    "GBA_DEMANDA_LA_PLATA_SUR": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3345, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_LA_PLATA_ESTE": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3337, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_DIQUE_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3269, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_DIQUE_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3278, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_PETROQUIMICA_LA_PLATA_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3418, "1 "],
+        "min": 0.00,
+        "max": 0.25
+    },
+    "GBA_DEMANDA_PETROQUIMICA_LA_PLATA_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3419, "1 "],
+        "min": 0.00,
+        "max": 0.25
+    },
+    "GBA_DEMANDA_PETROKEN_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3413, "1 "],
+        "min": 0.00,
+        "max": 0.16
+    },
+    "GBA_DEMANDA_PETROKEN_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3414, "1 "],
+        "min": 0.00,
+        "max": 0.16
+    },
+    "GBA_DEMANDA_TOLOSA_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3480, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_TOLOSA_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3482, "2 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_SIDERAR_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3425, "1 "],
+        "min": 0.00,
+        "max": 0.20
+    },
+    "GBA_DEMANDA_SIDERAR_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3433, "2 "],
+        "min": 0.00,
+        "max": 0.20
+    },
+    "GBA_DEMANDA_CITIBELL_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3254, "1 "],
+        "min": 0.00,
+        "max": 0.40
+    },
+    "GBA_DEMANDA_CITIBELL_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3254, "2 "],
+        "min": 0.00,
+        "max": 0.40
+    },
+    "GBA_DEMANDA_ROCHA_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3443, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_ROCHA_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3442, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_PAZ_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3407, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_PAZ_2": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3406, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "GBA_DEMANDA_YPF": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3582, "1 "],
+        "min": 0.00,
+        "max": 1.63
+    },
+    "GBA_DEMANDA_MAFFISA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 3353, "1 "],
+        "min": 0.00,
+        "max": 0.12
+    },
+    "LA_PAMPA_DEMANDA_GUATRACHE": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1256, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "LA_PAMPA_DEMANDA_GEN_ACHA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1248, "1 "],
+        "min": 0.00,
+        "max": 0.60
+    },
+    "LA_PAMPA_DEMANDA_STA.ROSA_SUR": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1295, "1 "],
+        "min": 0.00,
+        "max": 0.60
+    },
+    "LA_PAMPA_DEMANDA_STA.ROSA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1292, "1 "],
+        "min": 0.00,
+        "max": 0.90
+    },
+    "LA_PAMPA_DEMANDA_MAYER": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1293, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "LA_PAMPA_DEMANDA_GEN.PICO_33": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1509, "1 "],
+        "min": 0.00,
+        "max": 0.45
+    },
+    "LA_PAMPA_DEMANDA_GEN.PICO_13": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1510, "1 "],
+        "min": 0.00,
+        "max": 0.45
+    },
+    "LA_PAMPA_DEMANDA_REALICO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1291, "1 "],
+        "min": 0.00,
+        "max": 0.60
+    },
+    "LA_PAMPA_DEMANDA_PICHI_MAHUIDA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 1271, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "PBA_DEMANDA_PLANTA_BUNGE": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 2294, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "PBA_DEMANDA_AXION": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 2221, "1 "],
+        "min": 0.00,
+        "max": 1.50
+    },
+    "PBA_DEMANDA_CAMPANA_132": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 2224, "1 "],
+        "min": 0.00,
+        "max": 0.60
+    },
+    "PBA_DEMANDA_PRAXAIR": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 2225, "1 "],
+        "min": 0.00,
+        "max": 0.25
+    },
+    "PBA_DEMANDA_ZARATE": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 2362, "1 "],
+        "min": 0.00,
+        "max": 1.05
+    },
+    "PBA_DEMANDA_SAN_PEDRO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 2339, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "PBA_DEMANDA_LAS_PALMAS": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 2363, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "PBA_DEMANDA_RAMALLO_INDUSTRIAL": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 2325, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "PBA_DEMANDA_EASTMAN": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 2367, "1 "],
+        "min": 0.00,
+        "max": 0.15
+    },
+    "PBA_DEMANDA_PROTISA": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 2365, "1 "],
+        "min": 0.00,
+        "max": 0.60
+    },
+    "PBA_DEMANDA_S.NICOLAS": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 2385, "1 "],
+        "min": 0.00,
+        "max": 0.60
+    },
+    "PBA_DEMANDA_S.NICOLAS_NORTE": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 2333, "1 "],
+        "min": 0.00,
+        "max": 0.80
+    },
+    "PBA_DEMANDA_S.A.ARECO": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 2366, "1 "],
+        "min": 0.00,
+        "max": 0.30
+    },
+    "PBA_SIDERCA_0": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 2342, "1 "],
+        "min": 0.00,
+        "max": 1.20
+    },
+    "PBA_SIDERCA_1": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 2343, "1 "],
+        "min": 0.00,
+        "max": 1.20
+    },
+    "NOA_MINERA_EXAR": {
+        "component": "load",
+        "variable": "pd",
+        "source_id": ["LO", 8583, "1 "],
+        "min": 0.00,
+        "max": 0.50
+    }
+}

@@ -14,3 +14,7 @@ De esta manera se bypassea el error de OpenBLAS al correr en una máquina de 64 
 [] Modelar conexion correcta de Agua del Cajon con sus aportes en 500 kV y en 132 kV (Arroyito)
 [] Inferir la topologia de Pilar en Centro ya que modifica sensiblemente los resultados en el area centro
 [] Las demandas y corredores no observables se deberian agrupar y escalar
+[] Prender Yacagua en Bolivia y cerca de eso esta TABATV01.
+[] Entre Mercedes 500 kV y Salto Grande se debe estimar cuales son las demandas que van conectadas a cada ET de 500 kV  
+[] Normalizar ID de demandas
+[] Abrir Guatrache - Puan

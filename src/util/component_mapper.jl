@@ -13,6 +13,7 @@ function get_configuration_data()
         "valores_generadores",
         "balance",
         "intercambios",
+        "limites",
     ]
 
     config_data = Dict{String, Any}()
@@ -93,6 +94,55 @@ function get_base_case(programacion::Dict, hora::Time)
 end
 
 
+function _fix_salto_grande_dispach!(source_ids, data, programacion)
+    # Las maquinas vienen representadas en dos palieres
+    # SGDEHIAR indica las maquinas prendidas en MAQHID_DESPACHADAS
+    # SGDEHIAR Y SGDEHIUR indica los despachos de las maquinas
+
+    hora_str = hora_str = "H" * lpad(hour(data["datetime"]), 1, '0')
+    sgde = programacion["MAQHID_DESPACHADAS"][!, "CENTRAL"] .== "SGDEHIAR"
+    n_maquinas = programacion["MAQHID_DESPACHADAS"][sgde, hora_str][1]
+    
+    sgdehiar = programacion["VALORES_GENERADORES"][!, "GRUPO"] .== "SGDEHIAR"
+    sgdehiur = programacion["VALORES_GENERADORES"][!, "GRUPO"] .== "SGDEHIUR"
+
+    p_ar = programacion["VALORES_GENERADORES"][sgdehiar, hora_str][1]
+    p_ur = programacion["VALORES_GENERADORES"][sgdehiur, hora_str][1]
+    p = p_ar + p_ur
+    p_unit = p / n_maquinas
+    
+    # se ponen maquinas de argentina a prender
+    index = 1
+    maq_prendidas = 0
+    new_source_ids = []
+    while p_ar > 0 && maq_prendidas < 7
+        push!(new_source_ids, source_ids[index])
+        index += 1
+        maq_prendidas += 1
+        p_ar -= p_unit
+    end
+
+    # se ponen maquinas de uruguay a prender
+    index = 8
+    maq_prendidas = length(new_source_ids)
+    while p_ur > 0 && maq_prendidas < n_maquinas
+        push!(new_source_ids, source_ids[index])
+        index += 1
+        maq_prendidas += 1
+        p_ur -= p_unit
+    end
+
+    # se ponen el resto de las maquinas al final
+    for source_id in source_ids
+        if !(source_id in new_source_ids)
+            push!(new_source_ids, source_id)
+        end
+    end
+
+    source_id = new_source_ids             
+end
+
+
 """
 Toma la programacion diaria y mapeo los valores de generadores al caso
 """
@@ -115,49 +165,9 @@ function map_generators_to_case!(data, programacion)
             continue
         end
 
-        # Las maquinas vienen representadas en dos palieres
-        # SGDEHIAR indica las maquinas prendidas en MAQHID_DESPACHADAS
-        # SGDEHIAR Y SGDEHIUR indica los despachos de las maquinas
-        if nemo == "SGDEHIAR"
-            sgdehiar = programacion["VALORES_GENERADORES"][!, "GRUPO"] .== "SGDEHIAR"
-            sgdehiur = programacion["VALORES_GENERADORES"][!, "GRUPO"] .== "SGDEHIUR"
-
-            p_ar = programacion["VALORES_GENERADORES"][sgdehiar, hora_str][1]
-            p_ur = programacion["VALORES_GENERADORES"][sgdehiur, hora_str][1]
-            p = p_ar + p_ur
-            p_unit = p / n_maquinas
-            
-            # se ponen maquinas de argentina a prender
-            index = 1
-            maq_prendidas = 0
-            new_source_ids = []
-
-            while p_ar > 0 && maq_prendidas < 7
-                push!(new_source_ids, source_ids[index])
-                index += 1
-                maq_prendidas += 1
-                p_ar -= p_unit
-            end
-
-            # se ponen maquinas de uruguay a prender
-            index = 8
-            maq_prendidas = length(new_source_ids)
-            
-            while p_ur > 0 && maq_prendidas < n_maquinas
-                push!(new_source_ids, source_ids[index])
-                index += 1
-                maq_prendidas += 1
-                p_ur -= p_unit
-            end
-
-            # se ponen el resto de las maquinas al final
-            for source_id in source_ids
-                if !(source_id in new_source_ids)
-                    push!(new_source_ids, source_id)
-                end
-            end
-            source_ids = new_source_ids            
-        end
+        # ajustes por topologia
+        nemo == "SGDEHIAR" && _fix_salto_grande_dispach!(source_ids, data, programacion)
+        
         
         maq_prendidas = 0
         for source_id in source_ids
@@ -188,6 +198,10 @@ function map_generators_to_case!(data, programacion)
             end
             continue
         end
+
+        # if nemo == "ACAJTV"
+        #     _fix_agua_del_cajon_topology(data, programacion)
+        # end
         
         es_hidro = false
         maquinas_despachadas = 0
@@ -292,122 +306,143 @@ function map_flows_to_case!(data, programacion)
 end
 
 
-"""
-Escala la demanda para que el caso cierre
-"""
-function map_loads_to_case!(data, programacion)
-    config = get_configuration_data()
-    hora_str = hora_str = "H" * lpad(hour(data["datetime"]), 1, '0')
-    
-    # obtengo programacion de demanda
-    balance = programacion["BALANCE"]
-    p_objetivo = filter(row -> row.VARIABLE == "Demanda Neta", balance)[!, ["RGE", hora_str]]
-    p_objetivo[!, hora_str] /= data["baseMVA"]
-    p_objetivo = p_objetivo |> eachrow |> Dict
-
-    # mapeo demandas a cada region electrica    
-    area2rge = Dict(area => rge for (rge, areas) in config["balance"]["RGE"] for area in areas)
-    loads_in_rge = Dict(rge => [] for rge in unique(values(area2rge)))
-    source_id2load = Dict()
-    for (i, load) in data["load"]
-        load["status"] == 0 && continue
-
-        bus_i = load["load_bus"]
-        bus = data["bus"]["$bus_i"]
-        area = bus["area"]
-
-        # referencia para poder agrupar demandas
-        if haskey(area2rge, area)
-            rge = area2rge[area]
-            push!(loads_in_rge[rge], i)
-        end
-
-        # referencia para trabajar sobre demandas particulares
-        source_id2load[load["source_id"][2:end]] = load
-    end
-
-    # calculo los totales y coeficientes
-    for (rge, loads) in loads_in_rge
-        
-        # tipo de demandas
-        in_service_loads = [data["load"][i] for i in loads if data["load"][i]["status"] == 1]
-        p_escalable = sum(load["pd"] for load in in_service_loads if load["scalable"])
-        p_no_escalable = sum(load["pd"] for load in in_service_loads if !load["scalable"])
-
-        # factor de ajuste
-        factor = (p_objetivo[rge] - p_no_escalable) / (p_escalable)
-        @info "Se corrige demanda en $rge en un $(round(factor * 100)) % - Objetivo: $(round(p_objetivo[rge] * 100)) MW"
-        
-        # correcciones en casos border
-        if factor < 0 && rge == "PAT"
-            cubas_aluar_pat = [
-                [268, "1 "],
-                [269, "1 "],
-                [217, "1 "],
-                [193, "1 "],
-                ]
-                p_cortada = 0
-                for id in cubas_aluar_pat                    
-                    load = source_id2load[id]
-                    p_load = load["pd"]
-                    p_cortada += p_load
-                    factor = (p_objetivo[rge] - (p_no_escalable - p_cortada)) / (p_escalable)
-
-                idx = load["index"]
-                data["load"]["$idx"]["status"] = 0
-                
-                @info "Se apaga una cuba de aluar ($id) por $(round(p_load * 100, digits=0)) MW"
-                if factor > 0
-                    break
-                end
-            end
-        end
-
-        # aplico factor de ajuste
-        nueva_demanda = 0
-        for load in in_service_loads
-            load["status"] == 0 && continue
-            !load["scalable"] && continue
-
-            idx = load["index"]
-           
-            data["load"]["$idx"]["pd"] = data["load"]["$idx"]["pd"] * factor
-            data["load"]["$idx"]["qd"] = data["load"]["$idx"]["qd"] * factor
-        end        
-    end
-end
-
-
-"""
-Genera una entrada en el data dict de PowerModels
-"1" => {indices = [1, 2, 3], p_des = 1.0, name = name}
-"""
-function map_desired_interchanges!(data, programacion)
+function map_bounds_to_case!(data, programacion)
     baseMVA = data["baseMVA"]
     config = get_configuration_data()
-    hora_str = hora_str = "H" * lpad(hour(data["datetime"]), 1, '0')
+    limites = config["limites"]
 
-    intercambios_programados = Dict()
-    for (n1, n2, p) in programacion["INTERCONEXIONES"][!, ["NODO1", "NODO2", hora_str]] |> eachrow        
-        intercambios_programados[[n1, n2]] =  p
-        intercambios_programados[[n2, n1]] = -p
-    end
-    
-    mapstring2branch = Dict(br["source_id"] => i for (i, br) in data["branch"])
-    data["interchange"] = Dict{String, Any}()
-    for (i, (name, intercambios)) in enumerate(config["intercambios"])
-        branches = [mapstring2branch[x] for x in intercambios["PSSE"]]
-        
-        desired = 0
-        for intercambio in intercambios["PD"]
-            desired += intercambios_programados[intercambio] / baseMVA
-        end
-        
-        data["interchange"][string(i)] = Dict(
-            "branches" => branches,
-            "p_desired" => desired,
-            "name" => name
-        )
-            
+    source2idx = Dict(
+        "load" =>Dict(load["source_id"] => i for (i, load) in data["load"])
+    )
+
+    for (name, limite) in limites
+        component = limite["component"]
+        index = source2idx[component][limite["source_id"]]
+
+        ub_name = limite["variable"] * "_max"
+        lb_name = limite["variable"] * "_min"
+
+        data[component][index][ub_name] = limite["max"]
+        data[component][index][lb_name] = limite["min"]
     end
 end
+
+# """
+# Escala la demanda para que el caso cierre
+# """
+# function map_loads_to_case!(data, programacion)
+#     config = get_configuration_data()
+#     hora_str = hora_str = "H" * lpad(hour(data["datetime"]), 1, '0')
+    
+#     # obtengo programacion de demanda
+#     balance = programacion["BALANCE"]
+#     p_objetivo = filter(row -> row.VARIABLE == "Demanda Neta", balance)[!, ["RGE", hora_str]]
+#     p_objetivo[!, hora_str] /= data["baseMVA"]
+#     p_objetivo = p_objetivo |> eachrow |> Dict
+
+#     # mapeo demandas a cada region electrica    
+#     area2rge = Dict(area => rge for (rge, areas) in config["balance"]["RGE"] for area in areas)
+#     loads_in_rge = Dict(rge => [] for rge in unique(values(area2rge)))
+#     source_id2load = Dict()
+#     for (i, load) in data["load"]
+#         load["status"] == 0 && continue
+
+#         bus_i = load["load_bus"]
+#         bus = data["bus"]["$bus_i"]
+#         area = bus["area"]
+
+#         # referencia para poder agrupar demandas
+#         if haskey(area2rge, area)
+#             rge = area2rge[area]
+#             push!(loads_in_rge[rge], i)
+#         end
+
+#         # referencia para trabajar sobre demandas particulares
+#         source_id2load[load["source_id"][2:end]] = load
+#     end
+
+#     # calculo los totales y coeficientes
+#     for (rge, loads) in loads_in_rge
+        
+#         # tipo de demandas
+#         in_service_loads = [data["load"][i] for i in loads if data["load"][i]["status"] == 1]
+#         p_escalable = sum(load["pd"] for load in in_service_loads if load["scalable"])
+#         p_no_escalable = sum(load["pd"] for load in in_service_loads if !load["scalable"])
+
+#         # factor de ajuste
+#         factor = (p_objetivo[rge] - p_no_escalable) / (p_escalable)
+#         @info "Se corrige demanda en $rge en un $(round(factor * 100)) % - Objetivo: $(round(p_objetivo[rge] * 100)) MW"
+        
+#         # correcciones en casos border
+#         if factor < 0 && rge == "PAT"
+#             cubas_aluar_pat = [
+#                 [268, "1 "],
+#                 [269, "1 "],
+#                 [217, "1 "],
+#                 [193, "1 "],
+#                 ]
+#                 p_cortada = 0
+#                 for id in cubas_aluar_pat                    
+#                     load = source_id2load[id]
+#                     p_load = load["pd"]
+#                     p_cortada += p_load
+#                     factor = (p_objetivo[rge] - (p_no_escalable - p_cortada)) / (p_escalable)
+
+#                 idx = load["index"]
+#                 data["load"]["$idx"]["status"] = 0
+                
+#                 @info "Se apaga una cuba de aluar ($id) por $(round(p_load * 100, digits=0)) MW"
+#                 if factor > 0
+#                     break
+#                 end
+#             end
+#         end
+
+#         # aplico factor de ajuste
+#         nueva_demanda = 0
+#         for load in in_service_loads
+#             load["status"] == 0 && continue
+#             !load["scalable"] && continue
+
+#             idx = load["index"]
+           
+#             data["load"]["$idx"]["pd"] = data["load"]["$idx"]["pd"] * factor
+#             data["load"]["$idx"]["qd"] = data["load"]["$idx"]["qd"] * factor
+#         end        
+#     end
+# end
+
+
+# """
+# Genera una entrada en el data dict de PowerModels
+# "1" => {indices = [1, 2, 3], p_des = 1.0, name = name}
+# """
+# function map_desired_interchanges!(data, programacion)
+#     baseMVA = data["baseMVA"]
+#     config = get_configuration_data()
+#     hora_str = hora_str = "H" * lpad(hour(data["datetime"]), 1, '0')
+
+#     intercambios_programados = Dict()
+#     for (n1, n2, p) in programacion["INTERCONEXIONES"][!, ["NODO1", "NODO2", hora_str]] |> eachrow        
+#         intercambios_programados[[n1, n2]] =  p
+#         intercambios_programados[[n2, n1]] = -p
+#     end
+    
+#     mapstring2branch = Dict(br["source_id"] => i for (i, br) in data["branch"])
+#     data["interchange"] = Dict{String, Any}()
+#     for (i, (name, intercambios)) in enumerate(config["intercambios"])
+#         branches = [mapstring2branch[x] for x in intercambios["PSSE"]]
+        
+#         desired = 0
+#         for intercambio in intercambios["PD"]
+#             desired += intercambios_programados[intercambio] / baseMVA
+#         end
+        
+#         data["interchange"][string(i)] = Dict(
+#             "branches" => branches,
+#             "p_desired" => desired,
+#             "name" => name
+#         )
+            
+#     end
+# end

@@ -46,7 +46,6 @@ function build_state_estimation(pm::AbstractPowerModel)
         
         # fix power factor    
         constraint_fixed_power_factor(pm, i)
-        
         if load["scalable"] == 0
             # TODO verificar si realmente considerarlas fijas
             # constraint_fixed_load_power(pm, i)

@@ -14,8 +14,8 @@ function variable_load_power_real(pm::AbstractPowerModel; nw::Int=nw_id_default,
 
     if bounded
         for (i, load) in ref(pm, nw, :load)
-            JuMP.set_lower_bound(pd[i], load["pmin"])
-            JuMP.set_upper_bound(pd[i], load["pmax"])
+            JuMP.set_lower_bound(pd[i], get(load, "pd_min", -99.99))
+            JuMP.set_upper_bound(pd[i], get(load, "pd_max",  99.99))
         end
     end
 
@@ -31,8 +31,8 @@ function variable_load_power_imag(pm::AbstractPowerModel; nw::Int=nw_id_default,
 
     if bounded
         for (i, load) in ref(pm, nw, :load)
-            JuMP.set_lower_bound(qd[i], load["qmin"])
-            JuMP.set_upper_bound(qd[i], load["qmax"])
+            JuMP.set_lower_bound(qd[i], get(load, "qd_min", -99.99))
+            JuMP.set_upper_bound(qd[i], get(load, "qd_max",  99.99))
         end
     end
 

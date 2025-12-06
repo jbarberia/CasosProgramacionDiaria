@@ -36,36 +36,23 @@ function test_solution(data, results, outfile)
 end
 
 
-# @testset failfast=true "Estimador de estado 2025-6-6 20:00" begin
-#     fecha = DateTime(2025, 6, 6, 20, 00)  # 2025-06-06 20:00    
-#     prog = get_programacion_diaria(fecha)
-#     data = get_base_case(fecha)
+@testset failfast=true "Estimador de estado 2025-6-6 20:00" begin
+    fecha = DateTime(2025, 6, 6, 20, 00)  # 2025-06-06 20:00    
+    prog = get_programacion_diaria(fecha)
+    data = get_base_case(fecha)
     
-#     map_generators_to_case!(data, prog)
-#     map_flows_to_case!(data, prog)
+    map_generators_to_case!(data, prog)
+    map_flows_to_case!(data, prog)
+    map_bounds_to_case!(data, prog)
     
-#     set_voltage_bounds!(data)
+    set_voltage_bounds!(data)
+    set_load_bounds!(data)
 
-#     # TODO encontrar mejores bordes para las demandas
-#     for (i, load) in data["load"]
-#         if load["pd"] >= 0
-#             load["pmin"] = minimum([load["pd"] * 2.0, 0.0])
-#             load["pmax"] = maximum([load["pd"] * 2.0, 0.0])
-#             load["qmin"] = minimum([load["qd"] * 2.0, load["qd"] * -2.0])
-#             load["qmax"] = maximum([load["qd"] * 2.0, load["qd"] * -2.0])
-#         else
-#             load["pmin"] = minimum([load["pd"] * 2.0, load["pd"] * -2.0])
-#             load["pmax"] = maximum([load["pd"] * 2.0, load["pd"] * -2.0])
-#             load["qmin"] = minimum([load["qd"] * 2.0, load["qd"] * -2.0])
-#             load["qmax"] = maximum([load["qd"] * 2.0, load["qd"] * -2.0])
-#         end
-#     end
+    set_start_values!(data)        
+    results = run_state_estimation(data, ACPPowerModel, optimizer)
 
-#     set_start_values!(data)        
-#     results = run_state_estimation(data, ACPPowerModel, optimizer)
-
-#     test_solution(data, results, "06-06-2025_H20.sav")
-# end
+    test_solution(data, results, "06-06-2025_H20.sav")
+end
 
 
 @testset failfast=true "Estimador de estado 2025-11-29 15:00" begin
@@ -75,28 +62,14 @@ end
     
     map_generators_to_case!(data, prog)
     map_flows_to_case!(data, prog)
+    map_bounds_to_case!(data, prog)
     
     set_voltage_bounds!(data)
-
-    # TODO encontrar mejores bordes para las demandas
-    for (i, load) in data["load"]
-        if load["pd"] >= 0
-            load["pmin"] = minimum([load["pd"] * 2.0, 0.0])
-            load["pmax"] = maximum([load["pd"] * 2.0, 0.0])
-            load["qmin"] = minimum([load["qd"] * 2.0, load["qd"] * -2.0])
-            load["qmax"] = maximum([load["qd"] * 2.0, load["qd"] * -2.0])
-        else
-            load["pmin"] = minimum([load["pd"] * 2.0, load["pd"] * -2.0])
-            load["pmax"] = maximum([load["pd"] * 2.0, load["pd"] * -2.0])
-            load["qmin"] = minimum([load["qd"] * 2.0, load["qd"] * -2.0])
-            load["qmax"] = maximum([load["qd"] * 2.0, load["qd"] * -2.0])
-        end
-    end
+    set_load_bounds!(data)
 
     set_start_values!(data)        
     results = run_state_estimation(data, ACPPowerModel, optimizer)
 
     test_solution(data, results, "29-11-2025_H15.sav")
 end
-
 
