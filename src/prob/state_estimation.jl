@@ -40,9 +40,10 @@ function build_state_estimation(pm::AbstractPowerModel)
     # demandas
     for (i, load) in ref(pm, :load)
         
-        # intercambios brasil
+        # intercambios brasil y paraguay libres
         load["load_bus"] == 5010 && continue
         load["load_bus"] == 5020 && continue
+        load["load_bus"] == 43000 && continue
         
         # fix power factor    
         constraint_fixed_power_factor(pm, i)

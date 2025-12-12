@@ -41,11 +41,10 @@ end
     prog = get_programacion_diaria(fecha)
     data = get_base_case(fecha)
     
+    set_voltage_bounds!(data)
     map_generators_to_case!(data, prog)
     map_flows_to_case!(data, prog)
     map_bounds_to_case!(data, prog)
-    
-    set_voltage_bounds!(data)
     set_load_bounds!(data)
 
     set_start_values!(data)        
@@ -60,16 +59,16 @@ end
     prog = get_programacion_diaria(fecha)
     data = get_base_case(fecha)
     
+    set_voltage_bounds!(data)
     map_generators_to_case!(data, prog)
     map_flows_to_case!(data, prog)
     map_bounds_to_case!(data, prog)
-    
-    set_voltage_bounds!(data)
     set_load_bounds!(data)
 
     set_start_values!(data)        
     results = run_state_estimation(data, ACPPowerModel, optimizer)
-
+    
+    
     test_solution(data, results, "29-11-2025_H15.sav")
 end
 

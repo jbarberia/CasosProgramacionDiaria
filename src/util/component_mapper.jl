@@ -46,13 +46,13 @@ function get_base_case(fecha::DateTime)
 
     casos_base = Dict(
         "verano" => Dict(
-            "valle" => "$root/ver2526va.sav",
+            "valle" => "$root/inv25pi.sav",
             "resto" => "$root/inv25pi.sav",
-            "pico"  => "$root/ver2526pin.sav",
+            "pico"  => "$root/inv25pi.sav",
         ),    
         "invierno" => Dict(
-            "valle" => "$root/inv25va.sav",
-            "resto" => "$root/inv25hr.sav",
+            "valle" => "$root/inv25pi.sav",
+            "resto" => "$root/inv25pi.sav",
             "pico"  => "$root/inv25pi.sav",
         ),
     )
@@ -132,14 +132,15 @@ function _fix_salto_grande_dispach!(source_ids, data, programacion)
         p_ur -= p_unit
     end
 
+    
     # se ponen el resto de las maquinas al final
     for source_id in source_ids
         if !(source_id in new_source_ids)
             push!(new_source_ids, source_id)
         end
     end
-
-    source_id = new_source_ids             
+    
+    return new_source_ids             
 end
 
 
@@ -166,8 +167,9 @@ function map_generators_to_case!(data, programacion)
         end
 
         # ajustes por topologia
-        nemo == "SGDEHIAR" && _fix_salto_grande_dispach!(source_ids, data, programacion)
-        
+        if nemo == "SGDEHIAR"
+            source_ids = _fix_salto_grande_dispach!(source_ids, data, programacion)
+        end
         
         maq_prendidas = 0
         for source_id in source_ids
@@ -312,18 +314,19 @@ function map_bounds_to_case!(data, programacion)
     limites = config["limites"]
 
     source2idx = Dict(
-        "load" =>Dict(load["source_id"] => i for (i, load) in data["load"])
+        "load" => Dict(x["source_id"] => i for (i, x) in data["load"]),
+        "gen"  => Dict(x["source_id"] => i for (i, x) in data["gen"]),
+        "bus"  => Dict(x["source_id"] => i for (i, x) in data["bus"])
     )
 
     for (name, limite) in limites
         component = limite["component"]
         index = source2idx[component][limite["source_id"]]
 
-        ub_name = limite["variable"] * "_max"
-        lb_name = limite["variable"] * "_min"
-
-        data[component][index][ub_name] = limite["max"]
-        data[component][index][lb_name] = limite["min"]
+        for (k, v) in limite
+            k in ["source_id", "component"] && continue
+            data[component][index][k] = v
+        end        
     end
 end
 

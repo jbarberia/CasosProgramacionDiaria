@@ -87,10 +87,16 @@ function _flujo_de_carga_con_controles()
     psspy.fnsl(options1=0, options5=0)  # locked
     @assert psspy.solved() == 0
 
-    psspy.fnsl(options1=2, options5=0)  # direct
-    psspy.fnsl(options1=1, options5=0)  # stepping
-    psspy.fnsl(options1=1, options5=2)  # stepping + cont shunt
-    psspy.fnsl(options1=1, options5=1)  # stepping + all shunt
+    # opciones para hacer robusto el cambio de topes
+    psspy.solution_parameters_4(
+        intgar4=5,
+        realar13=0.8, 
+        realar14=0.02
+    )
+
+    psspy.fnsl(options1=0, options5=2)  # locked + cont shunt
+    psspy.fnsl(options1=0, options5=1)  # locked + all shunt
+    # psspy.fnsl(options1=2, options5=0)  # direct    
     psspy.fnsl(options1=0, options5=0)  # locked to save the sol
     @assert psspy.solved() == 0
 end

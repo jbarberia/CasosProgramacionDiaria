@@ -680,6 +680,17 @@
         "PSSE": [["LII", 4006, 5004, "1 "]],
         "PD": [["ROMANG 5", "RESIST 5"]]
     },
+    "NEA_S.CATALINA_P.PATRIA": {
+        "PSSE": [
+            ["LII", 5238, 5242, "A "],
+            ["LII", 5238, 5242, "B "]
+        ],
+        "PD": [["S.CATA 1", "P.PATR 1"]]
+    },    
+    "NEA_RINCON_ITUZAINGO": {
+        "PSSE": [["LII", 5250, 5294, "2 "]],
+        "PD": [["RINCON 1", "ITUZAI 1"]]
+    },
     "NEA_RESISTENCIA_CHACO": {
         "PSSE": [["LII", 5004, 5016, "1 "]],
         "PD": [["RESIST 5", "CHACO  5"]]
@@ -763,6 +774,51 @@
         "PSSE": [["LII", 4008, 5002, "1 "]],
         "PD": [[" SGR.A 5", "RINCON 5"]]
     },
+    "NOA_CEVIL_POZO_BRACHO": {
+        "PSSE": [
+            ["LII", 8226, 8230, "1 "],
+            ["LII", 8226, 8955, "2 "]
+        ],
+        "PD": [["C.POZO 1", "BRACHO 1"]]
+    },
+    "NOA_BRACHO_INDEPENDENCIA": {
+        "PSSE": [
+            ["LII", 8232, 8250, "1 "],
+            ["LII", 8232, 8252, "2 "]
+        ],
+        "PD": [["BRACHO 1", "INDEP2 1"]]
+    },
+    "NOA_BRACHO_TERMASNORTE": {
+        "PSSE": [["LII", 8232, 8335, "1 "]],
+        "PD": [["BRACHO 1", "TERMAN 1"]]
+    },
+    "NOA_A.BLANCA_INDEPENDENCIA": {
+        "PSSE": [["LII", 8202, 8250, "1 "]],
+        "PD": [["A.BLAN 1", "INDEP2 1"]]
+    },
+    "NOA_INDEPENDENCIA_LULES": {
+        "PSSE": [["LII", 8250, 8283, "1 "]],
+        "PD": [["INDEPE 1", "LULES  1"]]
+    },
+    "NOA_MANANTIALES_INDEPENDENCIA": {
+        "PSSE": [
+            ["LII", 8201, 8250, "1 "],
+            ["LII", 8201, 8250, "2 "]
+        ],
+        "PD": [["MANANT 1", "INDEPE 1"]]
+    },
+    "NOA_R.HONDO_V.QUINTE": {
+        "PSSE": [["LII", 8294, 8322, "1 "]],
+        "PD": [["R.HOND 1", "V.QUIN 1"]]
+    },
+    "NOA_ACONQUIJA_V.QUINTE": {
+        "PSSE": [["LII", 8321, 8322, "1 "]],
+        "PD": [["ACONQJ 1", "V.QUIN 1"]]
+    },
+    "NOA_BRACHO_BANDA_ESTE": {
+        "PSSE": [["LII", 8232, 8259, "1 "]],
+        "PD": [["BRACHO 1", "LABAES 1"]]
+    },
     "NOA_RECREO_LAVALLE": {
         "PSSE": [["LII", 8002, 8012, "1 "]],
         "PD": [["RECREO 5", "LAVALL 5"]]
@@ -781,6 +837,14 @@
             ["LII", 8244, 8326, "2 "]
         ],
         "PD": [["GUEMEG 1", "COBOS1 1"]]
+    },
+    "NOA_ALTIPLANO_PUNA": {
+        "PSSE": [["LII", 8122, 8130, "1 "]],
+        "PD": [["ALTIPL 3", "LAPUNA 3"]]
+    },
+    "NOA_COBOS_ALTIPLANO": {
+        "PSSE": [["LII", 8120, 8122, "1 "]],
+        "PD": [["COBOS  3", "ALTIPL 3"]]
     },
     "NOA_R.FRONTE_COBOS": {
         "PSSE": [["LII", 8243, 8326, "1 "]],
@@ -861,6 +925,56 @@
     "NOA_COBOS_S.JUANCITO": {
         "PSSE": [["LII", 8007, 8008, "1 "]],
         "PD": [["COBOS  5", "JUANCI 5"]]
+    },
+    "NOA_RIOJA_RIOJA_SUR": {
+        "PSSE": [
+            ["LII", 8266, 8271, "1 "],
+            ["LII", 8266, 8271, "2 "]
+        ],
+        "PD": [[" RIOJA 1", "LRIOSU 1"]]
+    },
+    "NOA_LA_RIOJA_SUR_RIOJA_ESTE": {
+        "PSSE": [["LII", 8271, 8273, "1 "]],
+        "PD": [["LRIOSU 1", "LRIOES 1"]]
+    },
+    "NOA_LA_RIOJA_CIRCUNVALACION": {
+        "PSSE": [["LII", 8266, 8275, "1 "]],
+        "PD": [[" RIOJA 1", "CIRCUN 1"]]
+    },
+    "NOA_ARAUCO_LA_RIOJA": {
+        "PSSE": [["LII", 8207, 8266, "1 "]],
+        "PD": [["ARAUCO 1", " RIOJA 1"]]
+    },
+    "NOA_AIMOGASTA_ARAUCO": {
+        "PSSE": [["LII", 8206, 8207, "1 "]],
+        "PD": [["AIMOGA 1", "ARAUCO 1"]]
+    },
+    "NOA_CATAMARCA_VALLE_VIEJO": {
+        "PSSE": [["LII", 8220, 8231, "1 "]],
+        "PD": [["CATAMA 1", "VVIEJO 1"]]
+    },
+    "NOA_RECREO_LA_PAZ": {
+        "PSSE": [["LII", 8292, 8301, "1 "]],
+        "PD": [["RECREO 1", "LAPAZ  1"]]
+    },
+    "NOA_RIOJA_SUR_SAN_MARTIN": {
+        "PSSE": [
+            ["LII", 8271, 8289, "1 "],
+            ["LII", 8271, 8289, "2 "]
+        ],
+        "PD": [["LRIOSU 1", "S.MART 1"]]
+    },
+    "NOA_SAN_MARTIN_RECREO": {
+        "PSSE": [
+            ["LII", 8289, 8292, "1 "],
+            ["LII", 8289, 8292, "2 "],
+            ["LII", 8289, 8292, "3 "]
+        ],
+        "PD": [["S.MART 1", "RECREO 1"]]
+    },
+    "NOA_FRIAS_RECREO": {
+        "PSSE": [["LII", 8242, 8292, "1 "]],
+        "PD": [[" FRIAS 1", "RECREO 1"]]
     },
     "NOA_LAVALLE_SANTIAGO": {
         "PSSE": [["LII", 8012, 8013, "1 "]],
@@ -1098,7 +1212,13 @@
         "PSSE": [["LII", 90000, 90080, "1 "]],
         "PD": [[" SGR.U 5", " S.JAV 5"]]
     },
-    
+    "LIT_SALTO_GRANDE_500_132": {
+        "PSSE": [
+            ["T3", 4008, 4294, 4808, "1 ", 1],
+            ["T3", 4008, 4295, 4814, "2 ", 1]
+        ],
+        "PD": [[" SGR.A 5", " SGR.A 1"]]
+    },
     "BAS_HENDERSON_500_132": {
         "PSSE": [["T3", 2006, 2245, 2828, "7 ", 1]],
         "PD": [[" HEND2 5", " HENDE 1"]]
@@ -1323,6 +1443,13 @@
         ],
         "PD": [["RECREO 5", "RECREO 1"]]
     },
+    "NOA_LA_RIOJA_SUR_500_132": {
+        "PSSE": [  
+            ["T3", 8006, 8271, 8526, "1 ", 1],
+            ["T3", 8006, 8271, 8560, "2 ", 1]
+        ],
+        "PD": [["LRIOSU 5", "LRIOSU 1"]]
+    },
     "NEA_G.FORMOSA_500_132": {
         "PSSE": [  
             ["T3", 5006, 5330, 5829, "1 ", 1],
@@ -1375,16 +1502,73 @@
         "PSSE": [["T3", 8010, 8302, 8803, "1 ", 1]],
         "PD": [["MQUEMA 5", "MQUEMA 1"]]
     },
+    "CUY_NUEVA_SAN_JUAN_LA_BEBIDA": {
+        "PSSE": [["LII", 7203, 7255, "1 "]],
+        "PD": [["NSJUAN 1", "BEBIDA 1"]]
+    },
+    "CUY_RIELES_SAN_JUAN": {
+        "PSSE": [["LII", 7239, 7244, "1 "]],
+        "PD": [["P.RIEL 1", "S.JUAN 1"]]
+    },
+    "CUY_NUEVA_SAN_JUAN_SAN_JUAN": {
+        "PSSE": [
+            ["LII", 7203, 7244, "1 "],
+            ["LII", 7203, 7244, "2 "]
+        ],
+        "PD": [["NSJUAN 1", "S.JUAN 1"]]
+    },
     "CUY_CRUZ_DE_PIEDRA_SAN_JUAN": {
         "PSSE": [["LII", 7102, 7103, "1 "]],
         "PD": [["PIEDRA 2", "S.JUAN 2"]]
     },
-    "CUY_CRUZ_DE_PIEDRA_GRAN_MENDOZA": {
+    "CUY_CRUZ_DE_PIEDRA_GRAN_MENDOZA_220": {
         "PSSE": [
             ["LII", 7102, 7104, "1 "],
             ["LII", 7102, 7104, "2 "]
         ],
         "PD": [["PIEDRA 2", " G.MZA 2"]]
+    },
+    "CUY_CRUZ_DE_PIEDRA_GRAN_MENDOZA_132": {
+        "PSSE": [
+            ["LII", 7208, 7216, "A "],
+            ["LII", 7208, 7216, "B "]
+        ],
+        "PD": [["PIEDRA 1", " G.MZA 1"]]
+    },
+    "CUY_GRAN_MENDOZA_MONTE_CASEROS_132": {
+        "PSSE": [
+            ["LII", 7216, 7226, "A "],
+            ["LII", 7216, 7226, "B "]
+        ],
+        "PD": [[" G.MZA 1", "M.CASE 1"]]
+    },
+    "CUY_NIHUIL_1_NIHUIL_2": {
+        "PSSE": [["LII", 7230, 7232, "1 "]],
+        "PD": [["NIHUI1 1", "NIHUI2 1"]]
+    },
+    "CUY_NIHUIL_2_NIHUIL_3": {
+        "PSSE": [["LII", 7232, 7234, "1 "]],
+        "PD": [["NIHUI2 1", "NIHUI3 1"]]
+    },
+    "CUY_NIHUIL_3_NIHUIL_4": {
+        "PSSE": [["LII", 7234, 7235, "1 "]],
+        "PD": [["NIHUI3 1", "NIHUI4 1"]]
+    },
+    "CUY_NIHUIL_1_VARGAS": {
+        "PSSE": [["LII", 7230, 7238, "1 "]],
+        "PD": [["NIHUI1 1", " VARGA 1"]]
+    },
+    "CUY_CAPIZ_VARGAS": {
+        "PSSE": [["LII", 7204, 7238, "1 "]],
+        "PD": [[" CAPIZ 1", " VARGA 1"]]
+    },
+    "CUY_RAFAEL_VARGAS": {
+        "PSSE": [["LII", 7209, 7238, "1 "]],
+        "PD": [["RAFAEL 1", " VARGA 1"]]
+    },
+    "CUY_ANCHORIZ_CAPIZ": {
+        "PSSE": [["LII", 7200, 7204, "1 "]],
+        "PD": [["ANCHOR 1", " CAPIZ 1"]]
     },
     "CUY_REYUNOS_RIO_DIAMANTE": {
         "PSSE": [["LII", 7106, 7114, "1 "]],
@@ -1402,6 +1586,25 @@
         "PSSE": [["LII", 7100, 7108, "1 "]],
         "PD": [["A.TORO 2", "NIHUI2 2"]]
     },
+    "CUY_CRUZ_DE_PIEDRA_LUJAN_DE_CUYO": {
+        "PSSE": [
+            ["LII", 7208, 7224, "A "],
+            ["LII", 7208, 7224, "B "]
+        ],
+        "PD": [["PIEDRA 1", "L.CUYO 1"]]
+    },
+    "CUY_ANCHORIS_CRUZ_DE_PIEDRA": {
+        "PSSE": [["LII", 7200, 7208, "1 "]],
+        "PD": [["ANCHOR 1", "PIEDRA 1"]]
+    },
+    "CUY_ANCHORIS_LC35": {
+        "PSSE": [["LII", 7200, 7222, "1 "]],
+        "PD": [["ANCHOR 1", " LC35  1"]]
+    },
+    "CUY_LC35_TUNUYAN": {
+        "PSSE": [["LII", 7222, 7256, "1 "]],
+        "PD": [[" LC35  1", "TUNUYA 1"]]
+    },
     "CUY_AGUA_DEL_TORO_CRUZ_DE_PIEDRA": {
         "PSSE": [["LII", 7100, 7101, "1 "]],
         "PD": [["A.TORO 2", "PIEDRA 2"]]
@@ -1412,6 +1615,12 @@
             ["T3", 7102, 7208, 7801, "2 ", 1]
         ],
         "PD": [["PIEDRA 2", "PIEDRA 1"]]
+    },
+    "CUY_NIHUIL_220_132": {
+        "PSSE": [
+            ["T3", 7108, 7232, 7805, "1 ", 1]
+        ],
+        "PD": [["NIHUI2 2", "NIHUI2 1"]]
     },
     "CUY_SAN_JUAN_220_132": {
         "PSSE": [

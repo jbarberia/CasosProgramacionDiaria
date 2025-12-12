@@ -18,3 +18,4 @@ De esta manera se bypassea el error de OpenBLAS al correr en una máquina de 64 
 [] Entre Mercedes 500 kV y Salto Grande se debe estimar cuales son las demandas que van conectadas a cada ET de 500 kV  
 [] Normalizar ID de demandas
 [] Abrir Guatrache - Puan
+[] Eliminar demanda en 7558 T.PORTICO
