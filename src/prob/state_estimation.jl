@@ -18,6 +18,7 @@ function build_state_estimation(pm::AbstractPowerModel)
     variable_bus_voltage(pm, bounded=true)
     variable_gen_power(pm, bounded=true)    
     variable_load_power(pm, bounded=true)
+    variable_branch_transform_magnitude(pm, bounded=true)
     variable_branch_power(pm, bounded=false)
     variable_dcline_power(pm, bounded=false)            
 
@@ -59,9 +60,22 @@ function build_state_estimation(pm::AbstractPowerModel)
     end
 
     # flujo de potencia
-    for i in ids(pm, :branch)
-        constraint_ohms_yt_from(pm, i)
-        constraint_ohms_yt_to(pm, i)
+    for (i, brn) in ref(pm, :branch)
+        
+        if isapprox(brn["tm_min"], brn["tm_max"], atol=1e-4)
+            fix(var(pm, :tm, i), brn["tm_start"]; force=true)
+        else
+            # fix(var(pm, :tm, i), brn["tm_start"]; force=true)
+            # Main.@infiltrate
+        end
+        # == brn["tm_min"] && Main.@infiltrate
+        
+
+        constraint_ohms_y_oltc_from(pm, i)
+        constraint_ohms_y_oltc_to(pm, i)
+        
+        # constraint_ohms_yt_from(pm, i)
+        # constraint_ohms_yt_to(pm, i)
         constraint_voltage_angle_difference(pm, i)
     end
 
@@ -82,4 +96,6 @@ function build_state_estimation(pm::AbstractPowerModel)
     
     # objetivos
     objective_measurement_quadratic_loss(pm)
+    objective_transformer_voltage_control(pm)
+    objective_transformer_GBA(pm)
 end

@@ -99,7 +99,7 @@ function _fix_salto_grande_dispach!(source_ids, data, programacion)
     # SGDEHIAR indica las maquinas prendidas en MAQHID_DESPACHADAS
     # SGDEHIAR Y SGDEHIUR indica los despachos de las maquinas
 
-    hora_str = hora_str = "H" * lpad(hour(data["datetime"]), 1, '0')
+    hora_str = hora_str = "H" * lpad(hour(data["datetime"]), 2, '0')
     sgde = programacion["MAQHID_DESPACHADAS"][!, "CENTRAL"] .== "SGDEHIAR"
     n_maquinas = programacion["MAQHID_DESPACHADAS"][sgde, hora_str][1]
     
@@ -149,7 +149,7 @@ Toma la programacion diaria y mapeo los valores de generadores al caso
 """
 function map_generators_to_case!(data, programacion)
     config = get_configuration_data()
-    hora_str = hora_str = "H" * lpad(hour(data["datetime"]), 1, '0')
+    hora_str = hora_str = "H" * lpad(hour(data["datetime"]), 2, '0')
 
     # Mapeo generadores
     source2index = Dict(gen["source_id"][2:end] => i for (i, gen) in data["gen"])
@@ -259,7 +259,7 @@ sobre interfaces y limites inter-areas que involucren mas de una linea.
 function map_flows_to_case!(data, programacion)
     baseMVA = data["baseMVA"]
     config = get_configuration_data()
-    hora_str = hora_str = "H" * lpad(hour(data["datetime"]), 1, '0')
+    hora_str = hora_str = "H" * lpad(hour(data["datetime"]), 2, '0')
     
     flujo_programado = Dict{Any, Any}()
     datos_interconexiones = programacion["INTERCONEXIONES"][!, ["NODO1", "NODO2", hora_str]]

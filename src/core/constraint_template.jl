@@ -15,6 +15,35 @@ function constraint_power_balance_with_variable_demand(pm::_PM.AbstractPowerMode
     constraint_power_balance_with_variable_demand(pm, nw, i, bus_arcs, bus_arcs_dc, bus_arcs_sw, bus_gens, bus_storage, bus_loads, bus_gs, bus_bs)
 end
 
+function constraint_ohms_y_oltc_from(pm::AbstractPowerModel, i::Int; nw::Int=nw_id_default)
+    branch = ref(pm, nw, :branch, i)
+    f_bus = branch["f_bus"]
+    t_bus = branch["t_bus"]
+    f_idx = (i, f_bus, t_bus)
+    t_idx = (i, t_bus, f_bus)
+
+    g, b = calc_branch_y(branch)
+    g_fr = branch["g_fr"]
+    b_fr = branch["b_fr"]
+
+    constraint_ohms_y_oltc_from(pm, nw, f_bus, t_bus, f_idx, t_idx, g, b, g_fr, b_fr)
+end
+
+
+function constraint_ohms_y_oltc_to(pm::AbstractPowerModel, i::Int; nw::Int=nw_id_default)
+    branch = ref(pm, nw, :branch, i)
+    f_bus = branch["f_bus"]
+    t_bus = branch["t_bus"]
+    f_idx = (i, f_bus, t_bus)
+    t_idx = (i, t_bus, f_bus)
+
+    g, b = calc_branch_y(branch)
+    g_to = branch["g_to"]
+    b_to = branch["b_to"]
+
+    constraint_ohms_y_oltc_to(pm, nw, f_bus, t_bus, f_idx, t_idx, g, b, g_to, b_to)
+end
+
 
 function constraint_fixed_load_power(pm::_PM.AbstractPowerModel, i::Int; nw::Int=nw_id_default)
     load = ref(pm, nw, :load, i)

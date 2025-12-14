@@ -958,13 +958,7 @@
         "source_id": ["LO", 3210, "2 "],
         "pd_min": 0.00,
         "pd_max": 0.80
-    },
-    "GBA_DEMANDA_AGRONOMIA_AZUL": {
-        "component": "load",
-        "source_id": ["LO", 3212, "3 "],
-        "pd_min": 0.00,
-        "pd_max": 1.20
-    },
+    },    
     "GBA_DEMANDA_AUSTRIA": {
         "component": "load",
         "source_id": ["LO", 3213, "1 "],

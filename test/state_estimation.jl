@@ -68,7 +68,6 @@ end
     set_start_values!(data)        
     results = run_state_estimation(data, ACPPowerModel, optimizer)
     
-    
     test_solution(data, results, "29-11-2025_H15.sav")
 end
 
