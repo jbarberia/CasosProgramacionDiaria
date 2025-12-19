@@ -981,7 +981,7 @@
         "component": "load",
         "source_id": ["LO", 3561, "1 "],
         "pd_min": 0.00,
-        "pd_max": 1.60
+        "pd_max": 1.20
     },
     "GBA_DEMANDA_MUNRO": {
         "component": "load",
@@ -1642,6 +1642,30 @@
         "source_id": ["LO", 1271, "1 "],
         "pd_min": 0.00,
         "pd_max": 0.30
+    },
+    "LITORAL_DEMANDA_CERES": {
+        "component": "load",
+        "source_id": ["LO", 4816, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.15  
+    },
+    "LITORAL_DEMANDA_TOSTADO": {
+        "component": "load",
+        "source_id": ["LO", 4334, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.15  
+    },
+    "LITORAL_DEMANDA_ARRUFO": {
+        "component": "load",
+        "source_id": ["LO", 4202, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.15  
+    },
+    "LITORAL_DEMANDA_SAN_GUILLERMO": {
+        "component": "load",
+        "source_id": ["LO", 4211, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.30  
     },
     "PBA_DEMANDA_PLANTA_BUNGE": {
         "component": "load",

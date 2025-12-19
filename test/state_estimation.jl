@@ -30,8 +30,7 @@ function test_solution(data, results, outfile)
 
     end
 
-    # export solution    
-    update_data!(data, solution)    
+    # export solution            
     export_case(data, outfile)
 end
 
@@ -47,8 +46,15 @@ end
     map_bounds_to_case!(data, prog)
     set_load_bounds!(data)
 
+    # state estimation
     set_start_values!(data)        
     results = run_state_estimation(data, ACPPowerModel, optimizer)
+    update_data!(data, results["solution"])
+    
+    # voltage control
+    set_start_values!(data)        
+    results = run_voltage_correction(data, ACPPowerModel, optimizer)
+    update_data!(data, results["solution"])
 
     test_solution(data, results, "06-06-2025_H20.sav")
 end
@@ -65,9 +71,16 @@ end
     map_bounds_to_case!(data, prog)
     set_load_bounds!(data)
 
+    # state estimation
     set_start_values!(data)        
     results = run_state_estimation(data, ACPPowerModel, optimizer)
+    update_data!(data, results["solution"])
     
+    # voltage control
+    set_start_values!(data)        
+    results = run_voltage_correction(data, ACPPowerModel, optimizer)
+    update_data!(data, results["solution"])
+
     test_solution(data, results, "29-11-2025_H15.sav")
 end
 

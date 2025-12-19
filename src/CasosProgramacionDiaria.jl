@@ -29,13 +29,15 @@ module CasosProgramacionDiaria
     include("form/acp.jl")
 
     include("prob/state_estimation.jl")
-    
+    include("prob/voltage_correction.jl")
+
     # PSSE2PowerModels
     export psspy
 
     # from module
     export get_base_case
     export get_programacion_diaria
+    export prepare_pm_case
 
     export set_voltage_bounds!
     export set_load_bounds!
@@ -46,6 +48,7 @@ module CasosProgramacionDiaria
     # export map_area_zone_totals_to_case! # Not in use - TODO use summary vars
 
     export run_state_estimation
+    export run_voltage_correction
         
     export set_start_values!
     export export_case

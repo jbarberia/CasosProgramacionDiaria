@@ -770,6 +770,14 @@
         "PSSE": [["LII", 5016, 8011, "1 "]],
         "PD": [["CHACO  5", "MQUEMA 5"]]
     },
+    "NOA_COPO_CAMPO_GALLO": {
+        "PSSE": [["LII", 8303, 8329, "1 "]],
+        "PD": [["COPO   1", "C.GALL 1"]]
+    },
+    "NOA_SUNCHO_CORRAL_QUIMILI": {
+        "PSSE": [["LII", 8293, 8297, "1 "]],
+        "PD": [["SUNCOR 1", "QUIMIL 1"]]
+    },
     "NEA_S.GRANDE_RINCON": {
         "PSSE": [["LII", 4008, 5002, "1 "]],
         "PD": [[" SGR.A 5", "RINCON 5"]]

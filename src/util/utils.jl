@@ -33,8 +33,6 @@ function set_voltage_bounds!(data::Dict{String, Any})
         data["bus"][string(gen_bus)]["vmax"] = 1.10
         data["bus"][string(gen_bus)]["vmin"] = 0.90
     end
-
-
 end
 
 
@@ -55,13 +53,29 @@ for (i,bus) in data["bus"]
         load["qd_start"] = load["qd"]
     end
 
+    flows = calc_branch_flow_ac(data)["branch"]    
     for (i, brn) in data["branch"]
         brn["tm_start"] = brn["tap"]        
-        brn["tm_min"] = !haskey(brn, "tm_min") ? brn["tap"] : brn["tap"] * 0.98
-        brn["tm_max"] = !haskey(brn, "tm_max") ? brn["tap"] : brn["tap"] * 1.02
+        brn["tm_min"] = !haskey(brn, "tm_min") ? brn["tap"] : brn["tm_min"] # brn["tap"] * 0.97
+        brn["tm_max"] = !haskey(brn, "tm_max") ? brn["tap"] : brn["tm_max"] # brn["tap"] * 1.03
+
+        brn["pf_start"] = flows[i]["pf"]
+        brn["pt_start"] = flows[i]["pt"]
+        brn["qf_start"] = flows[i]["qf"]
+        brn["qt_start"] = flows[i]["qt"]
+    end
+
+    for (i, shunt) in data["shunt"]
+        shunt["bs_start"] = shunt["bs"]
+        shunt["bs_min"] = !haskey(shunt, "bs_min") ? shunt["bs"] : shunt["bs_min"]
+        shunt["bs_max"] = !haskey(shunt, "bs_max") ? shunt["bs"] : shunt["bs_max"]
+        
+        if get(shunt, "mode", 0) == 0
+            shunt["bs_min"] = shunt["bs"]
+            shunt["bs_max"] = shunt["bs"]
+        end        
     end
 end
-
 
 
 function set_load_bounds!(data::Dict{String, Any})
@@ -94,34 +108,23 @@ end
 
 "pf con taps y shunt moviles"
 function _flujo_de_carga_con_controles()
-    psspy.rsol(
-        options1=1,
-        options2=0,
-        options3=0,
-        options4=0,
-        options5=1,
-        options6=0,
-        options7=0,
-        options8=0,
-        options9=0,
-        options10=0,
-        realar1=500.0,
-        realar2=5.0,
-    )
-    psspy.fnsl(options1=0, options5=0)  # locked
-    @assert psspy.solved() == 0
-
     # opciones para hacer robusto el cambio de topes
     psspy.solution_parameters_4(
-        intgar4=10,
+        intgar2=100,
+        intgar4=5,
         realar13=0.8, 
-        realar14=0.02
+        realar14=0.01
     )
-    # psspy.fnsl(options1=1, options5=0)  # stepping
-    # psspy.fnsl(options1=0, options5=2)  # locked + cont shunt
-    # psspy.fnsl(options1=0, options5=1)  # locked + all shunt
-    # psspy.fnsl(options1=0, options5=0)  # locked to save the sol
+    psspy.rsol()
+    psspy.fnsl(options1=0, options5=0)  # locked
     @assert psspy.solved() == 0
+    
+    #psspy.fnsl(options1=0, options5=1)  # locked + shunt
+    #psspy.fnsl(options1=1, options5=0)  # stepping
+    #psspy.fnsl(options1=1, options5=0)  # stepping
+    #psspy.fnsl(options1=0, options5=0)  # locked
+    @assert psspy.solved() == 0
+    
 end
 
 "Devuelve el control conjunto en ezeiza"
@@ -142,8 +145,10 @@ Arma ajustes basicos de control que se podrian perder en el caso.
 function export_case(data, filename)
     base_case = data["base_case"]
     psspy.case(base_case)
+    psspy.progress_output(6)
     build_psse_data(data)
-
+    psspy.progress_output(1)
+    
     _compensadores_ezeiza()
     _flujo_de_carga_con_controles()
 

@@ -40,6 +40,25 @@ function variable_load_power_imag(pm::AbstractPowerModel; nw::Int=nw_id_default,
 end
 
 
+function variable_shunt_admitance(pm::AbstractPowerModel; nw::Int=nw_id_default, bounded::Bool=true, report::Bool=true)
+    bs = var(pm, nw)[:bs] = JuMP.@variable(pm.model,
+        [i in ids(pm, nw, :shunt)], base_name="$(nw)_bs",
+        start = comp_start_value(ref(pm, nw, :shunt, i), "bs_start")
+    )
+
+    if bounded
+        for (i, shunt) in ref(pm, nw, :shunt)
+            JuMP.set_lower_bound(bs[i], get(shunt, "bs_min", shunt["bs"]))
+            JuMP.set_upper_bound(bs[i], get(shunt, "bs_max", shunt["bs"]))
+        end
+    end
+
+    report && _IM.sol_component_value(pm, pm_it_sym, nw, :shunt, :bs, ids(pm, nw, :shunt), bs)
+end
+
+
+
+# Estas debajo no son utilizados
 
 
 function variable_load_area_factor(pm::AbstractPowerModel; nw::Int=nw_id_default, bounded::Bool=true, report::Bool=true)

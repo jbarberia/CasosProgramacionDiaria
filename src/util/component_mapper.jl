@@ -43,6 +43,7 @@ function get_base_case(fecha::DateTime)
 
     # TODO ver escenarios bases, ya que puede modificar la operación
     # ejemplo el verano pico es excesivo para dias por fuera del maximo historico
+    # de momento todos los casos son iguales
 
     casos_base = Dict(
         "verano" => Dict(
@@ -91,6 +92,27 @@ function get_base_case(programacion::Dict, hora::Time)
     date_string = programacion["FECHA_REVISTA"][1, "FECHA"]
     parsed_date = Date(date_string, dateformat"dd/mm/yyyy") + hora
     return get_base_case(parsed_date)
+end
+
+
+"""
+A partir de un caso base convierte los datos a PM.
+Util para hacer secuencias de tiempo
+"""
+function prepare_pm_case(filename::String, fecha::DateTime)
+    psspy.psseinit()
+    psspy.case(filename)
+
+    # parse to pm
+    data = build_pm_data()
+    merge_zi_connected_buses!(data)
+    correct_pv_bus_type!(data)
+    
+    # set reference for rebuilding
+    data["base_case"] = filename
+    data["datetime"]  = fecha
+
+    return data
 end
 
 
@@ -316,7 +338,8 @@ function map_bounds_to_case!(data, programacion)
     source2idx = Dict(
         "load" => Dict(x["source_id"] => i for (i, x) in data["load"]),
         "gen"  => Dict(x["source_id"] => i for (i, x) in data["gen"]),
-        "bus"  => Dict(x["source_id"] => i for (i, x) in data["bus"])
+        "bus"  => Dict(x["source_id"] => i for (i, x) in data["bus"]),
+        "branch"  => Dict(x["source_id"] => i for (i, x) in data["branch"]),
     )
 
     for (name, limite) in limites

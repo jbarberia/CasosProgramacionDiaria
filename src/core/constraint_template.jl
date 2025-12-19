@@ -15,6 +15,21 @@ function constraint_power_balance_with_variable_demand(pm::_PM.AbstractPowerMode
     constraint_power_balance_with_variable_demand(pm, nw, i, bus_arcs, bus_arcs_dc, bus_arcs_sw, bus_gens, bus_storage, bus_loads, bus_gs, bus_bs)
 end
 
+
+function constraint_power_balance_with_variable_shunt(pm::_PM.AbstractPowerModel, i::Int; nw::Int=nw_id_default)
+    bus         = _PM.ref(pm, nw, :bus, i)
+    bus_arcs    = _PM.ref(pm, nw, :bus_arcs, i)
+    bus_arcs_dc = _PM.ref(pm, nw, :bus_arcs_dc, i)
+    bus_arcs_sw = _PM.ref(pm, nw, :bus_arcs_sw, i)
+    bus_gens    = _PM.ref(pm, nw, :bus_gens, i)    
+    bus_loads   = _PM.ref(pm, nw, :bus_loads, i)
+    bus_shunts  = _PM.ref(pm, nw, :bus_shunts, i)
+    bus_storage = _PM.ref(pm, nw, :bus_storage, i)
+    
+    constraint_power_balance_with_variable_shunt(pm, nw, i, bus_arcs, bus_arcs_dc, bus_arcs_sw, bus_gens, bus_storage, bus_loads, bus_shunts)
+end
+
+
 function constraint_ohms_y_oltc_from(pm::AbstractPowerModel, i::Int; nw::Int=nw_id_default)
     branch = ref(pm, nw, :branch, i)
     f_bus = branch["f_bus"]

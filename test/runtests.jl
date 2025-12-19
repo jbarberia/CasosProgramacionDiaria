@@ -17,6 +17,8 @@ optimizer = JuMP.optimizer_with_attributes(
 include("web_downloader.jl")
 include("component_mapper.jl")
 include("state_estimation.jl")
+include("escenarios.jl")
 
 # elimina zips
 rm.(filter(x -> endswith(x, ".zip"), readdir(".")))
+rm.(filter(x -> endswith(x, ".sav"), readdir(".")))

@@ -17,8 +17,7 @@ end
 function build_state_estimation(pm::AbstractPowerModel)    
     variable_bus_voltage(pm, bounded=true)
     variable_gen_power(pm, bounded=true)    
-    variable_load_power(pm, bounded=true)
-    variable_branch_transform_magnitude(pm, bounded=true)
+    variable_load_power(pm, bounded=true)    
     variable_branch_power(pm, bounded=false)
     variable_dcline_power(pm, bounded=false)            
 
@@ -39,19 +38,18 @@ function build_state_estimation(pm::AbstractPowerModel)
     end
 
     # demandas
+    constraint_load_agua_del_cajon(pm)    
+    
     for (i, load) in ref(pm, :load)
+        load["load_bus"] == 5010  && continue # brasil 1
+        load["load_bus"] == 5020  && continue # brasil 2
+        load["load_bus"] == 43000 && continue # paraguay 1        
         
-        # intercambios brasil y paraguay libres
-        load["load_bus"] == 5010 && continue
-        load["load_bus"] == 5020 && continue
-        load["load_bus"] == 43000 && continue
+        # agua del cajon 
+        load["load_bus"] == 1200 && continue
+        load["load_bus"] == 1202 && continue
         
-        # fix power factor    
-        constraint_fixed_power_factor(pm, i)
-        if load["scalable"] == 0
-            # TODO verificar si realmente considerarlas fijas
-            # constraint_fixed_load_power(pm, i)
-        end        
+        constraint_fixed_power_factor(pm, i)        
     end
 
     # balance de potencia
@@ -60,22 +58,9 @@ function build_state_estimation(pm::AbstractPowerModel)
     end
 
     # flujo de potencia
-    for (i, brn) in ref(pm, :branch)
-        
-        if isapprox(brn["tm_min"], brn["tm_max"], atol=1e-4)
-            fix(var(pm, :tm, i), brn["tm_start"]; force=true)
-        else
-            # fix(var(pm, :tm, i), brn["tm_start"]; force=true)
-            # Main.@infiltrate
-        end
-        # == brn["tm_min"] && Main.@infiltrate
-        
-
-        constraint_ohms_y_oltc_from(pm, i)
-        constraint_ohms_y_oltc_to(pm, i)
-        
-        # constraint_ohms_yt_from(pm, i)
-        # constraint_ohms_yt_to(pm, i)
+    for (i, brn) in ref(pm, :branch)        
+        constraint_ohms_y_from(pm, i)
+        constraint_ohms_y_to(pm, i)
         constraint_voltage_angle_difference(pm, i)
     end
 
@@ -95,7 +80,13 @@ function build_state_estimation(pm::AbstractPowerModel)
     end
     
     # objetivos
-    objective_measurement_quadratic_loss(pm)
-    objective_transformer_voltage_control(pm)
-    objective_transformer_GBA(pm)
+    objective = objective_measurement_quadratic_loss(pm)    
+    penalty_1 = objective_transformer_GBA(pm)
+
+    JuMP.@objective(
+        pm.model, 
+        Min,
+        objective 
+        + 1e-1 * penalty_1         
+    )
 end

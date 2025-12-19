@@ -1,9 +1,7 @@
 
 
 
-function objective_measurement_quadratic_loss(pm::_PM.AbstractPowerModel, nw=nw_id_default)
-    
-    old_objective = objective_function(pm.model)
+function objective_measurement_quadratic_loss(pm::_PM.AbstractPowerModel, nw=nw_id_default)       
     loss = 0
     measures = 0
     
@@ -27,37 +25,88 @@ function objective_measurement_quadratic_loss(pm::_PM.AbstractPowerModel, nw=nw_
         measures += 1
     end
     
-    JuMP.@objective(pm.model, Min, old_objective + loss / measures)
+    return loss / measures
 end
 
 
 function objective_transformer_voltage_control(pm::_PM.AbstractPowerModel, nw=nw_id_default)    
-    old_objective = objective_function(pm.model)
-    loss = 0
+    objective = 0.0
     n = 0
     for (i, brn) in ref(pm, nw, :branch)
-        if haskey(brn, "control_bus")    
+        if haskey(brn, "control_bus")
             control_bus = brn["control_bus"]
             control_bus == 0 && continue
 
+            u    = var(pm, nw, :vm, control_bus)
+            umax = brn["vm_max"]
+            umin = brn["vm_min"]
+
             rho = 0.01
             alpha = 200
-            vm = var(pm, nw, :vm, control_bus)
-            vmax = brn["vm_max"]
-            vmin = brn["vm_min"]
+            p_low  = rho/alpha * log(1+ exp(alpha * (umin - u)))
+            p_high = rho/alpha * log(1+ exp(alpha * (u - umax)))
 
-            loss += rho/alpha * log(1 + exp(alpha * (vmin - vm)))
-            loss += rho/alpha * log(1 + exp(alpha * (vm - vmax)))
+            objective += (p_low + p_high)^2
             n += 1
         end
     end
-   
-    JuMP.@objective(pm.model, Min, old_objective + loss / n)
+    return n > 0 ? objective / n : 0.0
 end
 
 
-function objective_transformer_GBA(pm::_PM.AbstractPowerModel, nw=nw_id_default)
-    old_objective = objective_function(pm.model)
+function objective_transformer_movement(pm::_PM.AbstractPowerModel, nw=nw_id_default)
+    eps  = 0.0125
+    loss = 0.0
+    n = 0
+    for (i, branch) in ref(pm, :branch)
+
+        source_id = branch["source_id"]
+        # source_id == ["T3", 211, 261, 222, "2 ", 1] && Main.@infiltrate
+
+        tm = var(pm, nw, :tm, i)
+        is_fixed(tm) && continue
+        t0 = branch["tm_start"]
+        dt = tm - t0
+        loss += dt^2 / (dt^2 + eps^2)
+        n += 1        
+    end
+    return n > 0 ? loss / n : 0.0
+end
+
+
+function objective_shunt_movement(pm::_PM.AbstractPowerModel, nw=nw_id_default)
+    eps  = 0.5
+    loss = 0.0
+    n = 0
+    for (i, shunt) in ref(pm, :shunt)
+        bs = var(pm, nw, :bs, i)
+        is_fixed(bs) && continue
+        b0 = shunt["bs_start"]
+        dt = bs - b0
+        loss += dt^2 / (dt^2 + eps^2)
+        n += 1
+    end
+    return n > 0 ? loss / n : 0.0
+end
+
+
+function objective_bus_voltage_band(pm::_PM.AbstractPowerModel, nw=nw_id_default)
+    objective = 0
+    n = 0
+    eta = 1e-4
+    for (i, bus) in ref(pm, nw, :bus)
+        v_lim = 1.0
+        dv = max(bus["vmax"] - bus["vmin"], eta)
+        vm = var(pm, nw, :vm, i)
+        objective += (vm - v_lim)^2 / dv
+        n += 1
+
+    end
+    return objective / n
+end
+
+
+function objective_transformer_GBA(pm::_PM.AbstractPowerModel, nw=nw_id_default)    
     loss = 0
     n = 0
     
@@ -92,6 +141,6 @@ function objective_transformer_GBA(pm::_PM.AbstractPowerModel, nw=nw_id_default)
         n += 1
     end
     
-
-    JuMP.@objective(pm.model, Min, old_objective + loss / n)
+    return loss / n
 end
+
