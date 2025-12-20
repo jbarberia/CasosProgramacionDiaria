@@ -50,15 +50,27 @@ function download_zip_file(datos_archivo)
 end
 
 
+function pd_zip_filename(fecha::DateTime)
+    return "PD" * Dates.format(fecha, "yymmdd") * ".zip"
+end
+
+
 """
     download_programacion(fecha::DateTime)
 
 Descarga el ZIP correspondiente a la fecha indicada.
 """
-function download_programacion(fecha::DateTime)
-    archivo = "PD" * Dates.format(fecha, "yymmdd") * ".zip"
+function download_programacion(fecha::DateTime, force::Bool=false)
+    zipfile = pd_zip_filename(fecha)
+
+    if isfile(zipfile) && !force
+        @info "Usando PD ya descargada: $(basename(zipfile))"
+        return abspath(zipfile)
+    end
+
+    @info "Descargando PD para $(Date(fecha))"
     response = get_doc_id(fecha)
-    datos_archivo = filter(d -> d["adjuntos"][1][:id] == archivo, response)[1]
+    datos_archivo = filter(d -> d["adjuntos"][1][:id] == zipfile, response)[1]
     return download_zip_file(datos_archivo)
 end
 
