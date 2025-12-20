@@ -130,12 +130,22 @@ end
 "Devuelve el control conjunto en ezeiza"
 function _compensadores_ezeiza()
     ierr, vm_ez = psspy.busdat(3000, "PU")
+    
+    # COMPENSADORES
     psspy.plant_chng_4(3651,0, intgar1=3000, realar1=vm_ez)
     psspy.plant_chng_4(3652,0, intgar1=3000, realar1=vm_ez)
     psspy.plant_chng_4(3653,0, intgar1=3000, realar1=vm_ez)
     psspy.plant_chng_4(3654,0, intgar1=3000, realar1=vm_ez)
     psspy.plant_chng_4(3655,0, intgar1=3000, realar1=vm_ez)
     psspy.plant_chng_4(3656,0, intgar1=3000, realar1=vm_ez)
+
+    # GENELBA
+    psspy.plant_chng_4(3641, 0, intgar1=3000, realar1=vm_ez)
+    psspy.plant_chng_4(3642, 0, intgar1=3000, realar1=vm_ez)
+    psspy.plant_chng_4(3643, 0, intgar1=3000, realar1=vm_ez)
+    psspy.plant_chng_4(3647, 0, intgar1=3000, realar1=vm_ez)
+    psspy.plant_chng_4(3658, 0, intgar1=3000, realar1=vm_ez)
+    psspy.plant_chng_4(3690, 0, intgar1=3000, realar1=vm_ez)
 end
 
 """

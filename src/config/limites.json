@@ -1841,6 +1841,108 @@
         "vmax": 1.05,
         "vmin": 0.95
     },
+    "TENSION_ATU2NUCL": {
+        "component": "bus",
+        "source_id": ["BU", 2620],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_TANDTG01": {
+        "component": "bus",
+        "source_id": ["BU", 8622],
+        "vmax": 1.06,
+        "vmin": 0.95
+    },
+    "TENSION_TANDTG02": {
+        "component": "bus",
+        "source_id": ["BU", 8623],
+        "vmax": 1.06,
+        "vmin": 0.95
+    },
+    "TENSION_TANDTV01": {
+        "component": "bus",
+        "source_id": ["BU", 8624],
+        "vmax": 1.06,
+        "vmin": 0.95
+    },
+    "TENSION_TIMBTV01": {
+        "component": "bus",
+        "source_id": ["BU", 4697],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_PBANHI01": {
+        "component": "bus",
+        "source_id": ["BU", 1691],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_PBANHI02": {
+        "component": "bus",
+        "source_id": ["BU", 1692],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "BRACHTV01": {
+        "component": "gen",
+        "source_id": ["ME", 8900, "1 "],
+        "pmin": 0.50,
+        "pmax": 2.142
+    },
+    "SOLATG01": {
+        "component": "gen",
+        "source_id": ["ME", 2636, "1 "],
+        "pmin": 0.20,
+        "pmax": 0.50
+    },
+    "SOLATG02": {
+        "component": "gen",
+        "source_id": ["ME", 2635, "1 "],
+        "pmin": 0.20,
+        "pmax": 0.50
+    },
+    "LMOLFV01": {
+        "component": "gen",
+        "source_id": ["ME", 7641, "1 "],
+        "pmin": 0.00,
+        "pmax": 0.80
+    },
+    "PEDRTG01": {
+        "component": "gen",
+        "source_id": ["ME", 2645, "1 "],
+        "pmin": 0.15,
+        "pmax": 0.48
+    },
+    "PEDRTG02": {
+        "component": "gen",
+        "source_id": ["ME", 2655, "2 "],
+        "pmin": 0.15,
+        "pmax": 0.48
+    },
+    "PEDRTG03": {
+        "component": "gen",
+        "source_id": ["ME", 2668, "3 "],
+        "pmin": 0.15,
+        "pmax": 0.48
+    },
+    "RENOTG01": {
+        "component": "gen",
+        "source_id": ["ME", 4619, "1 "],
+        "pmin": 0.00,
+        "pmax": 1.50
+    },
+    "TIMBTG01": {
+        "component": "gen",
+        "source_id": ["ME", 4695, "1 "],
+        "pmin": 0.70,
+        "pmax": 2.50
+    },
+    "TIMBTG02": {
+        "component": "gen",
+        "source_id": ["ME", 4696, "2 "],
+        "pmin": 0.70,
+        "pmax": 2.50
+    },
     "GEBATG02": {
         "component": "gen",
         "source_id": ["ME", 3642, "2 "],

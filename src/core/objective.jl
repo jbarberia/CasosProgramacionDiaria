@@ -1,6 +1,8 @@
 
 
-
+"""
+Objetivo que penaliza desvios sin peso
+"""
 function objective_measurement_quadratic_loss(pm::_PM.AbstractPowerModel, nw=nw_id_default)       
     loss = 0
     measures = 0
@@ -27,6 +29,9 @@ function objective_measurement_quadratic_loss(pm::_PM.AbstractPowerModel, nw=nw_
     
     return loss / measures
 end
+
+
+
 
 
 function objective_transformer_voltage_control(pm::_PM.AbstractPowerModel, nw=nw_id_default)    
@@ -74,6 +79,33 @@ function objective_transformer_movement(pm::_PM.AbstractPowerModel, nw=nw_id_def
 end
 
 
+function objective_shunt_voltage_control(pm::_PM.AbstractPowerModel, nw=nw_id_default)    
+    objective = 0.0
+    n = 0
+    for (i, shunt) in ref(pm, nw, :shunt)
+        
+        # ñshunt["source_id"][1] == "SWS" && Main.@infiltrate
+        if haskey(shunt, "mode")            
+            shunt["mode"] <= 0 && continue
+            bus = shunt["shunt_bus"]
+            
+            u    = var(pm, nw, :vm, bus)
+            umax = shunt["vm_max"]
+            umin = shunt["vm_min"]
+
+            rho = 0.01
+            alpha = 200
+            p_low  = rho/alpha * log(1+ exp(alpha * (umin - u)))
+            p_high = rho/alpha * log(1+ exp(alpha * (u - umax)))
+
+            objective += (p_low + p_high)^2
+            n += 1
+        end
+    end
+    return n > 0 ? objective / n : 0.0
+end
+
+
 function objective_shunt_movement(pm::_PM.AbstractPowerModel, nw=nw_id_default)
     eps  = 0.5
     loss = 0.0
@@ -98,11 +130,57 @@ function objective_bus_voltage_band(pm::_PM.AbstractPowerModel, nw=nw_id_default
         v_lim = 1.0
         dv = max(bus["vmax"] - bus["vmin"], eta)
         vm = var(pm, nw, :vm, i)
-        objective += (vm - v_lim)^2 / dv
+
+        u = vm
+        umin = bus["vmin"]
+        umax = bus["vmax"]     
+        
+        # generadores en 0.95 - 1.05
+        if length(ref(pm, nw, :bus_gens, i)) > 0
+            umin = 0.95
+            umax = 1.05
+        end
+
+        rho = 0.01
+        alpha = 200
+        p_low  = rho/alpha * log(1+ exp(alpha * (umin - u)))
+        p_high = rho/alpha * log(1+ exp(alpha * (u - umax)))
+        objective += (p_low + p_high)^2
+
+        # objective += (vm - v_lim)^2 / dv
         n += 1
 
     end
     return objective / n
+end
+
+
+function objective_gen_reactive_power_reserve(pm::_PM.AbstractPowerModel, nw=nw_id_default)
+    loss = 0.0
+    n = 0
+
+    for (i, gen) in ref(pm, nw, :gen)
+        q = var(pm, nw, :qg, i)
+        q_max = gen["qmax"]
+        q_min = gen["qmin"]
+
+        if q_max > 0
+            q_max *= 0.8
+        end
+
+        if q_min < 0
+            q_min *= 0.8
+        end
+        
+        eps = 1e-2
+        rho = 0.01
+        alpha = 200
+        loss += rho/alpha * log(1 + exp(alpha * (q_min - q)))
+        loss += rho/alpha * log(1 + exp(alpha * (q - q_max)))
+        n += 1
+    end
+
+    return loss / n
 end
 
 

@@ -82,17 +82,23 @@ function build_voltage_correction(pm::AbstractPowerModel)
     end
     
     # objetivos
-    obj1 = objective_transformer_voltage_control(pm)    
-    obj2 = objective_transformer_movement(pm)
-    obj3 = objective_shunt_movement(pm)
-    obj4 = objective_bus_voltage_band(pm)
+    tm_ctr = objective_transformer_voltage_control(pm)    
+    tm_mov = objective_transformer_movement(pm)
+    
+    sh_ctr = objective_shunt_voltage_control(pm)    
+    sh_mov = objective_shunt_movement(pm)
+    
+    vm_bnd = objective_bus_voltage_band(pm)
+    qg_res = objective_gen_reactive_power_reserve(pm)
     
     JuMP.@objective(
         pm.model, 
         Min,
-        obj1 +
-        0.001 * obj2 +
-        0.005 * obj3 +
-        0.001 * obj4
+        0.80 * tm_ctr +
+        2.00 * tm_mov +
+        0.20 * sh_ctr +
+        0.30 * sh_mov +
+        0.50 * vm_bnd +
+        0.10 * qg_res
     )
 end
