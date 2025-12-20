@@ -1,3 +1,9 @@
+
+@testset failfast=true "hora programacion" begin
+    @test CasosProgramacionDiaria.pd_hour_str(DateTime(2025,12,8,0))  == "H01"
+    @test CasosProgramacionDiaria.pd_hour_str(DateTime(2025,12,8,23)) == "H24"
+end
+
 @testset failfast=true "component_mapper" begin
     fecha = DateTime(2025, 6, 6, 20, 00)  # 2025-06-06 20:00
     prog = get_programacion_diaria(fecha)

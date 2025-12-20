@@ -2,6 +2,15 @@
 Funciones para mapear los componentes de una programacion diaria al caso
 """
 
+
+"""
+Convierte DateTime (00–23) a string horario de PD ("H01"–"H24")
+"""
+function pd_hour_str(dt::DateTime)
+    h = hour(dt)
+    return "H" * lpad(h + 1, 2, '0')
+end
+
 """
 Obtiene el mapeo manual de componentes de la PD hacia el caso de PSSE
 """
@@ -121,7 +130,7 @@ function _fix_salto_grande_dispach!(source_ids, data, programacion)
     # SGDEHIAR indica las maquinas prendidas en MAQHID_DESPACHADAS
     # SGDEHIAR Y SGDEHIUR indica los despachos de las maquinas
 
-    hora_str = hora_str = "H" * lpad(hour(data["datetime"]), 2, '0')
+    hora_str = pd_hour_str(data["datetime"])
     sgde = programacion["MAQHID_DESPACHADAS"][!, "CENTRAL"] .== "SGDEHIAR"
     n_maquinas = programacion["MAQHID_DESPACHADAS"][sgde, hora_str][1]
     
@@ -171,7 +180,7 @@ Toma la programacion diaria y mapeo los valores de generadores al caso
 """
 function map_generators_to_case!(data, programacion)
     config = get_configuration_data()
-    hora_str = hora_str = "H" * lpad(hour(data["datetime"]), 2, '0')
+    hora_str = pd_hour_str(data["datetime"])
 
     # Mapeo generadores
     source2index = Dict(gen["source_id"][2:end] => i for (i, gen) in data["gen"])
@@ -281,7 +290,7 @@ sobre interfaces y limites inter-areas que involucren mas de una linea.
 function map_flows_to_case!(data, programacion)
     baseMVA = data["baseMVA"]
     config = get_configuration_data()
-    hora_str = hora_str = "H" * lpad(hour(data["datetime"]), 2, '0')
+    hora_str = pd_hour_str(data["datetime"])
     
     flujo_programado = Dict{Any, Any}()
     datos_interconexiones = programacion["INTERCONEXIONES"][!, ["NODO1", "NODO2", hora_str]]

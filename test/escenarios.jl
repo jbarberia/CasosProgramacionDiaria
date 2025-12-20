@@ -1,8 +1,8 @@
 
 
 @testset failfast=true "semana 50" begin
-    fecha_0 = DateTime(2025, 12, 08, 01, 00)
-    fecha_1 = DateTime(2025, 12, 09, 23, 00)
+    fecha_0 = DateTime(2025, 12, 08, 00, 00)
+    fecha_1 = DateTime(2025, 12, 08, 23, 00)
 
     prev_data = []
 
