@@ -82,7 +82,13 @@ function set_load_bounds!(data::Dict{String, Any})
     for (i, load) in data["load"]
 
         # Demandas de Aluar fijas
-        if load["load_bus"] in [268, 269, 217, 193]
+        aluar_source_id = [
+            ["LO", 268, "1 "],
+            ["LO", 269, "1 "],
+            ["LO", 217, "1 "],
+            ["LO", 193, "1 "],
+        ]
+        if load["source_id"] in aluar_source_id
             load["pd_min"] = load["pd"]
             load["pd_max"] = load["pd"]
             load["qd_min"] = load["qd"]
@@ -117,12 +123,19 @@ function _flujo_de_carga_con_controles()
     )
     psspy.rsol()
     psspy.fnsl(options1=0, options5=0)  # locked
+    psspy.fnsl(options1=0, options5=1)  # locked + shunt
     @assert psspy.solved() == 0
     
-    #psspy.fnsl(options1=0, options5=1)  # locked + shunt
-    #psspy.fnsl(options1=1, options5=0)  # stepping
-    #psspy.fnsl(options1=1, options5=0)  # stepping
-    #psspy.fnsl(options1=0, options5=0)  # locked
+    psspy.fnsl(options1=1, options5=0)  # stepping
+    psspy.fnsl(options1=1, options5=0)  # stepping
+    psspy.fnsl(options1=1, options5=0)  # stepping
+    psspy.fnsl(options1=0, options5=1)  # locked + shunt
+    psspy.fnsl(options1=1, options5=0)  # stepping
+    psspy.fnsl(options1=1, options5=1)  # stepping + shunt
+    psspy.fnsl(options1=0, options5=0)  # locked
+    if psspy.solved() != 0
+        psspy.save("debug.sav")
+    end
     @assert psspy.solved() == 0
     
 end

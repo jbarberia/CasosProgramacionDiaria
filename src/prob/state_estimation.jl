@@ -80,13 +80,15 @@ function build_state_estimation(pm::AbstractPowerModel)
     end
     
     # objetivos
-    objective = objective_measurement_quadratic_loss(pm)    
+    objective_1 = objective_measurement_quadratic_loss(pm)    
+    objective_2 = objective_area_quadratic_loss(pm)
     penalty_1 = objective_transformer_GBA(pm)
 
     JuMP.@objective(
         pm.model, 
         Min,
-        objective 
+        objective_1 +
+        objective_2 +
         + 1e-1 * penalty_1         
     )
 end

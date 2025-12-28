@@ -44,6 +44,7 @@ end
     map_generators_to_case!(data, prog)
     map_flows_to_case!(data, prog)
     map_bounds_to_case!(data, prog)
+    map_summary_to_case!(data, prog)
     set_load_bounds!(data)
 
     # state estimation
@@ -69,6 +70,7 @@ end
     map_generators_to_case!(data, prog)
     map_flows_to_case!(data, prog)
     map_bounds_to_case!(data, prog)
+    map_summary_to_case!(data, prog)
     set_load_bounds!(data)
 
     # state estimation

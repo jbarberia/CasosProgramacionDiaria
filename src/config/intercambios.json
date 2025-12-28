@@ -236,9 +236,26 @@
         "PSSE": [["LII", 2210, 2211, "1 "]],
         "PD": [[" BALCA 1", "VIVORA 1"]]
     },
+    "PBA_BALCARCE_TANDIL": {
+        "PSSE": [["LII", 2210, 2347, "1 "]],
+        "PD": [[" BALCA 1", "TANDIL 1"]]
+    },
     "PBA_CHACABUCO_CHACABUCO_INDUSTRIAL": {
         "PSSE": [["LII", 2226, 2227, "1 "]],
         "PD": [[" CHACA 1", "CHAIND 1"]]
+    },
+    "PBA_MAR_DEL_PLATA_VIVORATA": {
+        "PSSE": [
+            ["LII", 2276, 2410, "1 "],
+            ["LII", 2276, 2410, "2 "],
+            ["LII", 2297, 2410, "3 "],
+            ["LII", 2301, 2410, "4 "]
+        ],
+        "PD": [[" MDPLA 1", "VIVORA 1"]]
+    },
+    "PBA_PEHUAJO_T.LAUQUEN": {
+        "PSSE": [["LII", 2507, 2508, "1 "]],
+        "PD": [[" PEHUA 6", " T.LAU 6"]]
     },
     "PBA_CHASCOMUS_DOLORES": {
         "PSSE": [["LII", 2228, 2236, "1 "]],
@@ -288,6 +305,46 @@
         "PSSE": [["LII", 2274, 2303, "1 "]],
         "PD": [[" MDPLA 1", "MDPIND 1"]]
     },
+    "PBA_PINAMAR_VALERIA_DEL_MAR": {
+        "PSSE": [["LII", 2318, 2355, "1 "]],
+        "PD": [["PINAMA 1", "VALMAR 1"]]
+    },
+    "PBA_DOLORES_SAN_CLEMENTE": {
+        "PSSE": [["LII", 2236, 2332, "1 "]],
+        "PD": [[" DOLOR 1", "S.CLEM 1"]]
+    },
+    "PBA_SAN_CLEMENTE_TONINAS": {
+        "PSSE": [["LII", 2332, 2384, "1 "]],
+        "PD": [["S.CLEM 1", "TONINA 1"]]
+    },
+    "PBA_BARKER_TANDIL": {
+        "PSSE": [["LII", 2212, 2346, "1 "]],
+        "PD": [["BARKER 1", "TANDIL 1"]]
+    },
+    "PBA_NUMANCIA_TANDIL": {
+        "PSSE": [["LII", 2285, 2346, "1 "]],
+        "PD": [["NUMANC 1", "TANDIL 1"]]
+    },
+    "PBA_TANDIL_TANDIL_INDUSTRIAL": {
+        "PSSE": [["LII", 2347, 2371, "1 "]],
+        "PD": [["TANDIL 1", "TANIND 1"]]
+    },
+    "PBA_TEROS_TANDIL_INDUSTRIAL": {
+        "PSSE": [["LII", 2250, 2371, "1 "]],
+        "PD": [["TEROS  1", "TANIND 1"]]
+    },
+    "PBA_MAR_DEL_TUYU_TONINAS": {
+        "PSSE": [["LII", 2340, 2384, "1 "]],
+        "PD": [[" MTUYU 1", "TONINA 1"]]
+    },
+    "PBA_MADARIAGA_V.GESELL": {
+        "PSSE": [["LII", 2240, 2356, "1 "]],
+        "PD": [["G.MADA 1", "V.GESE 1"]]
+    },
+    "PBA_VALERIA_V.GESELL": {
+        "PSSE": [["LII", 2355, 2356, "1 "]],
+        "PD": [["VALMAR 1", "V.GESE 1"]]
+    },
     "PBA_MIRAMAR_DOS_MIRAMAR": {
         "PSSE": [["LII", 2218, 2282, "1 "]],
         "PD": [["MIRAM2 1", " MIRAM 1"]]
@@ -303,6 +360,26 @@
     "PBA_NECOCHEA_QUEQUEN": {
         "PSSE": [["LII", 2286, 2324, "1 "]],
         "PD": [[" NECO. 1", "QUEQUE 1"]]
+    },
+    "PBA_BAHIA_BLANCA_PUNTA_ALTA": {
+        "PSSE": [["LII", 2206, 2322, "1 "]],
+        "PD": [["P.ALTA 1", "BLANC2 1"]]
+    },
+    "PBA_PIEDRABUENA_PUNTA_ALTA": {
+        "PSSE": [["LII", 2312, 2322, "1 "]],
+        "PD": [["PBUENA 1", "P.ALTA 1"]]
+    },
+    "PBA_PUNTA_ALTA_ROSALES": {
+        "PSSE": [["LII", 2322, 2382, "1 "]],
+        "PD": [["P.ALTA 1", "ROSALE 1"]]
+    },
+    "PBA_BURATO_P.LURO": {
+        "PSSE": [["LII", 2203, 2302, "1 "]],
+        "PD": [["BURATO 1", "P.LURO 1"]]
+    },
+    "PBA_VILLALONGA_P.LURO": {
+        "PSSE": [["LII", 2205, 2302, "1 "]],
+        "PD": [["VLONGA 1", "P.LURO 1"]]
     },
     "PBA_BAHIA_BLANCA_NORTE_DOS": {
         "PSSE": [["LII", 2206, 2290, "1 "]],
@@ -412,6 +489,10 @@
         "PSSE": [["LII", 2283, 2345, "1 "]],
         "PD": [["CHINA  1", "BOLIVA 1"]]
     },
+    "PBA_LA_CHINA_OLAVARRIA": {
+        "PSSE": [["LII", 2283, 2298, "1 "]],
+        "PD": [["CHINA  1", "OLAVA1 1"]]
+    },
     "PBA_BRAGADO_CHACABUCO": {
         "PSSE": [["LII", 2216, 2226, "1 "]],
         "PD": [["BRAGAD 1", " CHACA 1"]]
@@ -452,9 +533,9 @@
         "PSSE": [["LII", 2238, 2299, "1 "]],
         "PD": [[" G.CHA 1", "CHILP2 1"]]
     },
-    "PBA_LA_CHINA_OLAVARRIA": {
-        "PSSE": [["LII", 2283, 2298, "1 "]],
-        "PD": [["CHINA  1", "OLAVA1 1"]]
+    "PBA_OLAVARRIA_CHILLAR": {
+        "PSSE": [["LII", 2298, 2299, "1 "]],
+        "PD": [["OLAVA2 1", "CHILP1 1"]]
     },
     "PBA_CHIVILCOY_MERCEDES": {
         "PSSE": [["LII", 2231, 2280, "1 "]],
@@ -521,6 +602,10 @@
         "PSSE": [["LII", 2262, 2265, "1 "]],
         "PD": [["FLORE2 1", " ROSAS 1"]]
     },
+    "PBA_FLORES_SALADILLO": {
+        "PSSE": [["LII", 2262, 2330, "1 "]],
+        "PD": [["FLORE1 1", "SALADI 1"]]
+    },
     "PBA_G.MADARIAGA_LAS_ARMAS": {
         "PSSE": [["LII", 2240, 2256, "1 "]],
         "PD": [["G.MADA 1", " ARMAS 1"]]
@@ -532,6 +617,10 @@
     "PBA_GUATRA_1_PUAN_1": {
         "PSSE": [["LII", 1257, 2329, "1 "]],
         "PD": [["GUATRA 1", "PUAN   1"]]
+    },
+    "PBA_PIGUE_PUAN": {
+        "PSSE": [["LII", 2316, 2329, "1 "]],
+        "PD": [[" PIGUE 1", "PUAN   1"]]
     },
     "PBA_JUNIN2_1_IMSA_1": {
         "PSSE": [["LII", 2252, 2253, "1 "]],
@@ -568,6 +657,10 @@
     "PBA_PETROQUIMICA_URBANA": {
         "PSSE": [["LII", 2353, 2354, "1 "]],
         "PD": [["PTQBB2 1", "URBABB 1"]]
+    },
+    "PBA_PETROQUIMICA_PROFERTIL": {
+        "PSSE": [["LII", 2308, 2309, "1 "]],
+        "PD": [["PTQBB1 1", "PROFER 1"]]
     },
     "PBA_PIEDRABUENA_URBANA": {
         "PSSE": [["LII", 2313, 2354, "1 "]],

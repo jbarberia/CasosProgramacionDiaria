@@ -339,6 +339,9 @@ function map_flows_to_case!(data, programacion)
 end
 
 
+"""
+Limites rigidos para las variables
+"""
 function map_bounds_to_case!(data, programacion)
     baseMVA = data["baseMVA"]
     config = get_configuration_data()
@@ -361,6 +364,32 @@ function map_bounds_to_case!(data, programacion)
         end        
     end
 end
+
+
+"""
+Mapea datos de demandas globales
+"""
+function map_summary_to_case!(data, programacion)
+    baseMVA = data["baseMVA"]
+    hora_str = pd_hour_str(data["datetime"])
+    
+    config = get_configuration_data()
+    balance = config["balance"]
+    rge2areas = balance["RGE"]
+    
+    df = programacion["BALANCE"]
+    df = filter(row -> row.VARIABLE == "Demanda Neta", df)
+    
+    
+    data["area_totals"] = Dict{String, Any}()
+    for (i, row) in eachrow(df) |> enumerate
+        data["area_totals"][string(i)] = Dict(
+            "areas" => rge2areas[row["RGE"]],
+            "pd" => row[hora_str] / baseMVA
+        )        
+    end
+end
+
 
 # """
 # Escala la demanda para que el caso cierre

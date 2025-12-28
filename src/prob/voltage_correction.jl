@@ -99,6 +99,6 @@ function build_voltage_correction(pm::AbstractPowerModel)
         0.20 * sh_ctr +
         0.30 * sh_mov +
         0.50 * vm_bnd +
-        0.10 * qg_res
+        0.20 * qg_res
     )
 end

@@ -1757,6 +1757,60 @@
         "pd_min": 0.00,
         "pd_max": 1.20
     },
+    "PBA_RAUCH": {
+        "component": "load",
+        "source_id": ["LO", 2267, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.08
+    },
+    "PBA_PROFERTIL": {
+        "component": "load",
+        "source_id": ["LO", 2309, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.34
+    },
+    "PBA_BALCARCE": {
+        "component": "load",
+        "source_id": ["LO", 2210, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.45
+    },
+    "ENERSA_DEMANDA_SANTA_ELENA": {
+        "component": "load",
+        "source_id": ["LO", 4506, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.30
+    },
+    "ENERSA_DEMANDA_LA_PAZ": {
+        "component": "load",
+        "source_id": ["LO", 4509, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.30
+    },
+    "ENERSA_DEMANDA_FEDERAL": {
+        "component": "load",
+        "source_id": ["LO", 4305, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.30
+    },
+    "ENERSA_DEMANDA_CONQUISTADORES": {
+        "component": "load",
+        "source_id": ["LO", 4226, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.30
+    },
+    "ENERSA_DEMANDA_SAN_SALVADOR_13": {
+        "component": "load",
+        "source_id": ["LO", 4505, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.15
+    },
+    "ENERSA_DEMANDA_SAN_SALVADOR_33": {
+        "component": "load",
+        "source_id": ["LO", 4504, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.30
+    },
     "NOA_MINERA_EXAR": {
         "component": "load",
         "source_id": ["LO", 8583, "1 "],
