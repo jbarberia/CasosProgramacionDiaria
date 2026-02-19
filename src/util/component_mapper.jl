@@ -156,7 +156,7 @@ function _fix_salto_grande_dispach!(source_ids, data, programacion)
     # se ponen maquinas de uruguay a prender
     index = 8
     maq_prendidas = length(new_source_ids)
-    while p_ur > 0 && maq_prendidas < n_maquinas
+    while p_ur > 0 && maq_prendidas < n_maquinas && index <= 14
         push!(new_source_ids, source_ids[index])
         index += 1
         maq_prendidas += 1
