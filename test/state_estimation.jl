@@ -86,3 +86,30 @@ end
     test_solution(data, results, "29-11-2025_H15.sav")
 end
 
+
+@testset failfast=true "Estimador de estado 2025-02-10 14:00" begin    
+    # Fecha del record del SADI
+    fecha = DateTime(2025, 02, 10, 14, 00)
+    prog = get_programacion_diaria(fecha)
+    data = get_base_case(fecha)
+    
+    set_voltage_bounds!(data)
+    map_generators_to_case!(data, prog)
+    map_flows_to_case!(data, prog)
+    map_bounds_to_case!(data, prog)
+    map_summary_to_case!(data, prog)
+    set_load_bounds!(data)
+
+    # state estimation
+    set_start_values!(data)        
+    results = run_state_estimation(data, ACPPowerModel, optimizer)
+    update_data!(data, results["solution"])
+    
+    # voltage control
+    set_start_values!(data)        
+    results = run_voltage_correction(data, ACPPowerModel, optimizer)
+    update_data!(data, results["solution"])
+
+    test_solution(data, results, "10-02-2025_14.sav")
+end
+

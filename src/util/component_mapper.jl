@@ -54,6 +54,8 @@ function get_base_case(fecha::DateTime)
     # ejemplo el verano pico es excesivo para dias por fuera del maximo historico
     # de momento todos los casos son iguales
 
+    # TODO ver escenarios por año
+
     casos_base = Dict(
         "verano" => Dict(
             "valle" => "$root/inv25pi.sav",
@@ -292,7 +294,7 @@ function map_flows_to_case!(data, programacion)
     config = get_configuration_data()
     hora_str = pd_hour_str(data["datetime"])
     
-    flujo_programado = Dict{Any, Any}()
+    flujo_programado = Dict{Any, Float64}()
     datos_interconexiones = programacion["INTERCONEXIONES"][!, ["NODO1", "NODO2", hora_str]]
     for (nodo1, nodo2, valor) in datos_interconexiones |> eachrow                
         flujo_programado[[nodo1, nodo2]] = valor
@@ -302,7 +304,7 @@ function map_flows_to_case!(data, programacion)
     source2index = Dict(brn["source_id"][2:end] => i for (i, brn) in data["branch"])
     data["flows"] = Dict{String, Any}()
     
-    i = 1
+    flow_idx = 1
     for (name, dato_intercambio) in config["intercambios"]        
         indices = []
         for source_id in dato_intercambio["PSSE"]
@@ -310,8 +312,6 @@ function map_flows_to_case!(data, programacion)
             brn = data["branch"][idx]
             f_bus = brn["f_bus"]
             t_bus = brn["t_bus"]
-
-            # name == "PBA_NCAMP1_1_TARECO_1" && Main.@infiltrate
 
             f_buses = data["bus"][string(f_bus)]["source_id"][2:end]
             t_buses = data["bus"][string(t_bus)]["source_id"][2:end]
@@ -323,18 +323,32 @@ function map_flows_to_case!(data, programacion)
             end
         end
         
-        p_des = 0
-        for interconexion in dato_intercambio["PD"]
-            p_des += flujo_programado[interconexion] / baseMVA
+        # TODO en caso de que no se encuentre la interconexión se deberia quitar la misma
+        # para esto se deberia ajustar el mapeo si es necesario
+        p_des = 0.0
+        valid_interchange = true
+        for interconexion in dato_intercambio["PD"]      
+            valor = get(flujo_programado, interconexion, nothing)
+            if valor !== nothing
+                p_des += flujo_programado[interconexion] / baseMVA
+            else             
+                valid_interchange = false
+                @warn "No se encuentra flujo programado para $name en $(interconexion...)"
+                break
+            end
+        end
+
+        if !valid_interchange
+            continue
         end
         
-        data["flows"][string(i)] = Dict(
-            "index" => i,
+        data["flows"][string(flow_idx)] = Dict(
+            "index" => flow_idx,
             "branches" => indices,
             "p_des" => p_des,
             "name" => name,
         )
-        i += 1
+        flow_idx += 1
     end
 end
 
