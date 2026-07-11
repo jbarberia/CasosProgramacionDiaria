@@ -94,11 +94,11 @@ function build_voltage_correction(pm::AbstractPowerModel)
     JuMP.@objective(
         pm.model, 
         Min,
-        0.80 * tm_ctr +
-        2.00 * tm_mov +
-        0.20 * sh_ctr +
-        0.30 * sh_mov +
-        0.50 * vm_bnd +
-        0.20 * qg_res
+        100 * 0.80 * tm_ctr +
+        100 * 2.00 * tm_mov +
+        100 * 0.20 * sh_ctr +
+        100 * 0.30 * sh_mov +
+        100 * 0.50 * vm_bnd +
+        100 * 0.20 * qg_res
     )
 end

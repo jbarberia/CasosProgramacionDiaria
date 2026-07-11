@@ -4,23 +4,23 @@
 """
 Setea limites de tensión en barras
 
- 5 % para 500 kV
-10 % para 220 kV
-20 % para 132 kV
-20 % para el resto
++ 3 % - 5 % para 500 kV
++10 % -10 % para 220 kV
++20 % -20 % para 132 kV
++20 % -20 % para el resto
 """
 function set_voltage_bounds!(data::Dict{String, Any})
     for (i, bus) in data["bus"]
         base_kv = bus["base_kv"]
     
         if base_kv >= 500
-            bus["vmax"] = 1.05
+            bus["vmax"] = 1.03
             bus["vmin"] = 0.95
         elseif base_kv >= 220
             bus["vmax"] = 1.10
             bus["vmin"] = 0.90
         elseif base_kv >= 132
-            bus["vmax"] = 1.20
+            bus["vmax"] = 1.10
             bus["vmin"] = 0.80
         else
             bus["vmax"] = 1.20
@@ -132,12 +132,14 @@ function _flujo_de_carga_con_controles()
     psspy.fnsl(options1=0, options5=1)  # locked + shunt
     psspy.fnsl(options1=1, options5=0)  # stepping
     psspy.fnsl(options1=1, options5=1)  # stepping + shunt
-    psspy.fnsl(options1=0, options5=0)  # locked
-    if psspy.solved() != 0
+
+    psspy.solved() != 0 && psspy.rsol()
+    if !(psspy.solved() in [0, 10, 11, 12])
         psspy.save("debug.sav")
     end
+
+    psspy.fnsl(options1=0, options5=0)  # locked
     @assert psspy.solved() == 0
-    
 end
 
 "Devuelve el control conjunto en ezeiza"

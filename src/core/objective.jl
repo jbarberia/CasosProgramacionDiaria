@@ -70,12 +70,12 @@ function objective_transformer_voltage_control(pm::_PM.AbstractPowerModel, nw=nw
             umax = brn["vm_max"]
             umin = brn["vm_min"]
 
-            rho = 0.01
-            alpha = 200
+            rho = 1.00
+            alpha = 50
             p_low  = rho/alpha * log(1+ exp(alpha * (umin - u)))
             p_high = rho/alpha * log(1+ exp(alpha * (u - umax)))
 
-            objective += (p_low + p_high)^2
+            objective += (p_low + p_high)
             n += 1
         end
     end
@@ -118,11 +118,11 @@ function objective_shunt_voltage_control(pm::_PM.AbstractPowerModel, nw=nw_id_de
             umin = shunt["vm_min"]
 
             rho = 0.01
-            alpha = 200
+            alpha = 50
             p_low  = rho/alpha * log(1+ exp(alpha * (umin - u)))
             p_high = rho/alpha * log(1+ exp(alpha * (u - umax)))
 
-            objective += (p_low + p_high)^2
+            objective += (p_low + p_high)
             n += 1
         end
     end
@@ -166,10 +166,10 @@ function objective_bus_voltage_band(pm::_PM.AbstractPowerModel, nw=nw_id_default
         end
 
         rho = 0.01
-        alpha = 200
+        alpha = 50
         p_low  = rho/alpha * log(1+ exp(alpha * (umin - u)))
         p_high = rho/alpha * log(1+ exp(alpha * (u - umax)))
-        objective += (p_low + p_high)^2
+        objective += (p_low + p_high)
 
         # objective += (vm - v_lim)^2 / dv
         n += 1
@@ -197,8 +197,8 @@ function objective_gen_reactive_power_reserve(pm::_PM.AbstractPowerModel, nw=nw_
         end
 
         eps = 1e-2
-        rho = 0.01
-        alpha = 200
+        rho = 1.00
+        alpha = 30.0
         loss += rho/alpha * log(1 + exp(alpha * (q_min - q)))
         loss += rho/alpha * log(1 + exp(alpha * (q - q_max)))
         n += 1
@@ -236,8 +236,8 @@ function objective_transformer_GBA(pm::_PM.AbstractPowerModel, nw=nw_id_default)
         p = var(pm, nw, :p, index)
         p_max =  2.8
         p_min = -2.8
-        rho = 0.01
-        alpha = 200
+        rho = 1.00
+        alpha = 50
         loss += rho/alpha * log(1 + exp(alpha * (p_min - p)))
         loss += rho/alpha * log(1 + exp(alpha * (p - p_max)))
         n += 1
