@@ -694,6 +694,11 @@
         "PSSE": [["LII", 2230, 2293, "1 "]],
         "PD": [["CHIVIL 1", "25 MAY 1"]]
     },
+    "PBA_CHIVILCOYDOS_V.DE_MAYO":{
+        "PSSE": [["LII", 2293, 2377, "1 "]],
+        "PD": [["25 MAY 1", "CHIVIL 1"]],
+        "_TODO": "AJUSTAR CUANDO INGRESE CHIVILCOY DOS"
+    },
     "PBA_V.DE_MAYO_SALADILLO": {
         "PSSE": [["LII", 2293, 2330, "1 "]],
         "PD": [["25 MAY 1", "SALADI 1"]]
@@ -780,6 +785,14 @@
         ],
         "PD": [["S.CATA 1", "P.PATR 1"]]
     },    
+    "NEA_MONTE_CASEROS_PASO_DE_LOS_LIBRES": {
+        "PSSE": [["LII", 5222, 5299, "1 "]],
+        "PD": [[" M.CAS 1", "PLIBRE 1"]]
+    },
+    "NEA_BELLA_VISTA_BRUGNE": {
+        "PSSE": [["LII", 5202, 5273, "1 "]],
+        "PD": [["BVISTA 1", "BRUGNE 1"]]
+    },
     "NEA_RINCON_ITUZAINGO": {
         "PSSE": [["LII", 5250, 5294, "2 "]],
         "PD": [["RINCON 1", "ITUZAI 1"]]

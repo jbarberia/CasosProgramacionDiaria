@@ -53,22 +53,30 @@ function get_base_case(fecha::DateTime)
     # TODO ver escenarios bases, ya que puede modificar la operación
     # ejemplo el verano pico es excesivo para dias por fuera del maximo historico
     # de momento todos los casos son iguales
-
-    # TODO ver escenarios por año
+    
+    # selecciona escenario por año
+    mes  = parse(Int, Dates.format(fecha, "mm"))
+    año = parse(Int, Dates.format(fecha, "yy"))
+    basename = if 4 < mes < 9
+        "inv$(año)"
+    else
+        "inv$(año)" # TODO de momento siempre el mismo caso
+        # "ver$(año)$(año+1)"
+    end
 
     casos_base = Dict(
         "verano" => Dict(
-            "valle" => "$root/inv25pi.sav",
-            "resto" => "$root/inv25pi.sav",
-            "pico"  => "$root/inv25pi.sav",
+            "valle" => "$(root)/$(basename)pi.sav",
+            "resto" => "$(root)/$(basename)pi.sav",
+            "pico"  => "$(root)/$(basename)pi.sav",
         ),    
         "invierno" => Dict(
-            "valle" => "$root/inv25pi.sav",
-            "resto" => "$root/inv25pi.sav",
-            "pico"  => "$root/inv25pi.sav",
+            "valle" => "$(root)/$(basename)pi.sav",
+            "resto" => "$(root)/$(basename)pi.sav",
+            "pico"  => "$(root)/$(basename)pi.sav",
         ),
     )
-    @show root
+
     periodo = (4 < month(fecha) < 9) ? "invierno" : "verano"
     escenario = if 6 < hour(fecha) <= 18
         "resto"
@@ -81,7 +89,21 @@ function get_base_case(fecha::DateTime)
     # open the case in psse
     filename = casos_base[periodo][escenario]
     psspy.psseinit()
-    psspy.case(filename)
+    ierr = psspy.case(filename)
+    if ierr != 0
+        msg = Dict(
+            1 => "SFILE is blank.",
+            2 => "error reading from SFILE, not found: $filename.",
+            3 => "error opening SFILE, not found: $filename.",
+            4 => "prerequisite requirements for API case are not met.",
+        )[ierr]
+        error(msg)
+    end
+
+    psspy.case_title_data(
+        uppercase("$periodo $escenario"), 
+        Dates.format(fecha, "yyyy-mm-dd HH:MM")
+    )
 
     # parse to pm
     data = build_pm_data()
@@ -306,9 +328,15 @@ function map_flows_to_case!(data, programacion)
     
     flow_idx = 1
     for (name, dato_intercambio) in config["intercambios"]        
-        indices = []
+        indices = []         
         for source_id in dato_intercambio["PSSE"]
-            idx = source2index[source_id[2:end]]
+
+            idx = get(source2index, source_id[2:end], nothing)
+            if idx === nothing
+                indices = []
+                break
+            end
+            
             brn = data["branch"][idx]
             f_bus = brn["f_bus"]
             t_bus = brn["t_bus"]
@@ -322,23 +350,26 @@ function map_flows_to_case!(data, programacion)
                 push!(indices, (parse(Int, idx), t_bus, f_bus))
             end
         end
+
+        if length(indices) == 0
+            @warn "intercambio $name omitido por no encontrar lineas en el caso"
+            continue            
+        end
         
-        # TODO en caso de que no se encuentre la interconexión se deberia quitar la misma
-        # para esto se deberia ajustar el mapeo si es necesario
         p_des = 0.0
-        valid_interchange = true
-        for interconexion in dato_intercambio["PD"]      
-            valor = get(flujo_programado, interconexion, nothing)
-            if valor !== nothing
-                p_des += flujo_programado[interconexion] / baseMVA
-            else             
-                valid_interchange = false
-                @warn "No se encuentra flujo programado para $name en $(interconexion...)"
+        skip = false   
+        for interconexion in dato_intercambio["PD"]
+            val = get(flujo_programado, interconexion, nothing)
+            if val === nothing
+                skip = true
                 break
+            else
+                p_des += val / baseMVA
             end
         end
 
-        if !valid_interchange
+        if skip
+            @warn "intercambio $name omitido por no encontrarlo en programación diaria"
             continue
         end
         
@@ -370,7 +401,12 @@ function map_bounds_to_case!(data, programacion)
 
     for (name, limite) in limites
         component = limite["component"]
-        index = source2idx[component][limite["source_id"]]
+
+        index = get(source2idx[component], limite["source_id"], nothing)
+        if index === nothing
+            @warn "Limite no aplicado a $(limite["source_id"])"
+            continue
+        end
 
         for (k, v) in limite
             k in ["source_id", "component"] && continue

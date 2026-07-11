@@ -365,6 +365,18 @@
         "pd_min": 0.00,
         "pd_max": 0.225
     },
+    "NEA_DEMANDA_MONTE_CASEROS": {
+        "component": "load",
+        "source_id": ["LO", 5222, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.30
+    },
+    "NEA_DEMANDA_MOCORETA": {
+        "component": "load",
+        "source_id": ["LO", 5311, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.30
+    },
     "NEA_DEMANDA_PASO_TALA": {
         "component": "load",
         "source_id": ["LO", 5297, "1 "],
@@ -616,6 +628,13 @@
         "source_id": ["LO", 3751, "1 "],
         "pd_min": 0.00,
         "pd_max": 0.80
+    },
+    "GBA_DEMANDA_OROVERDE_MT": {
+        "component": "load",
+        "source_id": ["LO", 3819, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.80,
+        "_nota": "modelado en 2026 por ingreso de BESS"
     },
     "GBA_DEMANDA_G.CATAN_13": {
         "component": "load",
@@ -1683,6 +1702,13 @@
         "component": "load",
         "source_id": ["LO", 2224, "1 "],
         "pd_min": 0.00,
+        "pd_max": 0.60,
+        "_nota": "base 2026 modela trafos"
+    },
+    "PBA_DEMANDA_CAMPANA_132_MT2": {
+        "component": "load",
+        "source_id": ["LO", 2884, "1 "],
+        "pd_min": 0.00,
         "pd_max": 0.60
     },
     "PBA_DEMANDA_PRAXAIR": {
@@ -1775,6 +1801,12 @@
         "pd_min": 0.00,
         "pd_max": 0.45
     },
+    "ENERSA_DEMANDA_EL_PINGO": {
+        "component": "load",
+        "source_id": ["LO", 4234, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.45
+    },
     "ENERSA_DEMANDA_SANTA_ELENA": {
         "component": "load",
         "source_id": ["LO", 4506, "1 "],
@@ -1787,6 +1819,12 @@
         "pd_min": 0.00,
         "pd_max": 0.30
     },
+    "ENERSA_DEMANDA_CHAJARI": {
+        "component": "load",
+        "source_id": ["LO", 4220, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.70
+    },
     "ENERSA_DEMANDA_FEDERAL": {
         "component": "load",
         "source_id": ["LO", 4305, "1 "],
@@ -1796,6 +1834,30 @@
     "ENERSA_DEMANDA_CONQUISTADORES": {
         "component": "load",
         "source_id": ["LO", 4226, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.30
+    },
+    "ENERSA_DEMANDA_RIO_URUGUAY": {
+        "component": "load",
+        "source_id": ["LO", 4225, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.60
+    },
+    "ENERSA_DEMANDA_CONCORDIA": {
+        "component": "load",
+        "source_id": ["LO", 4224, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.75
+    },
+    "ENERSA_DEMANDA_MASISA": {
+        "component": "load",
+        "source_id": ["LO", 4250, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.25
+    },
+    "ENERSA_DEMANDA_VILLAGUAY": {
+        "component": "load",
+        "source_id": ["LO", 4303, "1 "],
         "pd_min": 0.00,
         "pd_max": 0.30
     },
