@@ -1957,6 +1957,24 @@
         "vmax": 1.05,
         "vmin": 0.95
     },
+    "TENSION_PIEDRA_DEL_AGUILA": {
+        "component": "bus",
+        "source_id": ["BU", 1014],
+        "vmax": 1.05,
+        "vmin": 0.97
+    },
+    "TENSION_RAMALLO": {
+        "component": "bus",
+        "source_id": ["BU", 2090],
+        "vmax": 1.05,
+        "vmin": 1.00
+    },
+    "TENSION_CHOELE": {
+        "component": "bus",
+        "source_id": ["BU", 1008],
+        "vmax": 1.05,
+        "vmin": 0.99
+    },
     "TENSION_ATU2NUCL": {
         "component": "bus",
         "source_id": ["BU", 2620],
@@ -1996,6 +2014,270 @@
     "TENSION_PBANHI02": {
         "component": "bus",
         "source_id": ["BU", 1692],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_LCASEO01": {
+        "component": "bus",
+        "source_id": ["BU", 2648],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_PE32EO": {
+        "component": "bus",
+        "source_id": ["BU", 2656],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_PEP6EO": {
+        "component": "bus",
+        "source_id": ["BU", 2658],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_CORTEO01": {
+        "component": "bus",
+        "source_id": ["BU", 2660],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_ENE1EO01": {
+        "component": "bus",
+        "source_id": ["BU", 2678],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_PAMEEO01": {
+        "component": "bus",
+        "source_id": ["BU", 2681],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_PEP3EO": {
+        "component": "bus",
+        "source_id": ["BU", 2684],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_GRIOEO01": {
+        "component": "bus",
+        "source_id": ["BU", 2688],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_VLONEO01": {
+        "component": "bus",
+        "source_id": ["BU", 2689],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_VSECEO01": {
+        "component": "bus",
+        "source_id": ["BU", 2690],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_VSECEO02": {
+        "component": "bus",
+        "source_id": ["BU", 2902],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_BAHIEO01": {
+        "component": "bus",
+        "source_id": ["BU", 2905],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_GNV2EO01": {
+        "component": "bus",
+        "source_id": ["BU", 2908],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_GNV1EO01": {
+        "component": "bus",
+        "source_id": ["BU", 2911],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_SJMTEO01": {
+        "component": "bus",
+        "source_id": ["BU", 2914],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_SJMTEO02": {
+        "component": "bus",
+        "source_id": ["BU", 2915],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_MAT3EO01": {
+        "component": "bus",
+        "source_id": ["BU", 2685],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_OLAVEO01": {
+        "component": "bus",
+        "source_id": ["BU", 2617],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_ELBIEO02": {
+        "component": "bus",
+        "source_id": ["BU", 2659],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_ELBIEO03": {
+        "component": "bus",
+        "source_id": ["BU", 2900],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_ELBIEO01": {
+        "component": "bus",
+        "source_id": ["BU", 2904],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_TEROEO01": {
+        "component": "bus",
+        "source_id": ["BU", 2910],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_BVENEO01": {
+        "component": "bus",
+        "source_id": ["BU", 2913],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_RINCEO": {
+        "component": "bus",
+        "source_id": ["BU", 2916],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI01": {
+    "component": "bus",
+    "source_id": ["BU", 5671],
+    "vmax": 1.05,
+    "vmin": 0.95
+    },
+    "TENSION_YACYHI02": {
+        "component": "bus",
+        "source_id": ["BU", 5672],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI03": {
+        "component": "bus",
+        "source_id": ["BU", 5673],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI04": {
+        "component": "bus",
+        "source_id": ["BU", 5674],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI05": {
+        "component": "bus",
+        "source_id": ["BU", 5675],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI06": {
+        "component": "bus",
+        "source_id": ["BU", 5676],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI07": {
+        "component": "bus",
+        "source_id": ["BU", 5677],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI08": {
+        "component": "bus",
+        "source_id": ["BU", 5678],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI09": {
+        "component": "bus",
+        "source_id": ["BU", 5679],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI10": {
+        "component": "bus",
+        "source_id": ["BU", 5680],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI11": {
+        "component": "bus",
+        "source_id": ["BU", 5681],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI12": {
+        "component": "bus",
+        "source_id": ["BU", 5682],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI13": {
+        "component": "bus",
+        "source_id": ["BU", 5683],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI14": {
+        "component": "bus",
+        "source_id": ["BU", 5684],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI15": {
+        "component": "bus",
+        "source_id": ["BU", 5685],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI16": {
+        "component": "bus",
+        "source_id": ["BU", 5686],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI17": {
+        "component": "bus",
+        "source_id": ["BU", 5687],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI18": {
+        "component": "bus",
+        "source_id": ["BU", 5688],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI19": {
+        "component": "bus",
+        "source_id": ["BU", 5689],
+        "vmax": 1.05,
+        "vmin": 0.95
+    },
+    "TENSION_YACYHI20": {
+        "component": "bus",
+        "source_id": ["BU", 5690],
         "vmax": 1.05,
         "vmin": 0.95
     },
