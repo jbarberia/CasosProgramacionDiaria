@@ -87,6 +87,7 @@ function parse_programacion(zipfile::AbstractString)
     for f in z.files
         if endswith(f.name, ".csv")
             df = CSV.read(f, DataFrame)
+            rename!(uppercase, df)
             dataframes[uppercase(replace(f.name, ".csv" => ""))] = df
         end
     end
