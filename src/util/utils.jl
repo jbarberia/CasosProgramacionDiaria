@@ -125,20 +125,34 @@ function _flujo_de_carga_con_controles()
     psspy.fnsl(options1=0, options5=0)  # locked
     psspy.fnsl(options1=0, options5=1)  # locked + shunt
     @assert psspy.solved() == 0
-    
-    psspy.fnsl(options1=1, options5=0)  # stepping
-    psspy.fnsl(options1=1, options5=0)  # stepping
-    psspy.fnsl(options1=1, options5=0)  # stepping
-    psspy.fnsl(options1=0, options5=1)  # locked + shunt
-    psspy.fnsl(options1=1, options5=0)  # stepping
-    psspy.fnsl(options1=1, options5=1)  # stepping + shunt
 
-    psspy.solved() != 0 && psspy.rsol()
+    psspy.save("previo.sav")
+    
+    pasos = [
+        (;options1=0, options5=0, options7=0),  # locked
+        (;options1=0, options5=1, options7=0),  # locked + shunt
+        (;options1=1, options5=0, options7=0),  # stepping
+        (;options1=1, options5=0, options7=0),  # stepping
+        (;options1=1, options5=0, options7=0),  # stepping
+        (;options1=0, options5=1, options7=0),  # locked + shunt
+        (;options1=1, options5=0, options7=0),  # stepping
+        (;options1=1, options5=1, options7=0),  # stepping + shunt
+        (;options1=0, options5=0, options7=0),  # locked
+    ]
+
+    for (i, paso) in enumerate(pasos)
+        ierr = psspy.fnsl(;paso...)        
+        if psspy.solved() != 0
+            psspy.rsol()
+            psspy.fnsl(options1=0, options5=0, options7=0)  # locked
+        end
+    end
+
     if !(psspy.solved() in [0, 10, 11, 12])
         psspy.save("debug.sav")
     end
 
-    psspy.fnsl(options1=0, options5=0)  # locked
+    psspy.fnsl(options1=0, options5=0, options7=0)  # locked
     @assert psspy.solved() == 0
 end
 

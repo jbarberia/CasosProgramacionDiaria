@@ -359,6 +359,12 @@
         "pd_min": 0.00,
         "pd_max": 0.60
     },
+    "NEA_DEMANDA_CASTELLI": {
+        "component": "load",
+        "source_id": ["LO", 5546, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.30
+    },
     "NEA_DEMANDA_MERCEDES": {
         "component": "load",
         "source_id": ["LO", 5220, "1 "],
@@ -1915,6 +1921,12 @@
         "pd_min": 0.00,
         "pd_max": 0.05
     },
+    "CUYO_DEMANDA_SJUAFV01": {
+        "component": "load",
+        "source_id": ["LO", 7620, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.75
+    },
     "CENTRO_DEMANDA_FERIA": {
         "component": "load",
         "source_id": ["LO", 6238, "1 "],
@@ -2388,5 +2400,41 @@
         "source_id": ["ME", 6656, "1 "],
         "pmin": 0.314,
         "pmax": 1.420
+    },
+    "EZEICS01": {
+        "component": "gen",
+        "source_id": ["ME", 3651, "1 "],
+        "qmin": -0.72,
+        "qmax": 0.48
+    },
+    "EZEICS02": {
+        "component": "gen",
+        "source_id": ["ME", 3652, "2 "],
+        "qmin": -0.72,
+        "qmax": 0.48
+    },
+    "EZEICS03": {
+        "component": "gen",
+        "source_id": ["ME", 3653, "3 "],
+        "qmin": -0.72,
+        "qmax": 0.48
+    },
+    "EZEICS04": {
+        "component": "gen",
+        "source_id": ["ME", 3654, "4 "],
+        "qmin": -0.72,
+        "qmax": 0.48
+    },
+    "EZEICS05": {
+        "component": "gen",
+        "source_id": ["ME", 3655, "5 "],
+        "qmin": -0.72,
+        "qmax": 0.48
+    },
+    "EZEICS06": {
+        "component": "gen",
+        "source_id": ["ME", 3656, "6 "],
+        "qmin": -0.72,
+        "qmax": 0.48
     }
 }

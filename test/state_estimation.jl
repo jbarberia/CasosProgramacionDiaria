@@ -164,3 +164,30 @@ end
 
     test_solution(data, results, "03-06-2026_01.sav")   
 end
+
+
+@testset failfast=true "Estimador de estado 2026-03-27 03:00" begin        
+    # ATU2NUCL fuera de servicio
+    fecha = DateTime(2026, 03, 27, 03, 00)
+    prog = get_programacion_diaria(fecha)
+    data = get_base_case(fecha)
+    
+    set_voltage_bounds!(data)
+    map_generators_to_case!(data, prog)
+    map_flows_to_case!(data, prog)
+    map_bounds_to_case!(data, prog)
+    map_summary_to_case!(data, prog)
+    set_load_bounds!(data)
+
+    # state estimation
+    set_start_values!(data)        
+    results = run_state_estimation(data, ACPPowerModel, optimizer)
+    update_data!(data, results["solution"])
+
+    # voltage control
+    set_start_values!(data)        
+    results = run_voltage_correction(data, ACPPowerModel, optimizer)
+    update_data!(data, results["solution"])
+
+    test_solution(data, results, "03-06-2026_01.sav")   
+end
