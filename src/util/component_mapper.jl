@@ -282,7 +282,7 @@ function map_generators_to_case!(data, programacion)
                 data["gen"]["$idx"]["gen_status"] = 0
                 data["gen"]["$idx"]["pg_des"] = 0
             else
-                if es_hidro                    
+                if es_hidro && (maquinas_despachadas > 0)   
                     data["gen"]["$idx"]["pg_des"] = p_des / maquinas_despachadas / data["baseMVA"]
                 else                
                     data["gen"]["$idx"]["gen_status"] = 1

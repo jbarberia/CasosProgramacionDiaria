@@ -87,7 +87,7 @@ function objective_transformer_movement(pm::_PM.AbstractPowerModel, nw=nw_id_def
     eps  = 0.0125
     loss = 0.0
     n = 0
-    for (i, branch) in ref(pm, :branch)
+    for (i, branch) in ref(pm, nw, :branch)
 
         source_id = branch["source_id"]
         # source_id == ["T3", 211, 261, 222, "2 ", 1] && Main.@infiltrate
@@ -134,7 +134,7 @@ function objective_shunt_movement(pm::_PM.AbstractPowerModel, nw=nw_id_default)
     eps  = 0.5
     loss = 0.0
     n = 0
-    for (i, shunt) in ref(pm, :shunt)
+    for (i, shunt) in ref(pm, nw, :shunt)
         bs = var(pm, nw, :bs, i)
         is_fixed(bs) && continue
         b0 = shunt["bs_start"]

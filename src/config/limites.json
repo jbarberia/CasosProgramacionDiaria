@@ -1668,6 +1668,12 @@
         "pd_min": 0.00,
         "pd_max": 0.30
     },
+    "LITORAL_DEMANDA_SAN_JAVIER": {
+        "component": "load",
+        "source_id": ["LO", 4298, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.70  
+    },
     "LITORAL_DEMANDA_CERES": {
         "component": "load",
         "source_id": ["LO", 4816, "1 "],
@@ -1691,6 +1697,12 @@
         "source_id": ["LO", 4211, "1 "],
         "pd_min": 0.00,
         "pd_max": 0.30  
+    },
+    "PBA_DEMANDA_CCASARES": {
+        "component": "load",
+        "source_id": ["LO", 2518, "1 "],
+        "pd_min": 0.00,
+        "pd_max": 0.30
     },
     "PBA_DEMANDA_PLANTA_BUNGE": {
         "component": "load",
@@ -2301,7 +2313,7 @@
     },
     "SOLATG01": {
         "component": "gen",
-        "source_id": ["ME", 2636, "1 "],
+        "source_id": ["ME", 2635, "1 "],
         "pmin": 0.20,
         "pmax": 0.50
     },

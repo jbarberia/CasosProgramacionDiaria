@@ -20,7 +20,7 @@ function build_voltage_correction(pm::AbstractPowerModel)
     variable_branch_power(pm, bounded=false)
     variable_dcline_power(pm, bounded=false)            
     
-    variable_branch_transform_magnitude(pm, bounded=false)
+    variable_branch_transform_magnitude(pm, bounded=true)
     variable_shunt_admitance(pm, bounded=true)
     
     constraint_model_voltage(pm)
@@ -49,7 +49,7 @@ function build_voltage_correction(pm::AbstractPowerModel)
 
     # fijo pasos de shunts
     for (i, shunt) in ref(pm, :shunt)
-        get(shunt, "control_mode", 0) > 0 && continue
+        get(shunt, "mode", 0) > 0 && continue
         bs = var(pm, :bs, i)
         fix(bs, shunt["bs"]; force=true)        
     end
